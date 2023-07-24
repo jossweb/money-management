@@ -1,17 +1,34 @@
 from tkinter import *
 
+def SetWindowSettings(screenWidth, screenHeight, setting):
+    if (setting == "windowWidth"):
+        return (screenWidth // 10) * 8
+    elif (setting == "windowHeight"):
+        return (screenHeight // 10) * 8
+    elif (setting == "x_position"):
+        widthWindow = (screenWidth // 10) * 8
+        return ((screenWidth - widthWindow) // 2)
+    elif (setting == "y_position"):
+        windowHeight = (screenHeight // 10) * 8
+        return ((screenHeight - windowHeight) // 2) - ((screenHeight - windowHeight) // 4)
+
 def AppWindow(users):
     """create and defined window settings"""
+    #Get screen size ...
+    screenWidth = app.winfo_screenwidth()
+    screenHeight = app.winfo_screenheight()
+
+    #Set Window settings
+    windowWidth = SetWindowSettings(screenWidth, screenHeight, "windowWidth")
+    windowHeight = SetWindowSettings(screenWidth, screenHeight, "windowHeight")
+    x_position = SetWindowSettings(screenWidth, screenHeight, "x_position")
+    y_position = SetWindowSettings(screenWidth, screenHeight, "y_position")
+
+
     app.title("Money Management")
-    largeur_ecran = app.winfo_screenwidth()
-    hauteur_ecran = app.winfo_screenheight()
-    largeur_fenetre = (largeur_ecran // 10) * 8
-    hauteur_fenetre = (hauteur_ecran // 10) * 8
-    x_position = ((largeur_ecran - largeur_fenetre) // 2)
-    y_position = ((hauteur_ecran - hauteur_fenetre) // 2) - ((hauteur_ecran - hauteur_fenetre) // 4)
-    app.geometry(f"{largeur_fenetre}x{hauteur_fenetre}+{x_position}+{y_position}")
+    app.geometry(f"{windowWidth}x{windowHeight}+{x_position}+{y_position}")
     app.configure(bg="#a4adf9")
-    background_plate = Frame(app, bg="lightgrey", width=((largeur_fenetre/10)*4), height=((hauteur_fenetre/10)*8))
+    background_plate = Frame(app, bg="lightgrey", width=((windowWidth/10)*4), height=((windowHeight/10)*8))
     background_plate.place(relx=0.5, rely=0.5, anchor=CENTER) 
     ContainSelectProfil(users, app)
 
@@ -29,8 +46,8 @@ def ContainSelectProfil(users, background_plate):
      ######Test----------------------------------------------------------------------------
 
 
-    canvas = Canvas(app, bg="lightgrey", width=400, height=300, highlightthickness=0)
-    canvas.pack(fill="both", expand=True)
+    canvas = Canvas(app, bg="lightgrey", width=20, height=50, highlightthickness=0)
+    canvas.pack(fill="both")
 
     # Créer un Frame pour contenir les boutons
     button_frame = Frame(canvas, bg="lightgrey")
@@ -61,6 +78,10 @@ def ContainSelectProfil(users, background_plate):
     app.update_idletasks()
     canvas_frame = canvas.create_window((canvas.winfo_width() // 2, canvas.winfo_height() // 2), window=button_frame, anchor="center")
     canvas.configure(scrollregion=canvas.bbox("all"))
+
+
+
+    #FIN TEST ---------------------------------------------------------------------------------------------------------------------------------------
 
 
 def usersInformations():
