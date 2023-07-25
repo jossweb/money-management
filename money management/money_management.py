@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 def SetWindowSettings(screenWidth, screenHeight, setting):
     if (setting == "windowWidth"):
         return (screenWidth // 10) * 8
@@ -28,12 +29,12 @@ def AppWindow(users):
     app.title("Money Management")
     app.geometry(f"{windowWidth}x{windowHeight}+{x_position}+{y_position}")
     app.configure(bg="#a4adf9")
-    background_plate = Frame(app, bg="lightgrey", width=((windowWidth/10)*4), height=((windowHeight/10)*8))
-    background_plate.place(relx=0.5, rely=0.5, anchor=CENTER) 
-    ContainSelectProfil(users, app)
+    background_plate = Canvas(app, bg="lightgrey", width=((windowWidth/10)*4), height=((windowHeight/10)*8))
+    background_plate.place(relx=0.5, rely=0.5, anchor=CENTER)
+    ContainSelectProfil(users, background_plate, windowWidth, windowHeight)
 
 
-def ContainSelectProfil(users, background_plate):
+def ContainSelectProfil(users, background_plate, windowWidth, windowHeight):
     """print on screen one button by users detect"""
     ##locationY = 60;
     ##for i in range(len(users)):
@@ -45,17 +46,15 @@ def ContainSelectProfil(users, background_plate):
 
      ######Test----------------------------------------------------------------------------
 
-
-    canvas = Canvas(app, bg="lightgrey", width=20, height=50, highlightthickness=0)
-    canvas.pack(fill="both")
+    #canvas = Canvas(app, bg="lightgrey", width=((windowWidth/10)*4), height=((windowHeight/10)*8), highlightthickness=0)
+    #canvas.pack(fill="both")
 
     # Créer un Frame pour contenir les boutons
-    button_frame = Frame(canvas, bg="lightgrey")
-    canvas.create_window((50, 50), window=button_frame, anchor="nw")
+    #button_frame = Frame(canvas, bg="lightgrey")
+    #canvas.create_window((((windowWidth/10)*4), ((windowHeight/10)*8)), window=button_frame, anchor="nw")
 
     for user in users:
-        button = Button(button_frame, text=user,
-                           command=lambda u=user: on_button_click(u),
+        button = Button(background_plate, text=user,
                            bg="blue",       # Couleur de fond du bouton (ici bleu)
                            fg="white",      # Couleur du texte du bouton (ici blanc)
                            font=("Arial", 12),  # Police et taille du texte
@@ -65,19 +64,17 @@ def ContainSelectProfil(users, background_plate):
         button.pack(fill="x", pady=2)
 
     # Définir une barre de défilement
-    scrollbar = Scrollbar(app, command=canvas.yview)
-    canvas.configure(yscrollcommand=scrollbar.set)
+    scrollbar = Scrollbar(app, command=background_plate.yview)
+    background_plate.configure(yscrollcommand=scrollbar.set)
     scrollbar.pack(side="right", fill="y")
 
     # Configurer le Canvas pour gérer le défilement
-    #canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(-1 * int(event.delta / 120), "units"))
+    background_plate.bind_all("<MouseWheel>", lambda event: background_plate.yview_scroll(-1 * int(event.delta / 120), "units"))
 
     # Configurer la taille du Canvas pour qu'il s'ajuste en fonction du contenu
-    #canvas.bind("<Configure>", lambda event: canvas.configure(scrollregion=canvas.bbox("all")))
+    background_plate.bind("<Configure>", lambda event: background_plate.configure(scrollregion=background_plate.bbox("all")))
 
-    app.update_idletasks()
-    canvas_frame = canvas.create_window((canvas.winfo_width() // 2, canvas.winfo_height() // 2), window=button_frame, anchor="center")
-    canvas.configure(scrollregion=canvas.bbox("all"))
+
 
 
 
@@ -86,7 +83,7 @@ def ContainSelectProfil(users, background_plate):
 
 def usersInformations():
     """Return all users informations ..."""
-    return ["Utilisateur 1", "Utilisateur 2", "Utilisateur 3", "Utilisateur 4", "Utilisateur 5"]
+    return ["Utilisateur 1", "Utilisateur 2", "Utilisateur 3", "Utilisateur 4", "Utilisateur 5, Utilisateur 1", "Utilisateur 2", "Utilisateur 3", "Utilisateur 4", "Utilisateur 5", "Utilisateur 1", "Utilisateur 2", "Utilisateur 3", "Utilisateur 4", "Utilisateur 111", "Utilisateur 222","Utilisateur 333","Utilisateur 444","Utilisateur 555"]
 
 
 
