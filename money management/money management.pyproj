@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>money management</Name>
     <RootNamespace>money management</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
