@@ -1,9 +1,35 @@
 # -*- coding: utf-8 -*-
-from tkinter import *
-from PIL import Image, ImageTk
+import sys
+from PyQt5.QtWidgets import *
+import tkinter as tk
 
 
-def SetWindowSettings(screenWidth, screenHeight, setting):
+def AppWindow():
+
+    
+    app = QApplication.instance() 
+    if not app:
+        app = QApplication(sys.argv)
+
+    fen = QWidget()
+    fen.setWindowTitle("Money Management")
+    fen.setStyleSheet("gradient_style = background: lineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #a4adf9, stop: 1 #ff6b6b);")
+
+    # on fixe la taille de la fenêtre
+    fen.resize(SetWindowSettings("windowWidth"), SetWindowSettings("windowHeight"))
+
+    # on fixe la position de la fenêtre
+    fen.move(SetWindowSettings("x_position"), SetWindowSettings("y_position"))
+    fen.show()
+    app.exec_()
+
+
+def SetWindowSettings(setting):
+    root = tk.Tk()
+    
+    screenWidth = root.winfo_screenwidth()
+    screenHeight = root.winfo_screenheight()
+    
     if (setting == "windowWidth"):
         return (screenWidth // 10) * 8
     elif (setting == "windowHeight"):
@@ -14,66 +40,6 @@ def SetWindowSettings(screenWidth, screenHeight, setting):
     elif (setting == "y_position"):
         windowHeight = (screenHeight // 10) * 8
         return ((screenHeight - windowHeight) // 2) - ((screenHeight - windowHeight) // 4)
-
-def AppWindow(users):
-    """create and defined window settings"""
-    #Get screen size ...
-    screenWidth = app.winfo_screenwidth()
-    screenHeight = app.winfo_screenheight()
-
-    #Set Window settings
-    windowWidth = SetWindowSettings(screenWidth, screenHeight, "windowWidth")
-    windowHeight = SetWindowSettings(screenWidth, screenHeight, "windowHeight")
-    x_position = SetWindowSettings(screenWidth, screenHeight, "x_position")
-    y_position = SetWindowSettings(screenWidth, screenHeight, "y_position")
-
-
-    app.title("Money Management")
-    app.geometry(f"{windowWidth}x{windowHeight}+{x_position}+{y_position}")
-    app.configure(bg="#a4adf9")
-    background_plate = Canvas(app, bg="lightgrey", width=((windowWidth/10)*2), height=((windowHeight/10)*8))
-    background_plate.place(relx=0.5, rely=0.5, anchor=CENTER)
-    ProfilMenu(background_plate, users)
-    AddUserButton()
-
-def AddUserButton():    
-    #new_window_button = Button(app, text="+", bg="blue", fg="white", font=("Arial", 12), padx=10, pady=5)
-    #new_window_button.pack(side=BOTTOM, padx=20, pady=20, anchor=SE)
-    circle_image = Image.open("img/addButton.png")  # Remplacez "circle.png" par le chemin de votre image de cercle
-    circle_image = circle_image.resize((50, 50))  # Ajustez la taille du cercle selon vos besoins
-    circle_image = ImageTk.PhotoImage(circle_image)
-
-    # Créer le bouton rond avec l'image de cercle comme arrière-plan
-    new_window_button = Button(app, image=circle_image, borderwidth=0)
-    new_window_button.pack(side=BOTTOM, padx=20, pady=20, anchor=SE)
-
-def ProfilMenu(app, users):
-    scrollbar = Scrollbar(app)
-    scrollbar.pack( side = RIGHT, fill = Y)
-    liste = Listbox(app, yscrollcommand = scrollbar.set, font=("Arial", 15), justify="center", selectbackground="lightgrey", selectforeground="black", activestyle="none")
-    for user in users:
-       liste.insert(END, user)
-       liste.itemconfigure(END, bg="white", )
-
-
-    liste.pack(side = LEFT, fill = BOTH )
-    scrollbar.config(command = liste.yview )
-
-def usersInformations():
-    """Return all users informations ..."""
-    return ["FIGUEIRAS Jossua", "vingt caractere max1", "Utilisateur 3", "Utilisateur 4", "Utilisateur 5"]
-
-
-
-#Button fonction
-def on_button_click():
-    return True
-
-
-#Main
-app = Tk()
-users = usersInformations()
-AppWindow(users)
-
-app.mainloop()
-
+    
+AppWindow()
+#https://courspython.com/interfaces.html
