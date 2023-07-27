@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from tkinter import *
-from turtle import width
+from PIL import Image, ImageTk
 
 
 def SetWindowSettings(screenWidth, screenHeight, setting):
@@ -32,10 +33,21 @@ def AppWindow(users):
     app.configure(bg="#a4adf9")
     background_plate = Canvas(app, bg="lightgrey", width=((windowWidth/10)*2), height=((windowHeight/10)*8))
     background_plate.place(relx=0.5, rely=0.5, anchor=CENTER)
-    #ContainSelectProfil(users, background_plate, windowWidth, windowHeight)
-    testscroll(background_plate, users)
+    ProfilMenu(background_plate, users)
+    AddUserButton()
 
-def testscroll(app, users):
+def AddUserButton():    
+    #new_window_button = Button(app, text="+", bg="blue", fg="white", font=("Arial", 12), padx=10, pady=5)
+    #new_window_button.pack(side=BOTTOM, padx=20, pady=20, anchor=SE)
+    circle_image = Image.open("img/addButton.png")  # Remplacez "circle.png" par le chemin de votre image de cercle
+    #circle_image = circle_image.resize((50, 50))  # Ajustez la taille du cercle selon vos besoins
+    circle_image = ImageTk.PhotoImage(circle_image)
+
+    # Créer le bouton rond avec l'image de cercle comme arrière-plan
+    new_window_button = Button(app, image=circle_image, borderwidth=0)
+    new_window_button.pack(side=BOTTOM, padx=20, pady=20, anchor=SE)
+
+def ProfilMenu(app, users):
     scrollbar = Scrollbar(app)
     scrollbar.pack( side = RIGHT, fill = Y)
     liste = Listbox(app, yscrollcommand = scrollbar.set, font=("Arial", 15), justify="center", selectbackground="lightgrey", selectforeground="black", activestyle="none")
