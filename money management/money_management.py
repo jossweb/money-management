@@ -40,7 +40,7 @@ def AddUserButton():
     #new_window_button = Button(app, text="+", bg="blue", fg="white", font=("Arial", 12), padx=10, pady=5)
     #new_window_button.pack(side=BOTTOM, padx=20, pady=20, anchor=SE)
     circle_image = Image.open("img/addButton.png")  # Remplacez "circle.png" par le chemin de votre image de cercle
-    #circle_image = circle_image.resize((50, 50))  # Ajustez la taille du cercle selon vos besoins
+    circle_image = circle_image.resize((50, 50))  # Ajustez la taille du cercle selon vos besoins
     circle_image = ImageTk.PhotoImage(circle_image)
 
     # Créer le bouton rond avec l'image de cercle comme arrière-plan
