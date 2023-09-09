@@ -8,10 +8,18 @@ namespace Money_Management
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+        }
+    }
+    static class Style
+    {
+        public static void SetStyleForm(Form form)
+        {
+            form.BackColor = Color.White;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Text = "Money Management";
+            form.ClientSize = new Size(600, 500);
         }
     }
 }
