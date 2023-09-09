@@ -13,7 +13,10 @@ namespace Money_Management
             Style.SetStyleForm(this);
             var homePanel = CreateEntities.HomePanel();
             this.Controls.Add(homePanel);
-            //
+            CreateEntities.UserButtons(homePanel, personnesButton_Click);
+        }
+        private void personnesButton_Click(object sender, EventArgs e)
+        {
 
         }
         private void Form1_Load(object sender, EventArgs e)
