@@ -22,11 +22,15 @@ namespace Money_Management
             Panel homePanel = new Panel();
             homePanel.Size = new Size(500, 600);
             homePanel.Location = new Point(0, 0);
+            homePanel.AutoScroll = true;
+            homePanel.HorizontalScroll.Visible = false;
+            homePanel.VerticalScroll.Visible = false;
+
             return homePanel;
         }
         public static void UserButtons(Panel panel, EventHandler personnesButton_Click)
         {
-            var users = new List<string> {"Jossua", "Dorian" };
+            var users = new List<string> {"Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", };
             int interval = 100;
 
             if (users.Count > 0 )
@@ -77,9 +81,11 @@ namespace Money_Management
         {
             var shapesList = new List<ImageBack> 
             {
-                new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(100, 100)),
+                new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
                 new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(300, 0)),
-                new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(500, 200), new Point(150, 0)),
+                new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(250, 200)),
+                new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(400, 500)),
+                new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 400))
             };
             foreach (var shape in shapesList)
             {

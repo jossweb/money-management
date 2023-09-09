@@ -15,3 +15,20 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
+E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Money Management.exe
+E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Money Management.deps.json
+E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Money Management.runtimeconfig.json
+E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Money Management.dll
+E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Money Management.pdb
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.AssemblyReference.cache
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money_Management.Form1.resources
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.GenerateResource.cache
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.GeneratedMSBuildEditorConfig.editorconfig
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.AssemblyInfoInputs.cache
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.AssemblyInfo.cs
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CoreCompileInputs.cache
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.dll
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\refint\Money Management.dll
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll

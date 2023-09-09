@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\partage Jossua\\partage\\code\\c# project\\Money Management\\Money Management\\Money Management\\Money Management.csproj",
+      "projectUniqueName": "E:\\partage Jossua\\partage\\code\\c# project\\money management\\Money Management\\Money Management.csproj",
       "projectName": "Money Management",
-      "projectPath": "E:\\partage Jossua\\partage\\code\\c# project\\Money Management\\Money Management\\Money Management\\Money Management.csproj",
+      "projectPath": "E:\\partage Jossua\\partage\\code\\c# project\\money management\\Money Management\\Money Management.csproj",
       "packagesPath": "C:\\Users\\jossu\\.nuget\\packages\\",
-      "outputPath": "E:\\partage Jossua\\partage\\code\\c# project\\Money Management\\Money Management\\Money Management\\obj\\",
+      "outputPath": "E:\\partage Jossua\\partage\\code\\c# project\\money management\\Money Management\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
