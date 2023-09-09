@@ -12,6 +12,19 @@ namespace Money_Management
             Application.Run(new Form1());
         }
     }
+    static class CreateEntities
+    {
+        public static Panel HomePanel()
+        {
+            Panel homePanel = new Panel();
+            homePanel.Size = new Size(500, 600);
+            homePanel.Location = new Point(0, 0);
+
+            homePanel.BackColor = Color.Green;
+
+            return homePanel;
+        }
+    }
     static class Style
     {
         public static void SetStyleForm(Form form)
