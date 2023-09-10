@@ -22,7 +22,7 @@ namespace Money_Management
             Panel homePanel = new Panel();
             homePanel.Size = new Size(500, 600);
             homePanel.Location = new Point(0, 0);
-            
+
             homePanel.HorizontalScroll.Visible = false;
             homePanel.VerticalScroll.Visible = false;
             if (u > 5)
@@ -38,15 +38,15 @@ namespace Money_Management
         }
         public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<string> users)
         {
-            
+
             int interval = 100;
 
-            if (users.Count > 0 )
+            if (users.Count > 0)
             {
-                foreach(var user in users)
+                foreach (var user in users)
                 {
                     var buttonPersonne = new Button();
-                    buttonPersonne.Text = (user); 
+                    buttonPersonne.Text = (user);
                     Style.UserButtonStyle(buttonPersonne, interval);
                     buttonPersonne.Click += new EventHandler(personnesButton_Click);
                     panel.Controls.Add(buttonPersonne);
@@ -58,7 +58,7 @@ namespace Money_Management
 
             }
         }
-        public static void AddShapes(Panel panel,string path, Size size, Point point)
+        public static void AddShapes(Panel panel, string path, Size size, Point point)
         {
             PictureBox pictureBox1 = new PictureBox();
             pictureBox1.Image = Image.FromFile(path);
@@ -98,7 +98,7 @@ namespace Money_Management
         }
         public static void Shapes(Panel panel)
         {
-            var shapesList = new List<ImageBack> 
+            var shapesList = new List<ImageBack>
             {
                 new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
                 new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(300, 0)),
@@ -108,7 +108,7 @@ namespace Money_Management
             };
             foreach (var shape in shapesList)
             {
-                CreateEntities.AddShapes(panel, shape.path ,shape.size, shape.point);
+                CreateEntities.AddShapes(panel, shape.path, shape.size, shape.point);
             }
         }
     }
@@ -123,6 +123,18 @@ namespace Money_Management
             this.path = path;
             this.size = size;
             this.point = point;
+        }
+    }
+    public class User
+    {
+        public int id;
+        public string name;
+        public string keypass;
+        public User(int id, string name, string keypass)
+        {
+            this.id = id;
+            this.name = name;
+            this.keypass = keypass;
         }
     }
 }

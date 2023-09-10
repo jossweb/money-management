@@ -33,6 +33,4 @@ namespace Money_Management
             this.KeyPreview = true;
         }
     }
-
-    // ... Votre code pour Application, CreateEntities et Style reste inchangé ...
 }
