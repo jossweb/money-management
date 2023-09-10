@@ -17,20 +17,28 @@ namespace Money_Management
     }
     static class CreateEntities
     {
-        public static Panel HomePanel()
+        public static Panel HomePanel(int u)
         {
             Panel homePanel = new Panel();
             homePanel.Size = new Size(500, 600);
             homePanel.Location = new Point(0, 0);
-            homePanel.AutoScroll = true;
+            
             homePanel.HorizontalScroll.Visible = false;
             homePanel.VerticalScroll.Visible = false;
+            if (u > 5)
+            {
+                homePanel.AutoScroll = true;
+            }
+            else
+            {
+                homePanel.AutoScroll = false;
+            }
 
             return homePanel;
         }
-        public static void UserButtons(Panel panel, EventHandler personnesButton_Click)
+        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<string> users)
         {
-            var users = new List<string> {"Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", "Jossua", "Dorian", };
+            
             int interval = 100;
 
             if (users.Count > 0 )
@@ -60,6 +68,17 @@ namespace Money_Management
             panel.Controls.Add(pictureBox1);
 
 
+        }
+        public static Label CreateLabel(string text, Size size, Point point)
+        {
+            var label = new Label();
+            label.Text = text;
+            label.Size = size;
+            label.Location = point;
+            label.Font = new Font(label.Font.FontFamily, 22, FontStyle.Italic);
+            label.BackColor = Color.Transparent;
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            return label;
         }
     }
     static class Style

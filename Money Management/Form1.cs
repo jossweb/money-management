@@ -12,12 +12,13 @@ namespace Money_Management
         public Form1()
         {
             InitializeComponent();
+            var users = new List<string> { "Jossua", "Dorian", "Jossua", "Dorian", "Jossua" };
             Style.SetStyleForm(this);
-            var homePanel = CreateEntities.HomePanel();
-            this.Controls.Add(homePanel); // Ajoutez le panel principal au formulaire
-
-            // Créez d'abord les boutons utilisateur
-            CreateEntities.UserButtons(homePanel, personnesButton_Click);
+            var homePanel = CreateEntities.HomePanel(users.Count);
+            this.Controls.Add(homePanel);
+            var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
+            homePanel.Controls.Add(logLabel);
+            CreateEntities.UserButtons(homePanel, personnesButton_Click, users);
 
             Style.Shapes(homePanel);
         }
