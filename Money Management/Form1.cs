@@ -8,8 +8,7 @@ namespace Money_Management
     public partial class Form1 : Form
     {
         private TextBox textDisplay;
-        private List<User> UsersData = json.GetJsonFromFile();
-
+        public List<User> usersData = json.DeserialiseJson(json.GetJsonFromFile());
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +21,8 @@ namespace Money_Management
             CreateEntities.UserButtons(homePanel, personnesButton_Click, users);
             CreateEntities.UserButtons(homePanel, addButton_Click);
             Style.Shapes(homePanel);
+
+            
         }
 
         private void personnesButton_Click(object sender, EventArgs e)
@@ -31,6 +32,18 @@ namespace Money_Management
         private void addButton_Click(object sender, EventArgs e)
         {
             User user = new User(1, "Jossua", "pass");
+            /*if (usersData.Count != null)
+            {
+                
+                usersData.Add(user);
+                json.SetJsonFromFile(usersData);
+            }
+            else
+            {*/
+                var test = new List<User> { user };
+                json.SetJsonFromFile(test);
+            //}
+            
 
         }
 
