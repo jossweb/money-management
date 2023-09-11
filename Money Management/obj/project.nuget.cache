@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BUJB6eGHLGbqoDEfP1OH7pU7KjyqiMxLQeAuV+o67GwbeXAX25Khh6HC1F4zI6iRjCrMEa7jHg8eTDx26LIMzw==",
+  "dgSpecHash": "Wm5XjmL7K+tZ1g4PlQhM58mzolbCb/ozIPfYVAyVhTecAUWnpfRRy1Vr8j9GkYg37BtWKLItR09lYP4ytyehdA==",
   "success": true,
   "projectFilePath": "E:\\partage Jossua\\partage\\code\\c# project\\money management\\Money Management\\Money Management.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jossu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

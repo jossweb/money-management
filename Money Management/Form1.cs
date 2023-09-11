@@ -8,6 +8,7 @@ namespace Money_Management
     public partial class Form1 : Form
     {
         private TextBox textDisplay;
+        private List<User> UsersData = json.GetJsonFromFile();
 
         public Form1()
         {
@@ -19,13 +20,18 @@ namespace Money_Management
             var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
             homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, users);
-
+            CreateEntities.UserButtons(homePanel, addButton_Click);
             Style.Shapes(homePanel);
         }
 
         private void personnesButton_Click(object sender, EventArgs e)
         {
-            // Code pour gérer le clic sur les boutons utilisateur
+            
+        }
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            User user = new User(1, "Jossua", "pass");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

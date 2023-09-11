@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Windows.Forms;
 
 namespace Money_Management
@@ -36,26 +37,39 @@ namespace Money_Management
 
             return homePanel;
         }
-        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<string> users)
+        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<string> users = null)
         {
 
             int interval = 100;
 
-            if (users.Count > 0)
+            if (users != null)
             {
-                foreach (var user in users)
+                if (users.Count > 0)
                 {
-                    var buttonPersonne = new Button();
-                    buttonPersonne.Text = (user);
-                    Style.UserButtonStyle(buttonPersonne, interval);
-                    buttonPersonne.Click += new EventHandler(personnesButton_Click);
-                    panel.Controls.Add(buttonPersonne);
-                    interval += 90;
+                    foreach (var user in users)
+                    {
+                        var buttonPersonne = new Button();
+                        buttonPersonne.Text = (user);
+                        Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
+                        buttonPersonne.Click += new EventHandler(personnesButton_Click);
+                        panel.Controls.Add(buttonPersonne);
+                        interval += 90;
+                    }
                 }
+                else
+                {
+                    var warningLabel = CreateLabel("Aucun utilisateurs trouvé", new Size(205, 40), new Point(150, 20));
+                    panel.Controls.Add(warningLabel);
+                }
+
             }
             else
             {
-
+                var addbutton = new Button();
+                addbutton.Text = ("+");
+                Style.UserButtonStyle(addbutton, new Size(40, 40), new Point(400, 10), Color.Yellow);
+                addbutton.Click += new EventHandler(personnesButton_Click);
+                panel.Controls.Add(addbutton);
             }
         }
         public static void AddShapes(Panel panel, string path, Size size, Point point)
@@ -89,12 +103,12 @@ namespace Money_Management
             form.Text = "Money Management";
             form.ClientSize = new Size(600, 500);
         }
-        public static void UserButtonStyle(Button button, int interval)
+        public static void UserButtonStyle(Button button, Size size, Point point, Color color)
         {
-            button.Size = new Size(350, 60);
-            button.Location = new Point(75, interval);
+            button.Size = size;
+            button.Location = point;
             button.BringToFront();
-            button.BackColor = Color.Gray;
+            button.BackColor = color;
         }
         public static void Shapes(Panel panel)
         {
