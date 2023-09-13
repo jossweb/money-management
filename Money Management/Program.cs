@@ -42,12 +42,20 @@ namespace Money_Management
 
             int interval = 100;
 
+            // initialize users list if it's null
+            if (users == null)
+            {
+                users = new List<User>();
+
+            }
+
             if (users.Count > 0)
             {
+                //create 1 button for each users
                 foreach (var user in users)
                 {
                 var buttonPersonne = new Button();
-                buttonPersonne.Text = (user.name);
+                buttonPersonne.Text = user.name.ToUpper() + " " + user.firstName;
                 Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
                 buttonPersonne.Click += new EventHandler(personnesButton_Click);
                 panel.Controls.Add(buttonPersonne);
@@ -56,6 +64,7 @@ namespace Money_Management
             }
             else
             {
+                //Warning Message print if there are not user in app data
                 var warningLabel = CreateLabel("Aucun utilisateurs trouvé", new Size(205, 40), new Point(150, 20));
                 panel.Controls.Add(warningLabel);
             }
@@ -86,10 +95,12 @@ namespace Money_Management
         {
             var addbutton = new Button();
             addbutton.Text = ("+");
-            addbutton.Size = new Size(40, 40);
-            addbutton.Location = new Point(460, 10);
+            addbutton.TextAlign = ContentAlignment.MiddleCenter;
+            addbutton.Font = new(addbutton.Font.FontFamily, 15, FontStyle.Bold);
+            addbutton.Size = new Size(50, 50);
+            addbutton.Location = new Point(440, 10);
             addbutton.BringToFront();
-            addbutton.BackColor = Color.Yellow;
+            addbutton.BackColor = Color.PaleVioletRed;
             return addbutton;
         }
     }
@@ -143,10 +154,11 @@ namespace Money_Management
         public string name;
         public string firstName;
         public string keypass;
-        public User(int id, string name, string keypass)
+        public User(int id, string name, string firstName, string keypass)
         {
             this.id = id;
             this.name = name;
+            this.firstName = firstName;
             this.keypass = keypass;
         }
     }

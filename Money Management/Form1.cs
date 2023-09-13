@@ -35,18 +35,10 @@ namespace Money_Management
         }
         public void addButton_Click(object sender, EventArgs e)
         {
-            User user = new User(1, "Jossua", "pass");
-            /*if (usersData.Count != null)
-            {
-                
-                usersData.Add(user);
-                json.SetJsonFromFile(usersData);
-            }
-            else
-            {*/
+            User user = new User(1, "Figueiras", "Jossua", "pass");
+
                 var test = new List<User> { user };
                 json.SetJsonFromFile(test);
-            //}
             
 
         }
