@@ -13,9 +13,9 @@ namespace Money_Management
         {
             string json = "";
             string file = "Data";
-            string filePath = "Data/dataUser.json";
+            string filePath = "Data/UsersData.json";
 
-            if (!Directory.Exists(filePath))
+            if (!Directory.Exists(file))
             {
                 Directory.CreateDirectory(file);
                 using (StreamWriter sw = File.CreateText(filePath))
@@ -23,11 +23,11 @@ namespace Money_Management
                     sw.Write(json);
                 }
             }
-            return File.ReadAllText(filePath);
+            return File.ReadAllText("Data/UsersData.json");
         }
         public static void SetJsonFromFile(List<User> usersData)
         {
-            string filePath = "Data/dataUser.json";
+            string filePath = "Data/UsersData.json";
             string json = JsonConvert.SerializeObject(usersData);
 
             if (File.Exists(filePath))

@@ -37,7 +37,7 @@ namespace Money_Management
 
             return homePanel;
         }
-        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<string> users = null)
+        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<User> users = null)
         {
 
             int interval = 100;
@@ -49,7 +49,7 @@ namespace Money_Management
                     foreach (var user in users)
                     {
                         var buttonPersonne = new Button();
-                        buttonPersonne.Text = (user);
+                        buttonPersonne.Text = (user.name);
                         Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
                         buttonPersonne.Click += new EventHandler(personnesButton_Click);
                         panel.Controls.Add(buttonPersonne);
@@ -65,11 +65,11 @@ namespace Money_Management
             }
             else
             {
-                var addbutton = new Button();
+                /*var addbutton = new Button();
                 addbutton.Text = ("+");
                 Style.UserButtonStyle(addbutton, new Size(40, 40), new Point(400, 10), Color.Yellow);
                 addbutton.Click += new EventHandler(personnesButton_Click);
-                panel.Controls.Add(addbutton);
+                panel.Controls.Add(addbutton);*/
             }
         }
         public static void AddShapes(Panel panel, string path, Size size, Point point)
@@ -93,6 +93,16 @@ namespace Money_Management
             label.BackColor = Color.Transparent;
             label.TextAlign = ContentAlignment.MiddleCenter;
             return label;
+        }
+        public static Button AddButton()
+        {
+            var addbutton = new Button();
+            addbutton.Text = ("+");
+            addbutton.Size = new Size(40, 40);
+            addbutton.Location = new Point(100, 100);
+            addbutton.BringToFront();
+            addbutton.BackColor = Color.Yellow;
+            return addbutton;
         }
     }
     static class Style
