@@ -20,10 +20,10 @@ namespace Money_Management
             var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
             homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, usersData);
-            CreateEntities.UserButtons(homePanel, addButton_Click);
+            //CreateEntities.UserButtons(homePanel, addButton_Click);
             Style.Shapes(homePanel);
             //button +
-            var  addbutton = CreateEntities.AddButton();
+            var addbutton = CreateEntities.AddButton();
             addbutton.Click += new EventHandler(addButton_Click);
             homePanel.Controls.Add(addbutton);
 

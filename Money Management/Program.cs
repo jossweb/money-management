@@ -37,39 +37,27 @@ namespace Money_Management
 
             return homePanel;
         }
-        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<User> users = null)
+        public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<User> users)
         {
 
             int interval = 100;
 
-            if (users != null)
+            if (users.Count > 0)
             {
-                if (users.Count > 0)
+                foreach (var user in users)
                 {
-                    foreach (var user in users)
-                    {
-                        var buttonPersonne = new Button();
-                        buttonPersonne.Text = (user.name);
-                        Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
-                        buttonPersonne.Click += new EventHandler(personnesButton_Click);
-                        panel.Controls.Add(buttonPersonne);
-                        interval += 90;
-                    }
+                var buttonPersonne = new Button();
+                buttonPersonne.Text = (user.name);
+                Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
+                buttonPersonne.Click += new EventHandler(personnesButton_Click);
+                panel.Controls.Add(buttonPersonne);
+                interval += 90;
                 }
-                else
-                {
-                    var warningLabel = CreateLabel("Aucun utilisateurs trouvé", new Size(205, 40), new Point(150, 20));
-                    panel.Controls.Add(warningLabel);
-                }
-
             }
             else
             {
-                /*var addbutton = new Button();
-                addbutton.Text = ("+");
-                Style.UserButtonStyle(addbutton, new Size(40, 40), new Point(400, 10), Color.Yellow);
-                addbutton.Click += new EventHandler(personnesButton_Click);
-                panel.Controls.Add(addbutton);*/
+                var warningLabel = CreateLabel("Aucun utilisateurs trouvé", new Size(205, 40), new Point(150, 20));
+                panel.Controls.Add(warningLabel);
             }
         }
         public static void AddShapes(Panel panel, string path, Size size, Point point)
@@ -99,7 +87,7 @@ namespace Money_Management
             var addbutton = new Button();
             addbutton.Text = ("+");
             addbutton.Size = new Size(40, 40);
-            addbutton.Location = new Point(100, 100);
+            addbutton.Location = new Point(460, 10);
             addbutton.BringToFront();
             addbutton.BackColor = Color.Yellow;
             return addbutton;
@@ -125,7 +113,7 @@ namespace Money_Management
             var shapesList = new List<ImageBack>
             {
                 new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
-                new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(300, 0)),
+                new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(0, 0)),
                 new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(250, 200)),
                 new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(400, 500)),
                 new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 400))
@@ -153,6 +141,7 @@ namespace Money_Management
     {
         public int id;
         public string name;
+        public string firstName;
         public string keypass;
         public User(int id, string name, string keypass)
         {
