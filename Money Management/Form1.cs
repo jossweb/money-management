@@ -13,16 +13,14 @@ namespace Money_Management
         public Form1()
         {
             InitializeComponent();
-            var users = new List<string> { "Jossua", "Dorian", "Jossua", "Dorian", "Jossua" };
             Style.SetStyleForm(this);
-            var homePanel = CreateEntities.HomePanel(users.Count);
+            var homePanel = CreateEntities.HomePanel(usersData.Count);
             this.Controls.Add(homePanel);
             var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
             homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, usersData);
-            //CreateEntities.UserButtons(homePanel, addButton_Click);
             Style.Shapes(homePanel);
-            //button +
+            //button add
             var addbutton = CreateEntities.AddButton();
             addbutton.Click += new EventHandler(addButton_Click);
             homePanel.Controls.Add(addbutton);
@@ -35,11 +33,14 @@ namespace Money_Management
         }
         public void addButton_Click(object sender, EventArgs e)
         {
-            User user = new User(1, "Figueiras", "Jossua", "pass");
+            /*User user = new User(1, "Figueiras", "Jossua", "pass");
 
                 var test = new List<User> { user };
-                json.SetJsonFromFile(test);
-            
+                json.SetJsonFromFile(test);*/
+
+            NewUserForm Form2 = new NewUserForm();
+            Form2.Show();
+            this.Hide();
 
         }
 

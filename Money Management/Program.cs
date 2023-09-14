@@ -81,7 +81,7 @@ namespace Money_Management
                 panel.Controls.Add(warningLabel);
             }
         }
-        public static void AddShapes(Panel panel, string path, Size size, Point point)
+        public static void AddShapes(string path, Size size, Point point, Panel panel = null, Form form = null)
         {
             ///<summary>
             /// add shape for home decoration
@@ -97,9 +97,14 @@ namespace Money_Management
             pictureBox1.Size = size;
             pictureBox1.Location = point;
             pictureBox1.SendToBack();
-            panel.Controls.Add(pictureBox1);
-
-
+            if (form == null)
+            {
+                panel.Controls.Add(pictureBox1);
+            }
+            else
+            {
+                form.Controls.Add(pictureBox1);
+            }
         }
         public static Label CreateLabel(string text, Size size, Point point)
         {
@@ -151,19 +156,34 @@ namespace Money_Management
             button.BringToFront();
             button.BackColor = color;
         }
-        public static void Shapes(Panel panel)
+        public static void Shapes(Panel panel = null, Form form = null)
         {
-            var shapesList = new List<ImageBack>
+            if ((form == null)||(panel == null))
             {
-                new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
-                new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(0, 0)),
-                new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(250, 200)),
-                new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(400, 500)),
-                new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 400))
-            };
-            foreach (var shape in shapesList)
+                var shapesList = new List<ImageBack>
+                {
+                    new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
+                    new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(0, 0)),
+                    new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(250, 200)),
+                    new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(400, 500)),
+                    new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 400))
+                };
+                foreach (var shape in shapesList)
+                {
+                    if (panel != null)
+                    {
+                        CreateEntities.AddShapes(shape.path, shape.size, shape.point, panel);
+                    }
+                    else
+                    {
+                        CreateEntities.AddShapes(shape.path, shape.size, shape.point, null, form);
+                    }
+                    
+                }
+            }
+            else
             {
-                CreateEntities.AddShapes(panel, shape.path, shape.size, shape.point);
+                Console.WriteLine("Error ! Panel and form was null. App can't show background Shapes");
             }
         }
     }

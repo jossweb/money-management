@@ -24,9 +24,6 @@
         private void InitializeComponent()
         {
             SuspendLayout();
-            // 
-            // Form1
-            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;

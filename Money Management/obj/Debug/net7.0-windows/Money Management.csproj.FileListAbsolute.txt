@@ -34,3 +34,4 @@ E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\
 E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
 E:\partage Jossua\partage\code\c# project\money management\Money Management\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CopyComplete
+E:\partage Jossua\partage\code\c# project\money management\Money Management\obj\Debug\net7.0-windows\Money_Management.NewUserForm.resources
