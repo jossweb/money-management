@@ -20,6 +20,12 @@ namespace Money_Management
     {
         public static Panel HomePanel(int u)
         {
+            /// <summary>
+            /// Create home page panel (setting)
+            /// </summary>
+            /// <param name="u">user number found in the database to activate or note Scroll</param>
+            /// <returns>Home Page Panel</returns>
+            
             Panel homePanel = new Panel();
             homePanel.Size = new Size(500, 600);
             homePanel.Location = new Point(0, 0);
@@ -39,6 +45,12 @@ namespace Money_Management
         }
         public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<User> users)
         {
+            /// <summary>
+            /// Create one button for each user detect in json data base
+            /// </summary>
+            /// <param name="panel">Home panel</param>
+            /// <param name="personnesButton_Click">EventHandler of click on user button</param>
+            /// <param name="users">All user recovered in json</param>
 
             int interval = 100;
 
@@ -71,6 +83,15 @@ namespace Money_Management
         }
         public static void AddShapes(Panel panel, string path, Size size, Point point)
         {
+            ///<summary>
+            /// add shape for home decoration
+            /// </summary>
+            /// <param name="panel">Home panel</param>
+            /// <param name="path">File path of image</param>
+            /// <param name="size">size</param>
+            /// <param name="point">Location of image on form</param>
+            /// <return>1 decoration for background (picture box)</return>
+
             PictureBox pictureBox1 = new PictureBox();
             pictureBox1.Image = Image.FromFile(path);
             pictureBox1.Size = size;
@@ -82,6 +103,13 @@ namespace Money_Management
         }
         public static Label CreateLabel(string text, Size size, Point point)
         {
+            ///<summary>
+            /// Create new label
+            /// </summary>
+            /// <param name="text">label's text</param>
+            /// <param name="size">size</param>
+            /// <param name="point">location</param>
+            /// <return>label</return>
             var label = new Label();
             label.Text = text;
             label.Size = size;
@@ -93,6 +121,10 @@ namespace Money_Management
         }
         public static Button AddButton()
         {
+            ///<summary>
+            /// Create add button
+            /// </summary>
+            /// <return>add button</return>
             var addbutton = new Button();
             addbutton.Text = ("+");
             addbutton.TextAlign = ContentAlignment.MiddleCenter;
@@ -137,6 +169,9 @@ namespace Money_Management
     }
     public class ImageBack
     {
+        /// <summary>
+        /// create Image background object
+        /// </summary>
         public string path;
         public Size size;
         public Point point;
@@ -150,6 +185,9 @@ namespace Money_Management
     }
     public class User
     {
+        /// <summary>
+        /// Create user object
+        /// </summary>
         public int id;
         public string name;
         public string firstName;
