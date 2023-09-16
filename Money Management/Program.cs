@@ -31,7 +31,7 @@ namespace Money_Management
 
             homePanel.Size = new Size(600, 500);/*régler taille !!!!*/
             homePanel.Location = new Point(0, 0);
-            homePanel.BackColor = Color.Black;
+            homePanel.BackColor = Color.WhiteSmoke;
 
             homePanel.HorizontalScroll.Visible = false;
             homePanel.VerticalScroll.Visible = false;
@@ -71,7 +71,7 @@ namespace Money_Management
                 {
                 var buttonPersonne = new Button();
                 buttonPersonne.Text = user.name.ToUpper() + " " + user.firstName;
-                Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(75, interval), Color.Gray);
+                Style.UserButtonStyle(buttonPersonne, new Size(350, 60), new Point(135, interval), Color.AntiqueWhite); 
                 buttonPersonne.Click += new EventHandler(personnesButton_Click);
                 panel.Controls.Add(buttonPersonne);
                 interval += 90;
@@ -165,11 +165,11 @@ namespace Money_Management
             {
                 var shapesList = new List<ImageBack>
                 {
-                    new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 150)),
+                    new ImageBack("backgroundAbstractShapes/Shapes1.png", new Size(200, 200), new Point(0, 250)),
                     new ImageBack("backgroundAbstractShapes/Shapes2.png", new Size(200, 200), new Point(0, 0)),
-                    new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(250, 200)),
-                    new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(400, 500)),
-                    new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 400))
+                    new ImageBack("backgroundAbstractShapes/Shapes3.png", new Size(250, 250), new Point(300, 200)),
+                    new ImageBack("backgroundAbstractShapes/Shapes4.png", new Size(200, 200), new Point(550, 620)),
+                    new ImageBack("backgroundAbstractShapes/Shapes5.png", new Size(400, 300), new Point(0, 500))
                 };
                 foreach (var shape in shapesList)
                 {

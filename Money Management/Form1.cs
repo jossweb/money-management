@@ -19,13 +19,13 @@ namespace Money_Management
             homePanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(homePanel);
             var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
-            /*homePanel.Controls.Add(logLabel);
+            homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, usersData);
             Style.Shapes(homePanel);
             //button add
             var addbutton = CreateEntities.AddButton();
             addbutton.Click += new EventHandler(addButton_Click);
-            homePanel.Controls.Add(addbutton);*/
+            homePanel.Controls.Add(addbutton);
 
         }
 
@@ -44,6 +44,12 @@ namespace Money_Management
             Form2.Show();
             this.Hide();
 
+        }
+        private void addButton_GotFocus(object sender, EventArgs e)
+        {
+            Button bouton = (Button)sender;
+            bouton.FlatAppearance.BorderColor = Color.Red;
+            bouton.FlatAppearance.BorderSize = 2;
         }
 
         private void Form1_Load(object sender, EventArgs e)
