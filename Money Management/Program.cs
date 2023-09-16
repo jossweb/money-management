@@ -29,7 +29,7 @@ namespace Money_Management
             Panel homePanel = new Panel();
             
 
-            homePanel.Size = new Size(550, 634);/*régler taille !!!!*/
+            homePanel.Size = new Size(600, 500);/*régler taille !!!!*/
             homePanel.Location = new Point(0, 0);
             homePanel.BackColor = Color.Black;
 

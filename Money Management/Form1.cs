@@ -18,8 +18,8 @@ namespace Money_Management
             homePanel.Dock = DockStyle.Fill;
             homePanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(homePanel);
-            /*var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
-            homePanel.Controls.Add(logLabel);
+            var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
+            /*homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, usersData);
             Style.Shapes(homePanel);
             //button add
