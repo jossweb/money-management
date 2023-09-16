@@ -15,15 +15,17 @@ namespace Money_Management
             InitializeComponent();
             Style.SetStyleForm(this);
             var homePanel = CreateEntities.HomePanel(usersData.Count);
+            homePanel.Dock = DockStyle.Fill;
+            homePanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(homePanel);
-            var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
+            /*var logLabel = CreateEntities.CreateLabel("Connection", new Size(205, 40), new Point(150, 20));
             homePanel.Controls.Add(logLabel);
             CreateEntities.UserButtons(homePanel, personnesButton_Click, usersData);
             Style.Shapes(homePanel);
             //button add
             var addbutton = CreateEntities.AddButton();
             addbutton.Click += new EventHandler(addButton_Click);
-            homePanel.Controls.Add(addbutton);
+            homePanel.Controls.Add(addbutton);*/
 
         }
 

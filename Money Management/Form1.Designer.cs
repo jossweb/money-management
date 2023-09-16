@@ -29,10 +29,9 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
+            MinimumSize = new Size(536, 634);
             MaximumSize = new Size(536, 634);
             MdiChildrenMinimizedAnchorBottom = false;
-            MinimizeBox = false;
-            MinimumSize = new Size(536, 634);
             Name = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);

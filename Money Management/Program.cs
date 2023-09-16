@@ -27,8 +27,11 @@ namespace Money_Management
             /// <returns>Home Page Panel</returns>
             
             Panel homePanel = new Panel();
-            homePanel.Size = new Size(500, 600);
+            
+
+            homePanel.Size = new Size(550, 634);/*régler taille !!!!*/
             homePanel.Location = new Point(0, 0);
+            homePanel.BackColor = Color.Black;
 
             homePanel.HorizontalScroll.Visible = false;
             homePanel.VerticalScroll.Visible = false;
@@ -40,7 +43,7 @@ namespace Money_Management
             {
                 homePanel.AutoScroll = false;
             }
-
+           
             return homePanel;
         }
         public static void UserButtons(Panel panel, EventHandler personnesButton_Click, List<User> users)
