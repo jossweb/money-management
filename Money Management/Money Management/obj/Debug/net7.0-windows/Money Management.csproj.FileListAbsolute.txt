@@ -19,3 +19,29 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Azure.Core.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Azure.Identity.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Data.SqlClient.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Identity.Client.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Abstractions.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Logging.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Protocols.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Tokens.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.SqlServer.Server.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.IdentityModel.Tokens.Jwt.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.Memory.Data.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.Runtime.Caching.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CopyComplete
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.dll
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.xml
