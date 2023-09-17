@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Money_Management"
         mc:Ignorable="d"
-        Title="Money Management" Height="450" Width="800">
+        Title="Money Management" Height="600" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Première ligne pour le label -->
+            <RowDefinition Height="*"/>
+            <!-- Deuxième ligne pour le ScrollViewer -->
+        </Grid.RowDefinitions>
 
+        <Label Content="Connexion" FontSize="32" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="55" Width="280"/>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding userList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Width="300" HorizontalAlignment="Center" FontSize="20" Height="40" Margin="8" Click="Button_Click" Background="BlanchedAlmond"/>
+                        
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Content="+" Width="30" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Height="30" Margin="20" Click="AddButton_Click" Background="BlanchedAlmond"/>
     </Grid>
 </Window>

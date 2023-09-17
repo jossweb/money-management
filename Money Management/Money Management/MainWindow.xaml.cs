@@ -20,9 +20,22 @@ namespace Money_Management
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> userList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            userList = new List<string> { "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", };
+            DataContext = this;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+        }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+
         }
     }
 }
