@@ -24,13 +24,12 @@ namespace Money_Management
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<string> userList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
 
-            userList = new List<string> { "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", "Jossua", "Dorian", "Hella", };
+            var userList = json.GetJsonFromFile();
             DataContext = this;
 
         }
