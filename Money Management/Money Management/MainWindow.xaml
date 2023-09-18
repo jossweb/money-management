@@ -9,15 +9,13 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Première ligne pour le label -->
             <RowDefinition Height="*"/>
-            <!-- Deuxième ligne pour le ScrollViewer -->
         </Grid.RowDefinitions>
 
         <Label Content="Connexion" FontSize="32" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="55" Width="280"/>
-
         <ScrollViewer Grid.Row="1">
             <ItemsControl ItemsSource="{Binding userList}">
                 <ItemsControl.ItemTemplate>
@@ -29,5 +27,6 @@
             </ItemsControl>
         </ScrollViewer>
         <Button Content="+" Width="30" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Height="30" Margin="20" Click="AddButton_Click" Background="BlanchedAlmond"/>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" />    
     </Grid>
 </Window>

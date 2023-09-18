@@ -1,20 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data;
-using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace Money_Management
@@ -27,10 +13,13 @@ namespace Money_Management
         public MainWindow()
         {
             InitializeComponent();
-
-
             var userList = json.GetJsonFromFile();
             DataContext = this;
+            if (userList != null )
+            {
+                LoginForm nouvellePage = new LoginForm();
+                frame.Navigate(nouvellePage);
+            }
 
         }
         private void Button_Click(object sender, RoutedEventArgs e)
