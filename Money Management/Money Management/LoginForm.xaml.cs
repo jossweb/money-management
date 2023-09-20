@@ -23,10 +23,11 @@ namespace Money_Management
     /// </summary>
     public partial class LoginForm : Page
     {
+        public MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
+        public List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
         public LoginForm()
         {
             InitializeComponent();
-            
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,9 +35,26 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                if (Program.CheckUser(email, motDePasse))
+                if (Program.CheckUser(email, motDePasse, connection))
                 {
                     MessageBox.Show("Connecté avec succès");
+                    var user = Program.CreateNewUser(email, connection);
+                    if (user != null)
+                    {
+                        if (userList == null)
+                        {
+                            userList = new List<User>() { user };
+                        }
+                        else 
+                        {
+                            userList.Add(user);
+                        }  
+                        json.SetJsonFromFile(userList);
+                        MainWindow newMainWindow = new MainWindow();
+                        Application.Current.MainWindow.Close();
+                        Application.Current.MainWindow = newMainWindow;
+                        newMainWindow.Show();
+                    }
                 }
                 else
                 {

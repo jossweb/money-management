@@ -13,14 +13,21 @@ namespace Money_Management
         public MainWindow()
         {
             InitializeComponent();
-            var userList = json.GetJsonFromFile();
             DataContext = this;
-            if (userList != null )
+            var userList = json.DeserialiseJson(json.GetJsonFromFile());
+            if (userList == null)
             {
                 LoginForm nouvellePage = new LoginForm();
                 frame.Navigate(nouvellePage);
             }
-
+            foreach (User user in userList)
+            {
+                Button button = new Button();
+                button.Content = user.name;
+                button.Click += Button_Click;
+                button.Tag = user.id;
+                ButtonStackPanel.Children.Add(button);
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -29,32 +36,8 @@ namespace Money_Management
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
-
-            try
-            {
-                connection.Open();
-                MessageBox.Show("Connecter avec succès");
-
-                string query = "SELECT name FROM users WHERE id = 1";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (MySqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        string nom = reader.GetString("name");
-                        MessageBox.Show("Nom de l'ID 1 : " + nom);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Aucun enregistrement trouvé avec l'ID 1");
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Erreur !");
-            }
+            LoginForm nouvellePage = new LoginForm();
+            frame.Navigate(nouvellePage);
         }
     }
 }

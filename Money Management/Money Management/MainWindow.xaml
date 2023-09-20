@@ -22,15 +22,9 @@
         <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
         <Button Content="+" Width="30" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Height="30" Margin="0,16,18,554" Click="AddButton_Click" Background="BlanchedAlmond"/>
         <Label Content="Connexion" FontSize="32" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="55" Width="280"/>
-        <ScrollViewer Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding userList}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding}" Width="300" HorizontalAlignment="Center" FontSize="20" Height="40" Margin="8" Click="Button_Click" Background="BlanchedAlmond"/>
-                        
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+        <ScrollViewer>
+            <StackPanel Name="ButtonStackPanel">
+            </StackPanel>
         </ScrollViewer>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" />    
     </Grid>

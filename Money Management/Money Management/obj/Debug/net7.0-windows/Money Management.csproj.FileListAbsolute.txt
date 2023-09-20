@@ -47,7 +47,6 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.g.cs
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.baml
-E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Libraries\MySql.Data.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Google.Protobuf.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\K4os.Compression.LZ4.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\K4os.Compression.LZ4.Streams.dll
