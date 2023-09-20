@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,20 +19,35 @@ using System.Windows.Shapes;
 namespace Money_Management
 {
     /// <summary>
-    /// Logique d'interaction pour LoginForm.xaml
+    /// Login page for user already sign up
     /// </summary>
     public partial class LoginForm : Page
     {
-
         public LoginForm()
         {
             InitializeComponent();
-            string email = textBoxNomUtilisateur.Text;
-            string motDePasse = passwordBoxMotDePasse.Password;
+            
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            string email = textBoxNomUtilisateur.Text;
+            string motDePasse = passwordBoxMotDePasse.Password;
+            if ((email != null) && (motDePasse != null))
+            {
+                if (Program.CheckUser(email, motDePasse))
+                {
+                    MessageBox.Show("Connecté avec succès");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur");
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Veuillez remplir tous les champs");
+            }
         }
     }
 }
