@@ -15,11 +15,11 @@ namespace Money_Management
             InitializeComponent();
             var userList = json.GetJsonFromFile();
             DataContext = this;
-            /*if (userList != null )
+            if (userList != null )
             {
                 LoginForm nouvellePage = new LoginForm();
                 frame.Navigate(nouvellePage);
-            }*/
+            }
 
         }
         private void Button_Click(object sender, RoutedEventArgs e)

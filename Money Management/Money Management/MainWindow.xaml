@@ -16,10 +16,11 @@
         <Ellipse  Fill="MediumSeaGreen" Height="200" Margin="-115,-69,331,469" />
         <Ellipse  Fill="Orange" Margin="406,99,-80,358" Grid.ColumnSpan="2" />
         <Ellipse Fill="BlueViolet" Margin="406,378,3,153" />
-        <Ellipse Fill="OrangeRed" Margin="34,272,385,272" />
+        <Ellipse Fill="OrangeRed" Margin="34,260,385,272" />
         <Ellipse Fill="CadetBlue"  Margin="34,516,385,25" />
         <Ellipse Fill="ForestGreen"  Margin="369,-41,0,543" />
         <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
+        <Button Content="+" Width="30" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Height="30" Margin="0,16,18,554" Click="AddButton_Click" Background="BlanchedAlmond"/>
         <Label Content="Connexion" FontSize="32" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="55" Width="280"/>
         <ScrollViewer Grid.Row="1">
             <ItemsControl ItemsSource="{Binding userList}">
@@ -31,7 +32,6 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <Button Content="+" Width="30" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Height="30" Margin="20" Click="AddButton_Click" Background="BlanchedAlmond"/>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" />    
     </Grid>
 </Window>

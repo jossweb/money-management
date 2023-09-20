@@ -44,7 +44,7 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CopyComplete
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.dll
-E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.xml
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.g.cs
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.baml
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Libraries\MySql.Data.dll
