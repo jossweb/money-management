@@ -8,9 +8,21 @@
       d:DesignHeight="600" d:DesignWidth="500"
       Title="Login"
       Background="White">
-
     <Grid>
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse  Fill="MediumSeaGreen" Height="200" Margin="-115,-69,331,469" />
+        <Ellipse  Fill="Orange" Margin="406,99,-80,358" Grid.ColumnSpan="2" />
+        <Ellipse Fill="BlueViolet" Margin="382,378,3,163" />
+        <Ellipse Fill="OrangeRed" Margin="34,272,353,272" />
+        <Ellipse Fill="CadetBlue"  Margin="34,516,351,25" />
+        <Ellipse Fill="ForestGreen"  Margin="336,-41,0,543" />
+        <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
+
+
+        <StackPanel Grid.ColumnSpan="2">
             <Label Content="Connection" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="50" Width="500" Margin="0, 20, 0, 0"/>
             <Label Content="Utilisateur existant" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>
             <TextBlock Text="Email:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
@@ -21,7 +33,6 @@
             <Button Content="Retour à l'accueil" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
             <Label Content="Pas encore membre ?" FontSize="15" FontWeight="Normal" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" Width="500" Margin="0, 20, 0, 0"/>
             <Button Content="Créer mon compte" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
-
         </StackPanel>
     </Grid>
 </Page>
