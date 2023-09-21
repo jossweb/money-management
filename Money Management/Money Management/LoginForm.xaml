@@ -30,7 +30,7 @@
             <TextBlock Text="Mot de passe:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
             <PasswordBox Name="passwordBoxMotDePasse" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
             <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
-            <Button Content="Retour à l'accueil" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
             <Label Content="Pas encore membre ?" FontSize="15" FontWeight="Normal" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" Width="500" Margin="0, 20, 0, 0"/>
             <Button Content="Créer mon compte" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
         </StackPanel>

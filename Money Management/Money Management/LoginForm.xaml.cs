@@ -67,5 +67,12 @@ namespace Money_Management
                 MessageBox.Show("Veuillez remplir tous les champs");
             }
         }
+        private void BackHome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow newMainWindow = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = newMainWindow;
+            newMainWindow.Show();
+        }
     }
 }

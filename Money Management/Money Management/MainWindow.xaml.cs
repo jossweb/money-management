@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using MySql.Data.MySqlClient;
 
 namespace Money_Management
@@ -15,18 +16,26 @@ namespace Money_Management
             InitializeComponent();
             DataContext = this;
             var userList = json.DeserialiseJson(json.GetJsonFromFile());
-            if (userList == null)
+            if (userList != null)
+            {
+
+                foreach (User user in userList)
+                {
+                    Button button = new Button();
+                    button.Content = user.name.ToUpper() + " " + user.firstName;
+                    button.Width = 250;
+                    button.Height = 50;
+                    button.Background = Brushes.White;
+                    button.Click += Button_Click;
+                    button.Tag = user.id;
+                    button.FontSize = 15;
+                    ButtonStackPanel.Children.Add(button);
+                }
+            }
+            else
             {
                 LoginForm nouvellePage = new LoginForm();
                 frame.Navigate(nouvellePage);
-            }
-            foreach (User user in userList)
-            {
-                Button button = new Button();
-                button.Content = user.name;
-                button.Click += Button_Click;
-                button.Tag = user.id;
-                ButtonStackPanel.Children.Add(button);
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
