@@ -1,0 +1,19 @@
+﻿<Window x:Class="Money_Management.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Money_Management"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="SignUp" Height="500" Width="800">
+    <Grid>
+        <Ellipse  Fill="MediumSeaGreen" Margin="-137,-65,657,360" />
+        <Ellipse  Fill="Orange" Margin="681,10,-170,256" />
+        <Ellipse Fill="BlueViolet" Margin="612,350,73,25" />
+        <Ellipse Fill="OrangeRed" Margin="34,350,657,44" />
+        <Ellipse Fill="CadetBlue"  Margin="207,173,479,210" />
+        <Ellipse Fill="ForestGreen"  Margin="369,-40,250,360" />
+        <Ellipse Fill="DarkGoldenrod"  Margin="666,393,-84,-70" />
+    </Grid>
+</Window>

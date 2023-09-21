@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -74,5 +75,12 @@ namespace Money_Management
             Application.Current.MainWindow = newMainWindow;
             newMainWindow.Show();
         }
+        private void SignUp_Button(object sender, RoutedEventArgs e)
+        {
+            SignUp signUpWindow = new SignUp();
+            signUpWindow.Show();
+            Application.Current.MainWindow.Close();
+        }
+
     }
 }

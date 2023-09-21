@@ -3,10 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Money_Management"
-      mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="500"
-      Title="Login"
+      xmlns:local="clr-namespace:Money_Management" 
       Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -32,7 +29,8 @@
             <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
             <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
             <Label Content="Pas encore membre ?" FontSize="15" FontWeight="Normal" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" Width="500" Margin="0, 20, 0, 0"/>
-            <Button Content="Créer mon compte" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+            <Button Content="Créer mon compte" Click="SignUp_Button" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
         </StackPanel>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Page>
