@@ -6,14 +6,32 @@
         xmlns:local="clr-namespace:Money_Management"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="SignUp" Height="500" Width="800">
+        Title="SignUp" Height="600" Width="500">
     <Grid>
-        <Ellipse  Fill="MediumSeaGreen" Margin="-137,-65,657,360" />
-        <Ellipse  Fill="Orange" Margin="681,10,-170,256" />
-        <Ellipse Fill="BlueViolet" Margin="612,350,73,25" />
-        <Ellipse Fill="OrangeRed" Margin="34,350,657,44" />
-        <Ellipse Fill="CadetBlue"  Margin="207,173,479,210" />
-        <Ellipse Fill="ForestGreen"  Margin="369,-40,250,360" />
-        <Ellipse Fill="DarkGoldenrod"  Margin="666,393,-84,-70" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse  Fill="MediumSeaGreen" Height="200" Margin="-115,-69,331,453" />
+        <Ellipse  Fill="Orange" Margin="406,99,-80,358" Grid.ColumnSpan="2" />
+        <Ellipse Fill="BlueViolet" Margin="382,378,3,163" />
+        <Ellipse Fill="OrangeRed" Margin="10,400,386,144" />
+        <Ellipse Fill="CadetBlue"  Margin="34,516,351,25" />
+        <Ellipse Fill="ForestGreen"  Margin="336,-41,0,543" />
+        <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
+
+
+        <StackPanel Grid.ColumnSpan="2">
+            <Label Content="Connection" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="50" Width="500" Margin="0, 20, 0, 0"/>
+            <Label Content="Utilisateur existant" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>
+            <TextBlock Text="Email:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
+            <TextBox Name="textBoxNomUtilisateur" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBlock Text="Mot de passe:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
+            <PasswordBox Name="passwordBoxMotDePasse" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
+            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+            <Label Content="Pas encore membre ?" FontSize="15" FontWeight="Normal" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" Width="500" Margin="0, 20, 0, 0"/>
+            <Button Content="Créer mon compte" Click="SignUp_Button" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+        </StackPanel>
     </Grid>
 </Window>
