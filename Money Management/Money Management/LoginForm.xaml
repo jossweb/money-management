@@ -17,8 +17,6 @@
         <Ellipse Fill="CadetBlue"  Margin="34,516,351,25" />
         <Ellipse Fill="ForestGreen"  Margin="336,-41,0,543" />
         <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
-
-
         <StackPanel Grid.ColumnSpan="2">
             <Label Content="Connection" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="50" Width="500" Margin="0, 20, 0, 0"/>
             <Label Content="Utilisateur existant" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>

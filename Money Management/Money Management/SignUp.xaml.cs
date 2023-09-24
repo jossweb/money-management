@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cmp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,11 +25,31 @@ namespace Money_Management
         public SignUp()
         {
             InitializeComponent();
+            DatePickerBirthday.SelectedDate = DateTime.Now;
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            if ((textBoxname.Text != null) & (textBoxfirstName.Text != null) & (textBoxemail.Text != null) & (PasswordBoxPassword.Password != null) & (PasswordBoxpasswordValidation.Password != null))
+            {
+                try
+                {
+                    string name = textBoxname.Text;
+                    string firstName = textBoxfirstName.Text;
+                    string email = textBoxemail.Text;
+                    string pass = PasswordBoxPassword.Password;
+                    string confirmPass = PasswordBoxpasswordValidation.Password;
+                    DateTime? birthday = DatePickerBirthday.SelectedDate;
+                    DateTime selectedDate = birthday.Value;
+                    MessageBox.Show("name = " + name + "prénom = " + firstName + "autre : " + email + pass + confirmPass + selectedDate);
+                }
+                catch(Exception ex) 
+                {
+                    MessageBox.Show("Erreur" + ex);
+                }
 
+            }
         }
+
         private void BackHome_Click(object sender, RoutedEventArgs e)
         {
             MainWindow newMainWindow = new MainWindow();
