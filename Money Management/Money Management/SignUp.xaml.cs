@@ -24,5 +24,16 @@ namespace Money_Management
         {
             InitializeComponent();
         }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void BackHome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow newMainWindow = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = newMainWindow;
+            newMainWindow.Show();
+        }
     }
 }

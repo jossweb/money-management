@@ -77,9 +77,8 @@ namespace Money_Management
         }
         private void SignUp_Button(object sender, RoutedEventArgs e)
         {
-            SignUp signUpWindow = new SignUp();
-            signUpWindow.Show();
-            Application.Current.MainWindow.Close();
+            SignUp SignUpPage = new SignUp();
+            frame.Navigate(SignUpPage);
         }
 
     }

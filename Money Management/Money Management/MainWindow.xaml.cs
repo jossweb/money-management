@@ -45,8 +45,8 @@ namespace Money_Management
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginForm nouvellePage = new LoginForm();
-            frame.Navigate(nouvellePage);
+            LoginForm logInPage = new LoginForm();
+            frame.Navigate(logInPage);
         }
     }
 }

@@ -21,12 +21,16 @@
         <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
         <StackPanel Grid.ColumnSpan="2">
             <Label Content="Créer votre compte" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>
-            <TextBlock  Width="350"><Run Language="fr-fr" Text="Nom"/><Run Text=":"/></TextBlock>
-            <TextBox Name="Name" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
-            <TextBlock  Width="350"><Run Language="fr-fr" Text="Prénom:"/></TextBlock>
-            <TextBlock Name="firstName" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
-            <TextBlock  Width="350"><Run Language="fr-fr" Text="email"/></TextBlock>
-            <TextBlock Name="email" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBlock  Text="Nom :" Width="350" />
+            <TextBox Name="name" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBlock  Text="Prénom :" Width="350" />
+            <TextBox Name="firstName" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBlock  Text="Email :" Width="350" />
+            <TextBox Name="email" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBlock  Text="Mot de passe :" Width="350" />
+            <PasswordBox x:Name="Password" Width="350" Height="40" FontSize="20" FontStyle="Normal"/>
+            <TextBlock  Text="Confirmation du mot de passe :" Width="350" />
+            <PasswordBox x:Name="passwordValidation" Width="350" Height="40" FontSize="20" FontStyle="Normal"/>
             <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
             <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
         </StackPanel>
