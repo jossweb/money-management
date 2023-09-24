@@ -77,7 +77,7 @@ namespace Money_Management
                         DateTime birthday = DateTime.Parse(reader.GetString("birthday"));
                         DateTime accountCreationDate = DateTime.Parse(reader.GetString("accountCreationDate"));
 
-                        var user = new User(id, name, firstName, mail, birthday, accountCreationDate);
+                        var user = new User(name, firstName, mail, birthday, accountCreationDate, id);
                         return user;
                     }
                     catch
@@ -89,10 +89,26 @@ namespace Money_Management
                 return null;
             }
         }
+        public static void CreateUserSql(MySqlConnection connection, User user, string HashPass)
+        {
+            string query = "INSERT INTO users (Name, firstName, mail, password, birthday, accountCreationDate) " +
+                "VALUES ('" + user.name + "', '" + user.firstName + "', '" + user.mail + "', '" + HashPass + "', '" + user.birthday + "', '" + user.accountCreationDate + "')";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            int rowsAffected = command.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Créer avec succes");
+            }
+            else
+            {
+                MessageBox.Show("Erreur");
+            }
+
+        }
     }
 
-    public class User
-    {
+        public class User
+        {
         /// <summary>
         /// Create user object
         /// </summary>
@@ -102,7 +118,7 @@ namespace Money_Management
         public string mail;
         public DateTime birthday;
         public DateTime accountCreationDate;
-        public User(int id, string name, string firstName, string mail,DateTime birthday, DateTime accountCreationDate)
+        public User(string name, string firstName, string mail,DateTime birthday, DateTime accountCreationDate, int id = 0)
         {
             this.id = id;
             this.name = name;

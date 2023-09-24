@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Asn1.Cmp;
+﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Money_Management.Program;
 
 namespace Money_Management
 {
@@ -22,9 +24,11 @@ namespace Money_Management
     /// </summary>
     public partial class SignUp : Page
     {
+        public MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
         public SignUp()
         {
             InitializeComponent();
+            connection.Open();
             DatePickerBirthday.SelectedDate = DateTime.Now;
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -40,7 +44,8 @@ namespace Money_Management
                     string confirmPass = PasswordBoxpasswordValidation.Password;
                     DateTime? birthday = DatePickerBirthday.SelectedDate;
                     DateTime selectedDate = birthday.Value;
-                    MessageBox.Show("name = " + name + "prénom = " + firstName + "autre : " + email + pass + confirmPass + selectedDate);
+                    User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
+                    Program.CreateUserSql(connection, newUser, pass);
                 }
                 catch(Exception ex) 
                 {
