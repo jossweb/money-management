@@ -6,9 +6,16 @@
         xmlns:local="clr-namespace:Money_Management"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Erreur" Height="200" Width="350">
+        ResizeMode="NoResize"
+        Title="Erreur" Height="220" Width="400">
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Window.BorderBrush" Value="Red" />
+            <Setter Property="Window.BorderThickness" Value="2" />
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TextBlock Text="Erreur : " FontSize="12" FontWeight="Bold" Name="error" Width="350" TextAlignment="Center" Margin="0,0,0,35"/>
-        <Button Content="OK" Click="CloseButton_Click" Width="40" Height="20" Margin="155,84,155,30"></Button>
+        <TextBlock Text="Erreur : " FontSize="12" FontWeight="Bold" x:Name="error" TextAlignment="Left" Margin="138,7,10,120"/>
+        <Button Content="OK" Click="CloseButton_Click" Width="40" Height="20" Margin="76,92,284,92"/>
     </Grid>
 </Window>
