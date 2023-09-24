@@ -61,3 +61,5 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\krbcc64.dll
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.g.cs
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.baml
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.g.cs
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.baml

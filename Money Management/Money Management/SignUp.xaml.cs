@@ -44,8 +44,16 @@ namespace Money_Management
                     string confirmPass = PasswordBoxpasswordValidation.Password;
                     DateTime? birthday = DatePickerBirthday.SelectedDate;
                     DateTime selectedDate = birthday.Value;
-                    User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
-                    Program.CreateUserSql(connection, newUser, pass);
+                    if (pass == confirmPass)
+                    {
+                        User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
+                        Program.CreateUserSql(connection, newUser, pass);
+                    }
+                    else
+                    {
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
+                        errorWindow.Show();
+                    }
                 }
                 catch(Exception ex) 
                 {

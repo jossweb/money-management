@@ -89,10 +89,10 @@ namespace Money_Management
                 return null;
             }
         }
-        public static void CreateUserSql(MySqlConnection connection, User user, string HashPass)
+        public static void CreateUserSql(MySqlConnection connection, User user, string pass)
         {
             string query = "INSERT INTO users (Name, firstName, mail, password, birthday, accountCreationDate) " +
-                "VALUES ('" + user.name + "', '" + user.firstName + "', '" + user.mail + "', '" + HashPass + "', '" + user.birthday + "', '" + user.accountCreationDate + "')";
+                "VALUES ('" + user.name + "', '" + user.firstName + "', '" + user.mail + "', '" + Hash(pass) + "', '" + user.birthday.ToString("yyyy-MM-dd") + "', '" + user.accountCreationDate.ToString("yyyy-MM-dd") + "')";
             MySqlCommand command = new MySqlCommand(query, connection);
             int rowsAffected = command.ExecuteNonQuery();
             if (rowsAffected > 0)

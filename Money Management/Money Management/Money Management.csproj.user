@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ErrorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginForm.xaml">
       <SubType>Designer</SubType>
     </Page>

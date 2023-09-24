@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Ellipse  Fill="MediumSeaGreen" Height="200" Margin="-115,-69,331,453" />
         <Ellipse  Fill="Orange" Margin="406,99,-80,358" Grid.ColumnSpan="2" />
-        <Ellipse Fill="BlueViolet" Margin="382,378,3,163" />
+        <Ellipse Fill="BlueViolet" Margin="396,397,33,144" Grid.ColumnSpan="2" />
         <Ellipse Fill="OrangeRed" Margin="10,400,386,144" />
         <Ellipse Fill="CadetBlue"  Margin="34,516,351,25" />
         <Ellipse Fill="ForestGreen"  Margin="336,-41,0,543" />
@@ -34,8 +34,8 @@
             <DatePicker Name="DatePickerBirthday" Width="200" VerticalAlignment="Center" Margin="0, 5, 0, 0" HorizontalAlignment="Center"/>
 
             <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
-            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Margin="0, 20, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
-            
+            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+
         </StackPanel>
     </Grid>
 </Page>
