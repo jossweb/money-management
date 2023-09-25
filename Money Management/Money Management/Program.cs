@@ -9,6 +9,11 @@ using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
 using System.Security.Cryptography;
 using System.Windows.Navigation;
+using System.Windows.Controls;
+using System.Diagnostics.Tracing;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
+
 
 namespace Money_Management
 {
@@ -105,9 +110,25 @@ namespace Money_Management
             }
 
         }
+        public static void CreateUserButton(List<User> users, StackPanel UserButtonPanel, RoutedEventHandler Button_Click, Brush buttonBackground)
+        {
+            foreach (User user in users)
+            {
+                Button button = new Button();
+                button.Content = user.name.ToUpper() + " " + user.firstName;
+                button.Width = 250;
+                button.Height = 50;
+                button.Background = buttonBackground;
+                button.Click += Button_Click;
+                button.Tag = user.id;
+                button.FontSize = 15;
+                button.Margin = new Thickness(0, 5, 0, 5);
+                UserButtonPanel.Children.Add(button);
+            }
+        }
     }
 
-        public class User
+    public class User
         {
         /// <summary>
         /// Create user object

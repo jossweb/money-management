@@ -14,26 +14,16 @@ namespace Money_Management
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            //Get users list from json File
             var userList = json.DeserialiseJson(json.GetJsonFromFile());
             if (userList != null)
             {
-
-                foreach (User user in userList)
-                {
-                    Button button = new Button();
-                    button.Content = user.name.ToUpper() + " " + user.firstName;
-                    button.Width = 250;
-                    button.Height = 50;
-                    button.Background = Brushes.White;
-                    button.Click += Button_Click;
-                    button.Tag = user.id;
-                    button.FontSize = 15;
-                    ButtonStackPanel.Children.Add(button);
-                }
+                //create a button per user
+                Program.CreateUserButton(userList, ButtonStackPanel, Button_Click, Brushes.White);
             }
             else
             {
+                //if there is no user in the json, then the application opens on the login page
                 LoginForm nouvellePage = new LoginForm();
                 frame.Navigate(nouvellePage);
             }
@@ -41,10 +31,10 @@ namespace Money_Management
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
-            
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            //Redirect to login page
             LoginForm logInPage = new LoginForm();
             frame.Navigate(logInPage);
         }

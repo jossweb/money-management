@@ -15,7 +15,7 @@
                 <SolidColorBrush Color="LightGray" />
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock Text="Erreur : " FontSize="12" x:Name="error" TextAlignment="Center" Margin="16,20,10,80"/>
+        <TextBlock Text="Erreur : " FontSize="12" x:Name="error" TextAlignment="Center" Margin="16,20,16,80"/>
         <Button Content="OK" Click="CloseButton_Click" Margin="150,167,150,26"/>
     </Grid>
 </Window>
