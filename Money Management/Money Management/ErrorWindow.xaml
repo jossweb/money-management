@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="Erreur" Height="220" Width="400">
-    <Window.Resources>
-        <Style TargetType="Window">
-            <Setter Property="Window.BorderBrush" Value="Red" />
-            <Setter Property="Window.BorderThickness" Value="2" />
-        </Style>
-    </Window.Resources>
+        Title="Erreur" Height="250" Width="400"
+        Background="White">
     <Grid>
-        <TextBlock Text="Erreur : " FontSize="12" FontWeight="Bold" x:Name="error" TextAlignment="Left" Margin="138,7,10,120"/>
-        <Button Content="OK" Click="CloseButton_Click" Width="40" Height="20" Margin="76,92,284,92"/>
+        <Rectangle Margin="10,15,10,50">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="LightGray" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Erreur : " FontSize="12" x:Name="error" TextAlignment="Center" Margin="16,20,10,80"/>
+        <Button Content="OK" Click="CloseButton_Click" Margin="150,167,150,26"/>
     </Grid>
 </Window>
