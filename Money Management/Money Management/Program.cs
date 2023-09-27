@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using Azure;
 using System.Net.Mail;
-
+using System.Diagnostics;
 
 namespace Money_Management
 {
@@ -41,6 +41,7 @@ namespace Money_Management
                         else
                         {
                             connection.Close();
+                            Debug.WriteLine("invalid password");
                             return false;
                         }
                     }
@@ -51,9 +52,10 @@ namespace Money_Management
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 connection.Close();
+                Debug.WriteLine("Error : " + ex);
                 return false;
             }
         }
@@ -74,19 +76,22 @@ namespace Money_Management
                     if (count > 0)
                     {
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
+                        Debug.WriteLine("Error : Already existing email");
                         errorWindow.Show();
                         return false;
 
                     }
                     else
                     {
+                        Debug.WriteLine("Success : Unused email");
                         return true;
                     }
 
                 }
-                catch
+                catch (Exception ex)
                 {
                     connection.Close();
+                    Debug.WriteLine("Error : " + ex);
                     return false;
                 }
             }
@@ -100,18 +105,19 @@ namespace Money_Management
                     {
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
                         errorWindow.Show();
+                        Debug.WriteLine("Error : Already existing email");
                         return true;
                     }
                 }
+                Debug.WriteLine("Success : Unused email");
                 return false;
             }
             else 
-            { 
+            {
+                Debug.WriteLine("Error : storage value is not valid");
                 return true; 
             }
-
         }
-
         public static string Hash(string hash)
         {
             using (SHA256 sha256 = SHA256.Create())

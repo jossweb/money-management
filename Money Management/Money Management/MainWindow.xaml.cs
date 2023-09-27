@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,7 +16,6 @@ namespace Money_Management
         private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
     public MainWindow()
         {
-
             InitializeComponent();
             //Get users list from json File
 
