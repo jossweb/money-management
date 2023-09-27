@@ -46,8 +46,11 @@ namespace Money_Management
                     DateTime selectedDate = birthday.Value;
                     if (pass == confirmPass)
                     {
-                        User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
-                        Program.CreateUserSql(connection, newUser, pass);
+                        if (!Program.CheckUserInDbOrInJson(email, "DataBase", connection))
+                        {
+                            User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
+                            Program.CreateUserSql(connection, newUser, pass);
+                        }
                     }
                     else
                     {

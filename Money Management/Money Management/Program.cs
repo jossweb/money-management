@@ -13,6 +13,8 @@ using System.Windows.Controls;
 using System.Diagnostics.Tracing;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using Azure;
+using System.Net.Mail;
 
 
 namespace Money_Management
@@ -21,7 +23,6 @@ namespace Money_Management
     {
         public static bool CheckUser(string query, string password, MySqlConnection connection)
         {
-
             try
             {
                 connection.Open();
@@ -56,6 +57,46 @@ namespace Money_Management
                 return false;
             }
         }
+        public static bool CheckUserInDbOrInJson(string email, string storage, MySqlConnection connection)
+        {
+            if (storage == "DataBase")
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM users WHERE mail = @Email";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    connection.Close();
+                    if (count > 0)
+                    {
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
+                        errorWindow.Show();
+                        return false;
+
+                    }
+                    else
+                    {
+                        return true;
+                    }
+
+                }
+                catch
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+            else 
+            { 
+                return false; 
+            }
+
+        }
+
         public static string Hash(string hash)
         {
             using (SHA256 sha256 = SHA256.Create())
