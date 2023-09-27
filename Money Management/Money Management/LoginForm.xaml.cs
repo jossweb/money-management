@@ -41,22 +41,24 @@ namespace Money_Management
                 if (Program.CheckUser(query, motDePasse, connection))
                 {
                     var user = Program.CreateNewUser(email, connection);
-                    if (user != null)
+
+                    if (userList == null)
                     {
-                        if (userList == null)
-                        {
-                            userList = new List<User>() { user };
-                        }
-                        else 
-                        {
-                            userList.Add(user);
-                        }  
-                        json.SetJsonFromFile(userList);
-                        MainWindow newMainWindow = new MainWindow();
-                        Application.Current.MainWindow.Close();
-                        Application.Current.MainWindow = newMainWindow;
-                        newMainWindow.Show();
+                        userList = new List<User>() { user };
                     }
+                    else 
+                    {
+                        userList.Add(user);
+                    }
+                    if (!Program.CheckUserInDbOrInJson(email, "json", connection))
+                    {
+                        json.SetJsonFromFile(userList);
+                    }
+
+                    MainWindow newMainWindow = new MainWindow();
+                    Application.Current.MainWindow.Close();
+                    Application.Current.MainWindow = newMainWindow;
+                    newMainWindow.Show();
                 }
                 else
                 {

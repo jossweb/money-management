@@ -90,9 +90,24 @@ namespace Money_Management
                     return false;
                 }
             }
+            else if(storage == "json")
+            {
+                List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+                
+                foreach(User user in userList)
+                {
+                    if (user.mail == email)
+                    {
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
+                        errorWindow.Show();
+                        return true;
+                    }
+                }
+                return false;
+            }
             else 
             { 
-                return false; 
+                return true; 
             }
 
         }
@@ -109,6 +124,7 @@ namespace Money_Management
         }
         public static User CreateNewUser(string mail, MySqlConnection connection)
         {
+            connection.Open();
             string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
             MySqlCommand command = new MySqlCommand(query, connection);
             using (MySqlDataReader reader = command.ExecuteReader())
