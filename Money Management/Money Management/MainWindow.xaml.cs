@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,11 +12,13 @@ namespace Money_Management
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+    public MainWindow()
         {
+
             InitializeComponent();
             //Get users list from json File
-            var userList = json.DeserialiseJson(json.GetJsonFromFile());
+
             if (userList != null)
             {
                 //create a button per user
@@ -30,7 +33,9 @@ namespace Money_Management
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            passwordForm checkPasswordWindow = new passwordForm();
+            Button clickedButton = (Button)sender; // Convertir l'expéditeur en bouton
+            int userId = (int)clickedButton.Tag;
+            passwordForm checkPasswordWindow = new passwordForm(userId, userList);
             checkPasswordWindow.Show();
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)

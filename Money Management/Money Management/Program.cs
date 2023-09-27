@@ -115,6 +115,7 @@ namespace Money_Management
             foreach (User user in users)
             {
                 Button button = new Button();
+                button.Name = "UserButton";
                 button.Content = user.name.ToUpper() + " " + user.firstName;
                 button.Width = 250;
                 button.Height = 50;
@@ -148,6 +149,20 @@ namespace Money_Management
             this.birthday = birthday;
             this.accountCreationDate = accountCreationDate;
 
+        }
+        public static User CheckById(int id, List<User> users)
+        {
+            foreach(User user in users)
+            {
+                if (user.id == id)
+                {
+                    return user;
+                }
+            }
+            ErrorWindow errorWindow = new ErrorWindow("Erreur : Impossible de retrouver l'utilisateur");
+            errorWindow.Show();
+            DateTime dateOnly = new DateTime(2023, 1, 1);
+            return new User("XXXXXX", "XXXXXX", "XXXXXX@XXX.XXX", dateOnly, dateOnly);
         }
     }
 

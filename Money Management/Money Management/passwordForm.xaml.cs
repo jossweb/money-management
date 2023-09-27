@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Money_Management
     /// </summary>
     public partial class passwordForm : Window
     {
-        public passwordForm()
+        public passwordForm(int TagUserSelect, List<User> users)
         {
             InitializeComponent();
+            User userSelect = User.CheckById(TagUserSelect, users);
+            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
         }
     }
 }
