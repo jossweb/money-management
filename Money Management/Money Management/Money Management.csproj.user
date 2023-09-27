@@ -13,6 +13,12 @@
     <Compile Update="LoginForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="passwordForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PrincipalForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +31,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="passwordForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PrincipalForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SignUp.xaml">

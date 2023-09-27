@@ -63,3 +63,7 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.baml
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.g.cs
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.baml
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.g.cs
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.g.cs
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.baml
+E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.baml

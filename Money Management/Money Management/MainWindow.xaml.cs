@@ -30,7 +30,8 @@ namespace Money_Management
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            passwordForm checkPasswordWindow = new passwordForm();
+            checkPasswordWindow.Show();
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
