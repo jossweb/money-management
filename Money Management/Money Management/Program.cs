@@ -19,15 +19,13 @@ namespace Money_Management
 {
     class Program
     {
-        public static bool CheckUser(string mail, string password, MySqlConnection connection)
+        public static bool CheckUser(string query, string password, MySqlConnection connection)
         {
 
             try
             {
                 connection.Open();
-                MessageBox.Show("Connecter avec succès");
 
-                string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
@@ -36,23 +34,25 @@ namespace Money_Management
                         string hashPass = reader.GetString("password");
                         if (hashPass == Hash(password))
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Erreur, aucune adresse email correspondant");
+                        connection.Close();
                         return false;
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("Erreur !");
+                connection.Close();
                 return false;
             }
         }

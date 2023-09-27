@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Azure;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,9 +37,9 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                if (Program.CheckUser(email, motDePasse, connection))
+                string query = "SELECT * FROM users WHERE mail = '" + email + "'";
+                if (Program.CheckUser(query, motDePasse, connection))
                 {
-                    MessageBox.Show("Connecté avec succès");
                     var user = Program.CreateNewUser(email, connection);
                     if (user != null)
                     {

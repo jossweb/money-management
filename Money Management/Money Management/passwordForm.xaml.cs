@@ -1,4 +1,5 @@
 ﻿using Azure;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,28 @@ namespace Money_Management
     /// </summary>
     public partial class passwordForm : Window
     {
+        private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
+        private int tag;
         public passwordForm(int TagUserSelect, List<User> users)
         {
             InitializeComponent();
+            tag = TagUserSelect;
             User userSelect = User.CheckById(TagUserSelect, users);
-            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
+            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName; 
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
+            string pass = passbox.Password;
+            string query = "SELECT * FROM users WHERE ID = '" + tag + "'";
+            if (Program.CheckUser(query, pass, connection))
+            {
+                MessageBox.Show("Mot de passe vrai");
+            }
+            else
+            {
+                MessageBox.Show("Mot de passe faux");
+            }
         }
     }
 }

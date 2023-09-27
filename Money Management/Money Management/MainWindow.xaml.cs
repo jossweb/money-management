@@ -33,7 +33,7 @@ namespace Money_Management
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button clickedButton = (Button)sender; // Convertir l'expéditeur en bouton
+            Button clickedButton = (Button)sender;
             int userId = (int)clickedButton.Tag;
             passwordForm checkPasswordWindow = new passwordForm(userId, userList);
             checkPasswordWindow.Show();
