@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace Money_Management
             InitializeComponent();
             tag = TagUserSelect;
             User userSelect = User.CheckById(TagUserSelect, users);
-            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName; 
+            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
+            Debug.WriteLine("info : user select : " + userSelect.mail);
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -37,10 +39,15 @@ namespace Money_Management
             string query = "SELECT * FROM users WHERE ID = '" + tag + "'";
             if (Program.CheckUser(query, pass, connection))
             {
-                MessageBox.Show("Mot de passe vrai");
+                Debug.WriteLine("info : Password is valid");
+                PrincipalForm principalForm = new PrincipalForm();
+                principalForm.Show();
+                this.Close();
+
             }
             else
             {
+                Debug.WriteLine("info : Password is not valid");
                 MessageBox.Show("Mot de passe faux");
             }
         }

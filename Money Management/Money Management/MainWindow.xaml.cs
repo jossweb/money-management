@@ -37,6 +37,7 @@ namespace Money_Management
             int userId = (int)clickedButton.Tag;
             passwordForm checkPasswordWindow = new passwordForm(userId, userList);
             checkPasswordWindow.Show();
+            this.Close();
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {

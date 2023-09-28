@@ -69,7 +69,7 @@ namespace Money_Management {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Money Management;component/passwordform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Money Management;V1.0.0.0;component/passwordform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\passwordForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
