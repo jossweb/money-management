@@ -56,6 +56,8 @@ namespace Money_Management
             {
                 connection.Close();
                 Debug.WriteLine("Error : " + ex);
+                ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n Veuillez vérifier l'état du réseau et réessayer");
+                error.Show();
                 return false;
             }
         }
@@ -75,15 +77,14 @@ namespace Money_Management
                     connection.Close();
                     if (count > 0)
                     {
-                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
-                        Debug.WriteLine("Error : Already existing email");
-                        errorWindow.Show();
+                        
+                        Debug.WriteLine("Already existing email");
                         return false;
 
                     }
                     else
                     {
-                        Debug.WriteLine("Success : Unused email");
+                        Debug.WriteLine("Unused email");
                         return true;
                     }
 
@@ -92,6 +93,9 @@ namespace Money_Management
                 {
                     connection.Close();
                     Debug.WriteLine("Error : " + ex);
+                    ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n " +
+                        "Veuillez vérifier l'état du réseau et réessayer");
+                    error.Show();
                     return false;
                 }
             }
@@ -148,10 +152,11 @@ namespace Money_Management
                         var user = new User(name, firstName, mail, birthday, accountCreationDate, id);
                         return user;
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Erreur création de nouvel user");
-
+                        ErrorWindow error = new ErrorWindow("Erreur de création de l'utilisateur");
+                        error.Show();
+                        Debug.WriteLine("Error : " + ex);
                     }
                 }
                 return null;

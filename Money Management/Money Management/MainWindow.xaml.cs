@@ -13,6 +13,7 @@ namespace Money_Management
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
         private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
     public MainWindow()
         {
@@ -35,9 +36,23 @@ namespace Money_Management
         {
             Button clickedButton = (Button)sender;
             int userId = (int)clickedButton.Tag;
-            passwordForm checkPasswordWindow = new passwordForm(userId, userList);
-            checkPasswordWindow.Show();
-            this.Close();
+            if (!Program.CheckUserInDbOrInJson(User.CheckById(userId, userList).mail, "DataBase", connection))
+            {
+                passwordForm checkPasswordWindow = new passwordForm(userId, userList);
+                checkPasswordWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                userList.Remove(User.CheckById(userId, userList));
+                json.SetJsonFromFile(userList);
+                ErrorWindow Error = new ErrorWindow("Utilisateur introuvable dans la base de donnée !");
+                Error.Show();
+                //refresh Main page
+                MainWindow restartMain = new MainWindow();
+                restartMain.Show();
+                this.Close();
+            }
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {

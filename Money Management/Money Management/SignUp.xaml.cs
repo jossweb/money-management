@@ -51,6 +51,11 @@ namespace Money_Management
                             User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
                             Program.CreateUserSql(connection, newUser, pass);
                         }
+                        else
+                        {
+                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
+                            errorWindow.Show();
+                        }
                     }
                     else
                     {

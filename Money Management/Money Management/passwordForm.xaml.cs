@@ -34,7 +34,6 @@ namespace Money_Management
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
             string pass = passbox.Password;
             string query = "SELECT * FROM users WHERE ID = '" + tag + "'";
             if (Program.CheckUser(query, pass, connection))
@@ -43,7 +42,6 @@ namespace Money_Management
                 PrincipalForm principalForm = new PrincipalForm();
                 principalForm.Show();
                 this.Close();
-
             }
             else
             {
