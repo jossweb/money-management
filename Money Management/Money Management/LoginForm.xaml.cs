@@ -30,6 +30,8 @@ namespace Money_Management
         public LoginForm()
         {
             InitializeComponent();
+            textBoxNomUtilisateur.KeyUp += Enter_keyUp;
+            passwordBoxMotDePasse.KeyUp += Enter_keyUp;
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -83,6 +85,12 @@ namespace Money_Management
             SignUp SignUpPage = new SignUp();
             frame.Navigate(SignUpPage);
         }
-
+        private void Enter_keyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton_Click(sender, e);
+            }
+        }
     }
 }

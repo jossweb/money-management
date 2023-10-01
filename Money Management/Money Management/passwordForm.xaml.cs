@@ -33,7 +33,7 @@ namespace Money_Management
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
             Debug.WriteLine("info : user select : " + userSelect.mail);
 
-            passbox.KeyUp += Passbox_KeyUp;
+            passbox.KeyUp += Enter_keyUp;
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +52,7 @@ namespace Money_Management
                 MessageBox.Show("Mot de passe faux");
             }
         }
-        private void Passbox_KeyUp(object sender, KeyEventArgs e)
+        private void Enter_keyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {

@@ -30,6 +30,11 @@ namespace Money_Management
             InitializeComponent();
             connection.Open();
             DatePickerBirthday.SelectedDate = DateTime.Now;
+            textBoxname.KeyUp += Enter_keyUp;
+            textBoxfirstName.KeyUp += Enter_keyUp;
+            textBoxemail.KeyUp += Enter_keyUp;
+            PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
+            PasswordBoxPassword.KeyUp += Enter_keyUp;
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +82,13 @@ namespace Money_Management
             Application.Current.MainWindow.Close();
             Application.Current.MainWindow = newMainWindow;
             newMainWindow.Show();
+        }
+        private void Enter_keyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton_Click(sender, e);
+            }
         }
     }
 }
