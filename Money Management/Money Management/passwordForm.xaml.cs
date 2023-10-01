@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,6 +32,8 @@ namespace Money_Management
             User userSelect = User.CheckById(TagUserSelect, users);
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
             Debug.WriteLine("info : user select : " + userSelect.mail);
+
+            passbox.KeyUp += Passbox_KeyUp;
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -47,6 +50,13 @@ namespace Money_Management
             {
                 Debug.WriteLine("info : Password is not valid");
                 MessageBox.Show("Mot de passe faux");
+            }
+        }
+        private void Passbox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login_Click(sender, e);
             }
         }
     }
