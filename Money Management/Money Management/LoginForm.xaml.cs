@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
@@ -89,6 +90,7 @@ namespace Money_Management
         {
             if (e.Key == Key.Enter)
             {
+                Debug.WriteLine("Enter touch was activate");
                 LoginButton_Click(sender, e);
             }
         }

@@ -56,6 +56,7 @@ namespace Money_Management
         {
             if (e.Key == Key.Enter)
             {
+                Debug.WriteLine("Enter touch was activate");
                 Login_Click(sender, e);
             }
         }
