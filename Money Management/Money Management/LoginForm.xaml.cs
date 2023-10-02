@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,7 +41,7 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                if ((email.Length <= 50)&&(motDePasse.Length <= 50)&&(!email.Contains(" ")) && (!motDePasse.Contains(" ")))
+                if ((email.Length <= 50)&&(motDePasse.Length <= 50)&&(!email.Contains(" "))&&(!motDePasse.Contains(" ")))
                 {
                     if (Program.CheckUser("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
                     {
@@ -66,18 +67,24 @@ namespace Money_Management
                     }
                     else
                     {
+                        Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
+                        Thread.Sleep(1500);
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
                         errorWindow.Show();
                     }
                 }
                 else
                 {
+                    Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
+                    Thread.Sleep(1500);
                     ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
                     errorWindow.Show();
                 }
             }
             else
             {
+                Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
+                Thread.Sleep(1500);
                 ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
                 errorWindow.Show();
             }
