@@ -79,7 +79,8 @@ namespace Money_Management
                                     }
                                     else
                                     {
-
+                                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
+                                        errorWindow.Show();
                                     }
                                 }
                                 else

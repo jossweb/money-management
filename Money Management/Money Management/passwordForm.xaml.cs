@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,6 +50,7 @@ namespace Money_Management
             else
             {
                 Debug.WriteLine("info : Password is not valid");
+                Thread.Sleep(1500);
                 MessageBox.Show("Mot de passe faux");
             }
         }

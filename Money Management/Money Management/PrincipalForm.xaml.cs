@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using LiveCharts;
+﻿using LiveCharts;
 using LiveCharts.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace Money_Management
 {
@@ -24,7 +14,33 @@ namespace Money_Management
         public PrincipalForm()
         {
             InitializeComponent();
-            
+            var valeurs = new ChartValues<double> { 3, 6, 8, 12, 7 };
+            var étiquettes = new List<string> { "A", "B", "C", "D", "E" };
+
+            // Création du graphique
+            var graphique = new CartesianChart();
+
+            var axeY = new AxesCollection();
+            axeY.Add(new Axis
+            {
+                Title = "Étiquettes",
+                Labels = étiquettes
+            });
+
+            graphique.AxisY = axeY;
+
+            graphique.Series = new SeriesCollection
+            {
+                new RowSeries
+                {
+                    Title = "Valeurs",
+                    Values = valeurs,
+                    DataLabels = true
+                }
+            };
+
+            // Ajout du graphique à la fenêtre
+            Content = graphique;
         }
     }
 }
