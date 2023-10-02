@@ -79,8 +79,7 @@ namespace Money_Management
                                     }
                                     else
                                     {
-                                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
-                                        errorWindow.Show();
+
                                     }
                                 }
                                 else

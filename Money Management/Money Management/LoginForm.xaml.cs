@@ -40,38 +40,46 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                string query = "SELECT * FROM users WHERE mail = '" + email + "'";
-                if (Program.CheckUser(query, motDePasse, connection))
+                if ((email.Length <= 50)&&(motDePasse.Length <= 50)&&(!email.Contains(" ")) && (!motDePasse.Contains(" ")))
                 {
-                    var user = Program.CreateNewUser(email, connection);
+                    if (Program.CheckUser("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
+                    {
+                        var user = Program.CreateNewUser(email, connection);
 
-                    if (userList == null)
-                    {
-                        userList = new List<User>() { user };
-                    }
-                    else 
-                    {
-                        userList.Add(user);
-                    }
-                    if (!Program.CheckUserInDbOrInJson(email, "json", connection))
-                    {
-                        json.SetJsonFromFile(userList);
-                    }
+                        if (userList == null)
+                        {
+                            userList = new List<User>() { user };
+                        }
+                        else
+                        {
+                            userList.Add(user);
+                        }
+                        if (!Program.CheckUserInDbOrInJson(email, "json", connection))
+                        {
+                            json.SetJsonFromFile(userList);
+                        }
 
-                    MainWindow newMainWindow = new MainWindow();
-                    Application.Current.MainWindow.Close();
-                    Application.Current.MainWindow = newMainWindow;
-                    newMainWindow.Show();
+                        MainWindow newMainWindow = new MainWindow();
+                        Application.Current.MainWindow.Close();
+                        Application.Current.MainWindow = newMainWindow;
+                        newMainWindow.Show();
+                    }
+                    else
+                    {
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
+                        errorWindow.Show();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Erreur");
+                    ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
+                    errorWindow.Show();
                 }
-
             }
             else
             {
-                MessageBox.Show("Veuillez remplir tous les champs");
+                ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
+                errorWindow.Show();
             }
         }
         private void BackHome_Click(object sender, RoutedEventArgs e)
