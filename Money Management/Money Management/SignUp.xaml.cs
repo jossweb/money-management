@@ -26,6 +26,7 @@ namespace Money_Management
     public partial class SignUp : Page
     {
         public MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
+
         public SignUp()
         {
             InitializeComponent();
@@ -36,9 +37,14 @@ namespace Money_Management
             textBoxemail.KeyUp += Enter_keyUp;
             PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
             PasswordBoxPassword.KeyUp += Enter_keyUp;
+
+
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            var textBoxs = new List<TextBox> { textBoxname, textBoxfirstName, textBoxemail };
+            var passBoxs = new List<PasswordBox> { PasswordBoxPassword, PasswordBoxpasswordValidation };
+
             if (!string.IsNullOrWhiteSpace(textBoxname.Text) && !string.IsNullOrWhiteSpace(textBoxfirstName.Text) &&
                 !string.IsNullOrWhiteSpace(textBoxemail.Text) && !string.IsNullOrWhiteSpace(PasswordBoxPassword.Password) &&
                 !string.IsNullOrWhiteSpace(PasswordBoxpasswordValidation.Password)) 
@@ -62,27 +68,37 @@ namespace Money_Management
 
                             DateTime? birthday = DatePickerBirthday.SelectedDate;
                             DateTime selectedDate = birthday.Value;
-                            if (pass == confirmPass)
+                            if (email.Contains("@"))
                             {
-                                if (!Program.CheckUserInDbOrInJson(email, "DataBase", connection))
+                                if (pass == confirmPass)
                                 {
-                                    User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
-                                    Program.CreateUserSql(connection, newUser, pass);
+                                    if (!Program.CheckUserInDbOrInJson(email, "DataBase", connection))
+                                    {
+                                        User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
+                                        Program.CreateUserSql(connection, newUser, pass);
+                                    }
+                                    else
+                                    {
+                                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
+                                        errorWindow.Show();
+                                    }
                                 }
                                 else
                                 {
-                                    ErrorWindow errorWindow = new ErrorWindow("Erreur : Email déjà utilisé");
+                                    ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
                                     errorWindow.Show();
                                 }
                             }
                             else
                             {
-                                ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
+                                ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez entrer une véritable adresse email");
                                 errorWindow.Show();
                             }
                         }
                         catch (Exception ex)
                         {
+                            Program.RemoveText(textBoxs, passBoxs);
+                            Debug.WriteLine("Text Field reset");
                             Debug.WriteLine("Error" + ex);
                             ErrorWindow errorWindow = new ErrorWindow("Erreur : Connection au serveur échoué ...");
                             errorWindow.Show();
@@ -90,6 +106,7 @@ namespace Money_Management
                     }
                     else
                     {
+                        Program.RemoveText(textBoxs, passBoxs);
                         Debug.WriteLine("Error : field text can't contain text");
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : Les champs ne peuvent pas contenir d'espace");
                         errorWindow.Show();
@@ -97,6 +114,7 @@ namespace Money_Management
                 }
                 else
                 {
+                    Program.RemoveText(textBoxs, passBoxs);
                     Debug.WriteLine("Error : User to enter more than 50 character");
                     ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez ne pas dépasser 50 caractères par champs");
                     errorWindow.Show();
@@ -105,6 +123,7 @@ namespace Money_Management
             }
             else
             {
+                Program.RemoveText(textBoxs, passBoxs);
                 Debug.WriteLine("Error : All texts field was not completed");
                 ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez remplir tous les champs");
                 errorWindow.Show();

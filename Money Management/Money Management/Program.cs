@@ -16,6 +16,7 @@ using System.Windows.Media.Media3D;
 using Azure;
 using System.Net.Mail;
 using System.Diagnostics;
+using MySqlX.XDevAPI.CRUD;
 
 namespace Money_Management
 {
@@ -193,6 +194,23 @@ namespace Money_Management
                 button.FontSize = 15;
                 button.Margin = new Thickness(0, 5, 0, 5);
                 UserButtonPanel.Children.Add(button);
+            }
+        }
+        public static void RemoveText(List<TextBox> TextBoxList, List<PasswordBox> PassBoxList)
+        {
+            if (TextBoxList != null)
+            {
+                foreach (TextBox textBox in TextBoxList)
+                {
+                    textBox.Text = "";
+                }
+            }
+            if (PassBoxList != null)
+            {
+                foreach (PasswordBox passwordBox in PassBoxList)
+                {
+                    passwordBox.Password = "Password";
+                }
             }
         }
     }
