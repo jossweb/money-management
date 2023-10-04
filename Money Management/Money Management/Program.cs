@@ -17,6 +17,8 @@ using Azure;
 using System.Net.Mail;
 using System.Diagnostics;
 using MySqlX.XDevAPI.CRUD;
+using LiveCharts.Wpf;
+using LiveCharts;
 
 namespace Money_Management
 {
@@ -212,6 +214,38 @@ namespace Money_Management
                     passwordBox.Password = "Password";
                 }
             }
+        }
+    }
+    public class graphics
+    {
+        public static CartesianChart CartesianGraphique(ChartValues<double> value, List<string> label)
+        {
+            var graphic = new CartesianChart();
+
+            var axeX = new AxesCollection();
+            axeX.Add(new Axis
+            {
+                Title = "label",
+                Labels = label
+            });
+
+            graphic.AxisX = axeX;
+
+            graphic.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "value",
+                    Values = value,
+                    DataLabels = true,
+                    Fill = new SolidColorBrush(Colors.Red)
+                }
+            };
+
+            graphic.Width = 500;
+            graphic.Height = 200;
+
+            return graphic;
         }
     }
 

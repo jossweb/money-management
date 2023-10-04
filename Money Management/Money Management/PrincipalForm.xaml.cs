@@ -16,46 +16,69 @@ namespace Money_Management
         public PrincipalForm()
         {
             InitializeComponent();
-            var valeurs = new ChartValues<double> { 3, 6, 8, 12, 7 };
-            var étiquettes = new List<string> { "A", "B", "C", "D", "E" };
+            var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 1700, 1400 };
+            var étiquettes = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
-            // Création du graphique
-            var graphique = new CartesianChart();
-
-            var axeX = new AxesCollection();
-            axeX.Add(new Axis
-            {
-                Title = "Étiquettes",
-                Labels = étiquettes
-            });
-
-            graphique.AxisX = axeX;
-
-            graphique.Series = new SeriesCollection
-            {
-                new ColumnSeries // Utilisation de ColumnSeries pour un graphique à barres verticales
-                {
-                    Title = "Valeurs",
-                    Values = valeurs,
-                    DataLabels = true,
-                    Fill = new SolidColorBrush(Colors.Red) // Changement de la couleur des barres
-                }
-            };
-
-            // Création d'une grille pour centrer le graphique
             var grille = new Grid();
+            grille.Height = 800;
+            grille.Width = 1500;
             grille.HorizontalAlignment = HorizontalAlignment.Center;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
-            // Ajout du graphique à la grille
-            grille.Children.Add(graphique);
 
-            // Ajout de la grille à la fenêtre
+            grille.Children.Add(graphics.CartesianGraphique(valeurs, étiquettes));
+
             Content = grille;
 
-            // Définir la taille du graphique
-            graphique.Width = 400; // Ajustez la taille selon vos besoins
-            graphique.Height = 300; // Ajustez la taille selon vos besoins
+            Label label = new Label();
+            label.Content = "Hello World";
+            label.HorizontalAlignment = HorizontalAlignment.Center;
+            label.VerticalAlignment = VerticalAlignment.Top;
+            grille.Children.Add(label);
+
+
+
+            var données = new ChartValues<int> { 80 };
+
+
+            // Création du graphique circulaire
+            var graphique = new PieChart
+            {
+                Series = new SeriesCollection
+                {
+                    new PieSeries
+                    {
+                        Title = "Catégorie A",
+                        Values = données,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Red)
+                    },
+                    new PieSeries
+                    {
+                        Title = "Catégorie B",
+                        Values = données,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Blue)
+                    },
+                    new PieSeries
+                    {
+                        Title = "Catégorie C",
+                        Values = données,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Green)
+                    }
+                },
+
+            };
+            graphique.Width = 400;
+            graphique.Height = 300;
+
+            //Content = graphique;
+
+
+            grille.Children.Add(graphique);
+
+
         }
     }
 }
