@@ -28,17 +28,19 @@ namespace Money_Management
 
             grille.Children.Add(graphics.CartesianGraphique(valeurs, étiquettes));
 
-            Content = grille;
+            
 
             Label label = new Label();
             label.Content = "Hello World";
             label.HorizontalAlignment = HorizontalAlignment.Left;
-            label.VerticalAlignment = VerticalAlignment.Bottom;
+            label.VerticalAlignment = VerticalAlignment.Top;
             grille.Children.Add(label);
 
 
             var pieChart = graphics.CreatePieChart(new ChartValues<int> { 80 });
             grille.Children.Add(pieChart);
+
+            Content = grille;
 
 
         }

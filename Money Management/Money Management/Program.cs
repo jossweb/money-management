@@ -19,6 +19,7 @@ using System.Diagnostics;
 using MySqlX.XDevAPI.CRUD;
 using LiveCharts.Wpf;
 using LiveCharts;
+using LiveCharts.Definitions.Charts;
 
 namespace Money_Management
 {
@@ -242,8 +243,9 @@ namespace Money_Management
                 }
             };
 
-            graphic.Width = 500;
-            graphic.Height = 200;
+            graphic.Width = 550;
+            graphic.Height = 300;
+            graphic.Margin = new Thickness(0, 450, 950, 0);
 
             return graphic;
         }
