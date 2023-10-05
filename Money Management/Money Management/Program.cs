@@ -247,6 +247,42 @@ namespace Money_Management
 
             return graphic;
         }
+        public static PieChart CreatePieChart(ChartValues<int> data)
+        {
+            var pieChart = new PieChart
+            {
+                Series = new SeriesCollection
+                {
+                    new PieSeries
+                    {
+                        Title = "Catégorie A",
+                        Values = data,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Red)
+                    },
+                    new PieSeries
+                    {
+                        Title = "Catégorie B",
+                        Values = data,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Blue)
+                    },
+                    new PieSeries
+                    {
+                        Title = "Catégorie C",
+                        Values = data,
+                        DataLabels = true,
+                        Fill = new SolidColorBrush(Colors.Green)
+                    }
+                },
+
+            };
+            pieChart.Width = 300;
+            pieChart.Height = 300;
+            pieChart.Margin = new Thickness(0, 400, 0, 0);
+
+            return pieChart;
+        }
     }
 
     public class User
