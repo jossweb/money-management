@@ -268,14 +268,14 @@ namespace Money_Management
                 new LineSeries // Utilisation de LineSeries pour un graphique en ligne
                 {
                     Title = "euros",
-                    Values = Value,
-                    Fill = new SolidColorBrush(Color.FromArgb(255, 255, 165, 0))
+                    Values = Value ,
+                    Stroke = new SolidColorBrush(Colors.Orange)
                 }
             };
 
             graphique.Width = 1400;
             graphique.Height = 400;
-            graphique.Margin = new Thickness(0, 275, 0, 0);
+            graphique.Margin = new Thickness(0, 300, 0, 0);
             return graphique;
         }
         public static PieChart CreatePieChart(ChartValues<int> data)

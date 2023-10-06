@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using static System.Net.WebRequestMethods;
 
 namespace Money_Management
@@ -44,6 +45,36 @@ namespace Money_Management
             grille.Children.Add(graphics.CreateCartesianChart(valeurs, étiquettes));
 
             //grille.Children.Add(graphics.CreatePieChart(new ChartValues<int> { 80 }));
+
+            var rectangle = new Rectangle();
+            rectangle.Width = 1200;
+            rectangle.Height = 250;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
+            rectangle.VerticalAlignment = VerticalAlignment.Top;
+            rectangle.Stroke = Brushes.Orange;
+            rectangle.StrokeThickness = 3;
+            rectangle.Margin = new Thickness(0,110,0,0);
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            grille.Children.Add(rectangle);
+
+            var largeurDivision = rectangle.Width / 3;
+
+            var posY = rectangle.Margin.Top;
+
+            // Créer les lignes verticales pour diviser le rectangle
+            for (int i = 1; i <= 2; i++)
+            {
+                var ligne = new Line();
+                ligne.Stroke = Brushes.Orange;
+                ligne.StrokeThickness = 3;
+                ligne.X1 = i * largeurDivision;
+                ligne.X2 = i * largeurDivision;
+                ligne.Y1 = posY;
+                ligne.Y2 = posY + rectangle.Height;
+
+                grille.Children.Add(ligne);
+            }
 
             Content = grille;
 
