@@ -20,6 +20,7 @@ using MySqlX.XDevAPI.CRUD;
 using LiveCharts.Wpf;
 using LiveCharts;
 using LiveCharts.Definitions.Charts;
+using System.Reflection.Metadata;
 
 namespace Money_Management
 {
@@ -243,11 +244,39 @@ namespace Money_Management
                 }
             };
 
-            graphic.Width = 550;
+            graphic.Width = 500;
             graphic.Height = 300;
             graphic.Margin = new Thickness(0, 450, 950, 0);
 
             return graphic;
+        }
+        public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name)
+        {
+            var graphique = new CartesianChart();
+
+            var axeX = new AxesCollection();
+            axeX.Add(new Axis
+            {
+                Title = "Solde sur les 30 derniers jours",
+                Labels = name
+            });
+
+            graphique.AxisX = axeX; // Utilisation de l'axe X
+
+            graphique.Series = new SeriesCollection
+            {
+                new LineSeries // Utilisation de LineSeries pour un graphique en ligne
+                {
+                    Title = "euros",
+                    Values = Value,
+                    Fill = new SolidColorBrush(Color.FromArgb(255, 255, 165, 0))
+                }
+            };
+
+            graphique.Width = 1400;
+            graphique.Height = 400;
+            graphique.Margin = new Thickness(0, 275, 0, 0);
+            return graphique;
         }
         public static PieChart CreatePieChart(ChartValues<int> data)
         {
