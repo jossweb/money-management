@@ -19,7 +19,17 @@ namespace Money_Management
         {
             InitializeComponent();
             //Get users list from json File
-
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error : " + ex);
+                ErrorWindow connectionError = new ErrorWindow("Erreur: impossible de vous connecter au serveur sql");
+                connectionError.Show();
+                this.Close();
+            }
             if (userList != null)
             {
                 //create a button per user
@@ -57,7 +67,7 @@ namespace Money_Management
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             //Redirect to login page
-            LoginForm logInPage = new LoginForm();
+            LoginForm logInPage = new LoginForm(connection);
             frame.Navigate(logInPage);
         }
     }

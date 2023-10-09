@@ -275,7 +275,7 @@ namespace Money_Management
 
             graphique.Width = 1400;
             graphique.Height = 400;
-            graphique.Margin = new Thickness(0, 300, 0, 0);
+            graphique.Margin = new Thickness(0, 400, 0, 0);
             return graphique;
         }
         public static PieChart CreatePieChart(ChartValues<int> data)

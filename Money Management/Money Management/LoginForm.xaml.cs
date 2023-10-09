@@ -29,7 +29,7 @@ namespace Money_Management
     {
         private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
         private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
-        public LoginForm()
+        public LoginForm(MySqlConnection connection)
         {
             InitializeComponent();
             textBoxNomUtilisateur.KeyUp += Enter_keyUp;
