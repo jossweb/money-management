@@ -1,5 +1,6 @@
 ﻿using Azure;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls.Crypto;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,11 +28,12 @@ namespace Money_Management
     /// </summary>
     public partial class LoginForm : Page
     {
-        private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
         private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+        private MySqlConnection connection;
         public LoginForm(MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
             textBoxNomUtilisateur.KeyUp += Enter_keyUp;
             passwordBoxMotDePasse.KeyUp += Enter_keyUp;
         }
@@ -41,8 +43,6 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                if ((email.Length <= 50)&&(motDePasse.Length <= 50)&&(!email.Contains(" "))&&(!motDePasse.Contains(" ")))
-                {
                     if (Program.CheckUser("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
                     {
                         var user = Program.CreateNewUser(email, connection);
@@ -72,14 +72,6 @@ namespace Money_Management
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
                         errorWindow.Show();
                     }
-                }
-                else
-                {
-                    Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
-                    Thread.Sleep(1500);
-                    ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
-                    errorWindow.Show();
-                }
             }
             else
             {
@@ -98,7 +90,7 @@ namespace Money_Management
         }
         private void SignUp_Button(object sender, RoutedEventArgs e)
         {
-            SignUp SignUpPage = new SignUp();
+            SignUp SignUpPage = new SignUp(connection);
             frame.Navigate(SignUpPage);
         }
         private void Enter_keyUp(object sender, KeyEventArgs e)

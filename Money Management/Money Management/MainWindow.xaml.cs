@@ -38,7 +38,7 @@ namespace Money_Management
             else
             {
                 //if there is no user in the json, then the application opens on the login page
-                LoginForm nouvellePage = new LoginForm();
+                LoginForm nouvellePage = new LoginForm(connection);
                 frame.Navigate(nouvellePage);
             }
         }
@@ -48,7 +48,7 @@ namespace Money_Management
             int userId = (int)clickedButton.Tag;
             if (!Program.CheckUserInDbOrInJson(User.CheckById(userId, userList).mail, "DataBase", connection))
             {
-                passwordForm checkPasswordWindow = new passwordForm(userId, userList);
+                passwordForm checkPasswordWindow = new passwordForm(userId, userList, connection);
                 checkPasswordWindow.Show();
                 this.Close();
             }

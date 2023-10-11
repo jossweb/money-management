@@ -25,12 +25,12 @@ namespace Money_Management
     /// </summary>
     public partial class SignUp : Page
     {
-        public MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
+        private MySqlConnection connection;
 
-        public SignUp()
+        public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
-            connection.Open();
+            this.connection = connection;
             DatePickerBirthday.SelectedDate = DateTime.Now;
             textBoxname.KeyUp += Enter_keyUp;
             textBoxfirstName.KeyUp += Enter_keyUp;
@@ -59,10 +59,6 @@ namespace Money_Management
                     (email.Length < 50) && (pass.Length < 50) &&
                     (confirmPass.Length < 50))
                 {
-                    if ((name.Contains(" ")) && (firstName.Contains(" ")) &&
-                    (email.Contains(" ") && (pass.Contains(" ")) &&
-                    (confirmPass.Contains(" "))))
-                    {
                         try
                         {
 
@@ -72,7 +68,7 @@ namespace Money_Management
                             {
                                 if (pass == confirmPass)
                                 {
-                                    if (!Program.CheckUserInDbOrInJson(email, "DataBase", connection))
+                                    if (Program.CheckUserInDbOrInJson(email, "DataBase", connection))
                                     {
                                         User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
                                         Program.CreateUserSql(connection, newUser, pass);
@@ -103,14 +99,6 @@ namespace Money_Management
                             ErrorWindow errorWindow = new ErrorWindow("Erreur : Connection au serveur échoué ...");
                             errorWindow.Show();
                         }
-                    }
-                    else
-                    {
-                        Program.RemoveText(textBoxs, passBoxs);
-                        Debug.WriteLine("Error : field text can't contain text");
-                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Les champs ne peuvent pas contenir d'espace");
-                        errorWindow.Show();
-                    }
                 }
                 else
                 {

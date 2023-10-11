@@ -24,11 +24,12 @@ namespace Money_Management
     /// </summary>
     public partial class passwordForm : Window
     {
-        private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
+        private MySqlConnection connection;
         private int tag;
-        public passwordForm(int TagUserSelect, List<User> users)
+        public passwordForm(int TagUserSelect, List<User> users, MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
             tag = TagUserSelect;
             User userSelect = User.CheckById(TagUserSelect, users);
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;

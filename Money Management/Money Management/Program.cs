@@ -21,6 +21,7 @@ using LiveCharts.Wpf;
 using LiveCharts;
 using LiveCharts.Definitions.Charts;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 
 namespace Money_Management
 {
@@ -30,7 +31,6 @@ namespace Money_Management
         {
             try
             {
-                connection.Open();
 
                 MySqlCommand command = new MySqlCommand(query, connection);
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -40,26 +40,22 @@ namespace Money_Management
                         string hashPass = reader.GetString("password");
                         if (hashPass == Hash(password))
                         {
-                            connection.Close();
                             return true;
                         }
                         else
                         {
-                            connection.Close();
                             Debug.WriteLine("invalid password");
                             return false;
                         }
                     }
                     else
                     {
-                        connection.Close();
                         return false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                connection.Close();
                 Debug.WriteLine("Error : " + ex);
                 ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n Veuillez vérifier l'état du réseau et réessayer");
                 error.Show();
@@ -72,14 +68,11 @@ namespace Money_Management
             {
                 try
                 {
-                    connection.Open();
-
                     string query = "SELECT COUNT(*) FROM users WHERE mail = @Email";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Email", email);
 
                     int count = Convert.ToInt32(command.ExecuteScalar());
-                    connection.Close();
                     if (count > 0)
                     {
                         
@@ -96,7 +89,6 @@ namespace Money_Management
                 }
                 catch (Exception ex)
                 {
-                    connection.Close();
                     Debug.WriteLine("Error : " + ex);
                     ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n " +
                         "Veuillez vérifier l'état du réseau et réessayer");
@@ -175,7 +167,13 @@ namespace Money_Management
             int rowsAffected = command.ExecuteNonQuery();
             if (rowsAffected > 0)
             {
-                MessageBox.Show("Créer avec succes");
+                
+                
+                MainWindow main = new MainWindow();
+                main.Show();
+                ErrorWindow error = new ErrorWindow("Inscrit avec success !");
+                error.Show();
+                System.Windows.Application.Current.MainWindow.Close();
             }
             else
             {
@@ -261,11 +259,11 @@ namespace Money_Management
                 Labels = name
             });
 
-            graphique.AxisX = axeX; // Utilisation de l'axe X
+            graphique.AxisX = axeX;
 
             graphique.Series = new SeriesCollection
             {
-                new LineSeries // Utilisation de LineSeries pour un graphique en ligne
+                new LineSeries
                 {
                     Title = "euros",
                     Values = Value ,
