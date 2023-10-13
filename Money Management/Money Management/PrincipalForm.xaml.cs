@@ -45,16 +45,15 @@ namespace Money_Management
             label.FontSize = 50;
             grille.Children.Add(label);
 
-            grille.Children.Add(graphics.CreateCartesianChart(valeurs, étiquettes));
-
-            //grille.Children.Add(graphics.CreatePieChart(new ChartValues<int> { 80 }));
-
+            int marginTopGraphic = 100;
+            var graphic = graphics.CreateCartesianChart(valeurs, étiquettes, marginTopGraphic);
+            grille.Children.Add(graphic);
+            grille.Children.Add(graphics.CreateCartesianChart(valeurs, étiquettes, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == little space between two graphics
             Rectangle rectangle = Program.CreateRectangle();
 
             grille.Children.Add(rectangle);
 
             var nombreDeDivisions = 3;
-            var largeurDivision = rectangle.Width / nombreDeDivisions;
 
             var posY = rectangle.Margin.Top;
 
@@ -65,8 +64,8 @@ namespace Money_Management
                 ligne.StrokeThickness = 3;
                 ligne.X1 = rectangle.Margin.Left;
                 ligne.X2 = rectangle.Margin.Left + rectangle.Width;
-                ligne.Y1 = rectangle.Margin.Top + (rectangle.Height / 3) * i;
-                ligne.Y2 = rectangle.Margin.Top + (rectangle.Height / 3) * i;
+                ligne.Y1 = posY + (rectangle.Height / 3) * i;
+                ligne.Y2 = posY + (rectangle.Height / 3) * i;
                 grille.Children.Add(ligne);
             }
 

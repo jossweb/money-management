@@ -267,7 +267,7 @@ namespace Money_Management
 
             return graphic;
         }
-        public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name)
+        public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name, int marginTop)
         {
             var graphique = new CartesianChart();
 
@@ -291,9 +291,9 @@ namespace Money_Management
             };
             graphique.HorizontalAlignment = HorizontalAlignment.Right;
             graphique.VerticalAlignment = VerticalAlignment.Top;
-            graphique.Width = 600;
-            graphique.Height = 250;
-            graphique.Margin = new Thickness(0, 100, 70, 0);
+            graphique.Width = 550;
+            graphique.Height = 230;
+            graphique.Margin = new Thickness(0, marginTop, 70, 0);
             return graphique;
         }
         public static PieChart CreatePieChart(ChartValues<int> data)
