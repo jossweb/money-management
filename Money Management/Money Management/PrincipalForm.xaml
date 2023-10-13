@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Money_Management"
         mc:Ignorable="d"
-        Title="Money Management" Height="900" Width="1500"
+        Title="Money Management" Height="900" Width="1700"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Background="White">
     <Grid/>
 </Window>

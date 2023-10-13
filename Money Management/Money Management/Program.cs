@@ -22,11 +22,30 @@ using LiveCharts;
 using LiveCharts.Definitions.Charts;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
+using LiveCharts.Dtos;
+using System.Windows.Shapes;
+using static System.Net.WebRequestMethods;
 
 namespace Money_Management
 {
     class Program
     {
+        public static Rectangle CreateRectangle()
+        {
+            var rectangle = new Rectangle();
+            rectangle.Width = 400;
+            rectangle.Height = 700;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
+            rectangle.VerticalAlignment = VerticalAlignment.Top;
+            rectangle.Stroke = Brushes.Gray;
+            rectangle.StrokeThickness = 3;
+            rectangle.Margin = new Thickness(70, 110, 0, 0);
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            Color backgroundColor = Color.FromArgb(80, 180, 180, 180);
+            rectangle.Fill = new SolidColorBrush(backgroundColor);
+            return rectangle;
+        }
         public static bool CheckUser(string query, string password, MySqlConnection connection)
         {
             try
@@ -267,13 +286,14 @@ namespace Money_Management
                 {
                     Title = "euros",
                     Values = Value ,
-                    Stroke = new SolidColorBrush(Colors.Orange)
+                    Stroke = new SolidColorBrush(Colors.Gray)
                 }
             };
-
-            graphique.Width = 1400;
-            graphique.Height = 400;
-            graphique.Margin = new Thickness(0, 400, 0, 0);
+            graphique.HorizontalAlignment = HorizontalAlignment.Right;
+            graphique.VerticalAlignment = VerticalAlignment.Top;
+            graphique.Width = 600;
+            graphique.Height = 250;
+            graphique.Margin = new Thickness(0, 100, 70, 0);
             return graphique;
         }
         public static PieChart CreatePieChart(ChartValues<int> data)

@@ -1,5 +1,7 @@
 ﻿using LiveCharts;
+using LiveCharts.Dtos;
 using LiveCharts.Wpf;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -25,8 +27,8 @@ namespace Money_Management
 
             var grille = new Grid();
             grille.Height = 900;
-            grille.Width = 1500;
-            grille.HorizontalAlignment = HorizontalAlignment.Center;
+            grille.Width = 1700;
+            grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
 
@@ -39,6 +41,7 @@ namespace Money_Management
             label.HorizontalAlignment = HorizontalAlignment.Center;
             label.HorizontalAlignment = HorizontalAlignment.Center;
             label.VerticalAlignment = VerticalAlignment.Top;
+            label.Margin = new Thickness(0, 20, 0, 0);
             label.FontSize = 50;
             grille.Children.Add(label);
 
@@ -46,16 +49,8 @@ namespace Money_Management
 
             //grille.Children.Add(graphics.CreatePieChart(new ChartValues<int> { 80 }));
 
-            var rectangle = new Rectangle();
-            rectangle.Width = 1200;
-            rectangle.Height = 250;
-            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
-            rectangle.VerticalAlignment = VerticalAlignment.Top;
-            rectangle.Stroke = Brushes.Black;
-            rectangle.StrokeThickness = 3;
-            rectangle.Margin = new Thickness(0, 110, 0, 0);
-            rectangle.RadiusX = 10;
-            rectangle.RadiusY = 10;
+            Rectangle rectangle = Program.CreateRectangle();
+
             grille.Children.Add(rectangle);
 
             var nombreDeDivisions = 3;
@@ -66,12 +61,12 @@ namespace Money_Management
             for (int i = 1; i < nombreDeDivisions; i++)
             {
                 var ligne = new Line();
-                ligne.Stroke = Brushes.Black;
+                ligne.Stroke = Brushes.Gray;
                 ligne.StrokeThickness = 3;
-                ligne.X1 = i * largeurDivision + (grille.Width - rectangle.Width) / 2;
-                ligne.X2 = i * largeurDivision + (grille.Width - rectangle.Width) / 2;
-                ligne.Y1 = posY;
-                ligne.Y2 = posY + rectangle.Height;
+                ligne.X1 = rectangle.Margin.Left;
+                ligne.X2 = rectangle.Margin.Left + rectangle.Width;
+                ligne.Y1 = rectangle.Margin.Top + (rectangle.Height / 3) * i;
+                ligne.Y2 = rectangle.Margin.Top + (rectangle.Height / 3) * i;
                 grille.Children.Add(ligne);
             }
 
