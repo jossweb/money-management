@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using static System.Net.WebRequestMethods;
+using System.Runtime.InteropServices;
 
 namespace Money_Management
 {
@@ -19,18 +20,26 @@ namespace Money_Management
     public partial class PrincipalForm : Window
     {
         MySqlConnection connection;
+        [DllImport("user32.dll")]
+        public static extern int GetSystemMetrics(int nIndex);
+
+        public const int SM_CXSCREEN = 0;
+        public const int SM_CYSCREEN = 1;
         public PrincipalForm(User userConnected, MySqlConnection connection)
         {
             InitializeComponent();
             this.connection = connection;
+            int largeurEcran = GetSystemMetrics(SM_CXSCREEN);
+            int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
+            int resolution = largeurEcran / hauteurEcran;
             var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 
                 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, };
             var étiquettes = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
                 "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" };
 
             var grille = new Grid();
-            grille.Height = 900;
-            grille.Width = 1700;
+            grille.Height = 800;
+            grille.Width = 1500;
             grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
@@ -41,7 +50,6 @@ namespace Money_Management
 
             Label label = new Label();
             label.Content = userConnected.name + " " + userConnected.firstName;
-            label.HorizontalAlignment = HorizontalAlignment.Center;
             label.HorizontalAlignment = HorizontalAlignment.Center;
             label.VerticalAlignment = VerticalAlignment.Top;
             label.Margin = new Thickness(0, 20, 0, 0);

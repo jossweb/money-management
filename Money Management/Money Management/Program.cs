@@ -33,8 +33,8 @@ namespace Money_Management
         public static Rectangle CreateRectangle()
         {
             var rectangle = new Rectangle();
-            rectangle.Width = 400;
-            rectangle.Height = 700;
+            rectangle.Width = 300;
+            rectangle.Height = 600;
             rectangle.HorizontalAlignment = HorizontalAlignment.Left;
             rectangle.VerticalAlignment = VerticalAlignment.Top;
             rectangle.Stroke = Brushes.Gray;
@@ -242,7 +242,7 @@ namespace Money_Management
             moneyTitle.Content = "Montant disponible sur votre compte :";
             moneyTitle.HorizontalAlignment = HorizontalAlignment.Left;
             moneyTitle.VerticalAlignment = VerticalAlignment.Top;
-            moneyTitle.Margin = new Thickness(120, 110, 0, 0);
+            moneyTitle.Margin = new Thickness(90, 110, 0, 0);
             moneyTitle.FontSize = 15;
             grille.Children.Add(moneyTitle);
 
@@ -251,7 +251,7 @@ namespace Money_Management
             money.Content = Sql.GetAccountFunds(userConnected.id, connection) + " €";
             money.HorizontalAlignment = HorizontalAlignment.Left;
             money.VerticalAlignment = VerticalAlignment.Top;
-            money.Margin = new Thickness(200, 200, 0, 0);
+            money.Margin = new Thickness(180, 200, 0, 0);
             money.FontSize = 50;
             grille.Children.Add(money);
         }
