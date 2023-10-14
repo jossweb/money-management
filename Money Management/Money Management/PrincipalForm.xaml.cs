@@ -31,22 +31,33 @@ namespace Money_Management
             this.connection = connection;
             int largeurEcran = GetSystemMetrics(SM_CXSCREEN);
             int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
-            int resolution = largeurEcran / hauteurEcran;
-            var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 
+            var grille = new Grid();
+
+            if (largeurEcran > 2000)
+            {
+                this.Height = 800;
+                this.Width = 1500;
+
+                grille.Height = 800;
+                grille.Width = 1500;
+            }
+            else
+            {
+                this.Height = 750;
+                this.Width = 1200;
+
+                grille.Height = 750;
+                grille.Width = 1200;
+            }
+            var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150,
                 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, };
             var étiquettes = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
                 "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" };
 
-            var grille = new Grid();
-            grille.Height = 800;
-            grille.Width = 1500;
+
             grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
-
-            //grille.Children.Add(graphics.CartesianGraphique(valeurs, étiquettes));
-
-            
 
             Label label = new Label();
             label.Content = userConnected.name + " " + userConnected.firstName;
