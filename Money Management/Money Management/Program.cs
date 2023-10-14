@@ -119,14 +119,17 @@ namespace Money_Management
             {
                 List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
                 
-                foreach(User user in userList)
+                if (userList != null)
                 {
-                    if (user.mail == email)
+                    foreach (User user in userList)
                     {
-                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
-                        errorWindow.Show();
-                        Debug.WriteLine("Error : Already existing email");
-                        return true;
+                        if (user.mail == email)
+                        {
+                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
+                            errorWindow.Show();
+                            Debug.WriteLine("Error : Already existing email");
+                            return true;
+                        }
                     }
                 }
                 Debug.WriteLine("Success : Unused email");
@@ -150,7 +153,6 @@ namespace Money_Management
         }
         public static User CreateNewUser(string mail, MySqlConnection connection)
         {
-            connection.Open();
             string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
             MySqlCommand command = new MySqlCommand(query, connection);
             using (MySqlDataReader reader = command.ExecuteReader())
@@ -233,6 +235,25 @@ namespace Money_Management
                     passwordBox.Password = "Password";
                 }
             }
+        }
+        public static void InsertLabel(Grid grille, MySqlConnection connection, User userConnected)
+        {
+            Label moneyTitle = new Label();
+            moneyTitle.Content = "Montant disponible sur votre compte :";
+            moneyTitle.HorizontalAlignment = HorizontalAlignment.Left;
+            moneyTitle.VerticalAlignment = VerticalAlignment.Top;
+            moneyTitle.Margin = new Thickness(120, 110, 0, 0);
+            moneyTitle.FontSize = 15;
+            grille.Children.Add(moneyTitle);
+
+
+            Label money = new Label();
+            money.Content = Sql.GetAccountFunds(userConnected.id, connection) + " €";
+            money.HorizontalAlignment = HorizontalAlignment.Left;
+            money.VerticalAlignment = VerticalAlignment.Top;
+            money.Margin = new Thickness(200, 200, 0, 0);
+            money.FontSize = 50;
+            grille.Children.Add(money);
         }
     }
     public class graphics
@@ -333,9 +354,44 @@ namespace Money_Management
             return pieChart;
         }
     }
+    public class Sql
+    {
+        public static int GetAccountFunds(int id, MySqlConnection connection)
+        {
+            string query = "SELECT money_on_account FROM data_money WHERE ID_user = '" + id + "'";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    try
+                    {
+                        int money_in_eu = int.Parse(reader.GetString("money_on_account"));
+                        return money_in_eu;
+                    }
+                    catch (Exception ex) 
+                    { 
+                        ErrorWindow error = new ErrorWindow("Erreur : Erreur récupération données");
+                        error.Show();
+                        Debug.WriteLine(ex.Message);
+                        System.Windows.Application.Current.MainWindow.Close();
+                        return 0;
+                    }
+                }
+                else
+                {
+                    ErrorWindow error = new ErrorWindow("Erreur : Erreur de connection de base de donnée");
+                    error.Show();
+                    Debug.WriteLine("Error : connection to sql data base is impossible");
+                    System.Windows.Application.Current.MainWindow.Close();
+                    return 0;
+                }
+            }
+        }
+    }
 
     public class User
-        {
+    {
         /// <summary>
         /// Create user object
         /// </summary>
@@ -345,7 +401,7 @@ namespace Money_Management
         public string mail;
         public DateTime birthday;
         public DateTime accountCreationDate;
-        public User(string name, string firstName, string mail,DateTime birthday, DateTime accountCreationDate, int id = 0)
+        public User(string name, string firstName, string mail, DateTime birthday, DateTime accountCreationDate, int id = 0)
         {
             this.id = id;
             this.name = name;
@@ -357,7 +413,7 @@ namespace Money_Management
         }
         public static User CheckById(int id, List<User> users)
         {
-            foreach(User user in users)
+            foreach (User user in users)
             {
                 if (user.id == id)
                 {

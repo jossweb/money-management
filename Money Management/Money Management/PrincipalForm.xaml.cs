@@ -2,6 +2,7 @@
 using LiveCharts.Dtos;
 using LiveCharts.Wpf;
 using Microsoft.IdentityModel.Tokens;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -17,9 +18,11 @@ namespace Money_Management
     /// </summary>
     public partial class PrincipalForm : Window
     {
-        public PrincipalForm(User userConnected)
+        MySqlConnection connection;
+        public PrincipalForm(User userConnected, MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
             var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 
                 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, };
             var étiquettes = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
@@ -70,7 +73,7 @@ namespace Money_Management
             }
 
             Content = grille;
-
+            Program.InsertLabel(grille, connection, userConnected);
 
         }
     }
