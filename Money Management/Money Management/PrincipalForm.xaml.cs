@@ -30,9 +30,9 @@ namespace Money_Management
             InitializeComponent();
             this.connection = connection;
             int largeurEcran = GetSystemMetrics(SM_CXSCREEN);
-            int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
-            var grille = new Grid();
+            //int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
 
+            var grille = new Grid();
             if (largeurEcran > 2000)
             {
                 this.Height = 800;
@@ -43,57 +43,23 @@ namespace Money_Management
             }
             else
             {
-                this.Height = 750;
+                this.Height = 700;
                 this.Width = 1200;
 
-                grille.Height = 750;
+                grille.Height = 700;
                 grille.Width = 1200;
             }
-            var valeurs = new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150,
-                1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, };
-            var étiquettes = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
-                "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" };
-
-
             grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
+            Program.AddGraphicsOnWindow(grille, new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150,
+                1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, }, 
+                new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+                "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" });
 
-            Label label = new Label();
-            label.Content = userConnected.name + " " + userConnected.firstName;
-            label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.VerticalAlignment = VerticalAlignment.Top;
-            label.Margin = new Thickness(0, 20, 0, 0);
-            label.FontSize = 50;
-            grille.Children.Add(label);
-
-            int marginTopGraphic = 100;
-            var graphic = graphics.CreateCartesianChart(valeurs, étiquettes, marginTopGraphic);
-            grille.Children.Add(graphic);
-            grille.Children.Add(graphics.CreateCartesianChart(valeurs, étiquettes, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == little space between two graphics
-            Rectangle rectangle = Program.CreateRectangle();
-
-            grille.Children.Add(rectangle);
-
-            var nombreDeDivisions = 3;
-
-            var posY = rectangle.Margin.Top;
-
-            for (int i = 1; i < nombreDeDivisions; i++)
-            {
-                var ligne = new Line();
-                ligne.Stroke = Brushes.Gray;
-                ligne.StrokeThickness = 3;
-                ligne.X1 = rectangle.Margin.Left;
-                ligne.X2 = rectangle.Margin.Left + rectangle.Width;
-                ligne.Y1 = posY + (rectangle.Height / 3) * i;
-                ligne.Y2 = posY + (rectangle.Height / 3) * i;
-                grille.Children.Add(ligne);
-            }
-
+            Program.CreateWindowNameTitle(grille, userConnected);
             Content = grille;
             Program.InsertLabel(grille, connection, userConnected);
-
         }
     }
 }

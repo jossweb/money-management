@@ -255,6 +255,41 @@ namespace Money_Management
             money.FontSize = 50;
             grille.Children.Add(money);
         }
+        public static void AddGraphicsOnWindow(Grid grille, ChartValues<double> value, List<string> label)
+        {
+            int marginTopGraphic = 100;
+            var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);
+            grille.Children.Add(graphic);
+            grille.Children.Add(graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
+            Rectangle rectangle = Program.CreateRectangle();
+
+            grille.Children.Add(rectangle);
+
+            var nombreDeDivisions = 3;
+
+            var posY = rectangle.Margin.Top;
+            for (int i = 1; i < nombreDeDivisions; i++)
+            {
+                var ligne = new Line();
+                ligne.Stroke = Brushes.Gray;
+                ligne.StrokeThickness = 3;
+                ligne.X1 = rectangle.Margin.Left;
+                ligne.X2 = rectangle.Margin.Left + rectangle.Width;
+                ligne.Y1 = posY + (rectangle.Height / 3) * i;
+                ligne.Y2 = posY + (rectangle.Height / 3) * i;
+                grille.Children.Add(ligne);
+            }
+        }
+        public static void CreateWindowNameTitle(Grid grille, User userConnected)
+        {
+            Label label = new Label();
+            label.Content = userConnected.name + " " + userConnected.firstName;
+            label.HorizontalAlignment = HorizontalAlignment.Center;
+            label.VerticalAlignment = VerticalAlignment.Top;
+            label.Margin = new Thickness(0, 20, 0, 0);
+            label.FontSize = 50;
+            grille.Children.Add(label);
+        }
     }
     public class graphics
     {
@@ -356,7 +391,7 @@ namespace Money_Management
     }
     public class Sql
     {
-        public static int GetAccountFunds(int id, MySqlConnection connection)
+        public static float GetAccountFunds(int id, MySqlConnection connection)
         {
             string query = "SELECT money_on_account FROM data_money WHERE ID_user = '" + id + "'";
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -366,7 +401,7 @@ namespace Money_Management
                 {
                     try
                     {
-                        int money_in_eu = int.Parse(reader.GetString("money_on_account"));
+                        float money_in_eu = float.Parse(reader.GetString("money_on_account"));
                         return money_in_eu;
                     }
                     catch (Exception ex) 
