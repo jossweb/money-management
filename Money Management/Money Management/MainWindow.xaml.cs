@@ -14,7 +14,7 @@ namespace Money_Management
     public partial class MainWindow : Window
     {
         private MySqlConnection connection = new MySqlConnection("database=money management; server=localhost; user id=root;");
-        private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+        private List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
     public MainWindow()
         {
             InitializeComponent();

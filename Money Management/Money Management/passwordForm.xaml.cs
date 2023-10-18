@@ -44,7 +44,7 @@ namespace Money_Management
             if (Program.CheckUser(query, pass, connection))
             {
                 Debug.WriteLine("info : Password is valid");
-                PrincipalForm principalForm = new PrincipalForm(User.CheckById(tag, json.DeserialiseJson(json.GetJsonFromFile())), connection);
+                PrincipalForm principalForm = new PrincipalForm(User.CheckById(tag, json.DeserialiseJson<List<User>>(json.GetJsonFromFile())), connection);
                 principalForm.Show();
                 this.Close();
             }

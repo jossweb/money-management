@@ -47,9 +47,9 @@ namespace Money_Management
                 }
             }
         }
-        public static List<User> DeserialiseJson(string json)
+        public static T DeserialiseJson<T>(string json)
         {
-            return JsonConvert.DeserializeObject<List<User>>(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }

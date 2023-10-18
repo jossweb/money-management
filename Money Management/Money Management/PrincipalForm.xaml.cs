@@ -12,6 +12,8 @@ using System.Windows.Shapes;
 using static System.Net.WebRequestMethods;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using Google.Protobuf.WellKnownTypes;
+using System.Drawing;
 
 namespace Money_Management
 {
@@ -32,6 +34,9 @@ namespace Money_Management
             int largeurEcran = GetSystemMetrics(SM_CXSCREEN);
             //int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
 
+//            var lastMonthExpense = json.DeserialiseJson<Dictionary<DateTime, string>>
+//                (Sql.GetMoneyTransfereInBdd(connection, "money_transfer_last_month", userConnected.id));
+
             var grille = new Grid();
             if (largeurEcran > 2000)
             {
@@ -45,7 +50,6 @@ namespace Money_Management
             {
                 this.Height = 700;
                 this.Width = 1200;
-
                 grille.Height = 700;
                 grille.Width = 1200;
             }
@@ -58,8 +62,16 @@ namespace Money_Management
                 "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" });
 
             Program.CreateWindowNameTitle(grille, userConnected);
+            
+            var secondGrid = new Grid(); //This grid is over the rectangle
+            secondGrid.Width = 300;
+            secondGrid.Height = 600;
+            secondGrid.Margin = new Thickness(70, 110, 0, 0);
+            secondGrid.HorizontalAlignment = HorizontalAlignment.Left;
+            secondGrid.VerticalAlignment = VerticalAlignment.Top;
+            grille.Children.Add(secondGrid);
+            Program.InsertLabel(secondGrid, connection, userConnected);
             Content = grille;
-            Program.InsertLabel(grille, connection, userConnected);
         }
     }
 }

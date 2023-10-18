@@ -30,6 +30,11 @@ namespace Money_Management
 {
     class Program
     {
+        public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
+        {
+            return json.DeserialiseJson<Dictionary<DateTime, string>>(Sql.GetMoneyTransfereInBdd(connection, duration, userId));
+            
+        }
         public static Rectangle CreateRectangle()
         {
             var rectangle = new Rectangle();
@@ -117,7 +122,7 @@ namespace Money_Management
             }
             else if(storage == "json")
             {
-                List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+                List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
                 
                 if (userList != null)
                 {
@@ -240,18 +245,17 @@ namespace Money_Management
         {
             Label moneyTitle = new Label();
             moneyTitle.Content = "Montant disponible sur votre compte :";
-            moneyTitle.HorizontalAlignment = HorizontalAlignment.Left;
+            moneyTitle.HorizontalAlignment = HorizontalAlignment.Center;
             moneyTitle.VerticalAlignment = VerticalAlignment.Top;
-            moneyTitle.Margin = new Thickness(90, 110, 0, 0);
+            moneyTitle.Margin = new Thickness(0, 0, 0, 0);
             moneyTitle.FontSize = 15;
             grille.Children.Add(moneyTitle);
 
-
             Label money = new Label();
             money.Content = Sql.GetAccountFunds(userConnected.id, connection) + " €";
-            money.HorizontalAlignment = HorizontalAlignment.Left;
+            money.HorizontalAlignment = HorizontalAlignment.Center;
             money.VerticalAlignment = VerticalAlignment.Top;
-            money.Margin = new Thickness(180, 200, 0, 0);
+            money.Margin = new Thickness(0, 70, 0, 0);
             money.FontSize = 50;
             grille.Children.Add(money);
         }

@@ -28,7 +28,7 @@ namespace Money_Management
     /// </summary>
     public partial class LoginForm : Page
     {
-        private List<User> userList = json.DeserialiseJson(json.GetJsonFromFile());
+        private List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
         private MySqlConnection connection;
         public LoginForm(MySqlConnection connection)
         {
