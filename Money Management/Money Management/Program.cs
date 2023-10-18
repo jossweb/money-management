@@ -423,6 +423,38 @@ namespace Money_Management
                 }
             }
         }
+        public static string GetMoneyTransfereInBdd(MySqlConnection connection, string type, int id)
+        {
+            string query = "SELECT " + type + " FROM data_money WHERE ID_user = '" + id + "'";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    try
+                    {
+                        string money_in_eu = reader.GetString(type);
+                        return money_in_eu;
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorWindow error = new ErrorWindow("Erreur : Erreur récupération données");
+                        error.Show();
+                        Debug.WriteLine(ex.Message);
+                        System.Windows.Application.Current.MainWindow.Close();
+                        return null;
+                    }
+                }
+                else
+                {
+                    ErrorWindow error = new ErrorWindow("Erreur : Erreur de connection de base de donnée");
+                    error.Show();
+                    Debug.WriteLine("Error : connection to sql data base is impossible");
+                    System.Windows.Application.Current.MainWindow.Close();
+                    return null;
+                }
+            }
+        }
     }
 
     public class User
