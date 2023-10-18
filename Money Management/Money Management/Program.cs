@@ -284,6 +284,14 @@ namespace Money_Management
                 grille.Children.Add(ligne);
             }
         }
+        public static void SetSettingsGrid(Grid secondGrid, int width, int height, Thickness margins)
+        {
+            secondGrid.Width = width;
+            secondGrid.Height = height;
+            secondGrid.Margin = margins;
+            secondGrid.HorizontalAlignment = HorizontalAlignment.Left;
+            secondGrid.VerticalAlignment = VerticalAlignment.Top;
+        }
         public static void CreateWindowNameTitle(Grid grille, User userConnected)
         {
             Label label = new Label();

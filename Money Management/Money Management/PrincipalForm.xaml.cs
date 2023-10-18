@@ -64,13 +64,9 @@ namespace Money_Management
             Program.CreateWindowNameTitle(grille, userConnected);
             
             var secondGrid = new Grid(); //This grid is over the rectangle
-            secondGrid.Width = 300;
-            secondGrid.Height = 600;
-            secondGrid.Margin = new Thickness(70, 110, 0, 0);
-            secondGrid.HorizontalAlignment = HorizontalAlignment.Left;
-            secondGrid.VerticalAlignment = VerticalAlignment.Top;
-            grille.Children.Add(secondGrid);
+            Program.SetSettingsGrid(secondGrid, 300, 600, new Thickness(70, 110, 0, 0));
             Program.InsertLabel(secondGrid, connection, userConnected);
+            grille.Children.Add(secondGrid);
             Content = grille;
         }
     }
