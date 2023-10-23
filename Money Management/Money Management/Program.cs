@@ -193,8 +193,6 @@ namespace Money_Management
             int rowsAffected = command.ExecuteNonQuery();
             if (rowsAffected > 0)
             {
-                
-                
                 MainWindow main = new MainWindow();
                 main.Show();
                 ErrorWindow error = new ErrorWindow("Inscrit avec success !");
@@ -241,7 +239,17 @@ namespace Money_Management
                 }
             }
         }
-        public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected)
+        public static void CreateRectangleValueLabel(string content, Grid grille, int marginTop)
+        {
+            Label money = new Label();
+            money.Content = content;
+            money.HorizontalAlignment = HorizontalAlignment.Center;
+            money.VerticalAlignment = VerticalAlignment.Top;
+            money.Margin = new Thickness(0, marginTop, 0, 0);
+            money.FontSize = 50;
+            grille.Children.Add(money);
+        }
+        public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues)
         {
             Label moneyTitle = new Label();
             moneyTitle.Content = "Montant disponible sur votre compte :";
@@ -251,13 +259,10 @@ namespace Money_Management
             moneyTitle.FontSize = 15;
             grille.Children.Add(moneyTitle);
 
-            Label money = new Label();
-            money.Content = Sql.GetAccountFunds(userConnected.id, connection) + " €";
-            money.HorizontalAlignment = HorizontalAlignment.Center;
-            money.VerticalAlignment = VerticalAlignment.Top;
-            money.Margin = new Thickness(0, 70, 0, 0);
-            money.FontSize = 50;
-            grille.Children.Add(money);
+            for (int i = 0; i < 3; i++)
+            {
+                CreateRectangleValueLabel(rectangleValues[i], grille, 70);
+            }
 
             Button addExpense = new Button();
             addExpense.Content = "Ajouter une dépense";
