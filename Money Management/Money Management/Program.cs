@@ -25,6 +25,11 @@ using System.Runtime.CompilerServices;
 using LiveCharts.Dtos;
 using System.Windows.Shapes;
 using static System.Net.WebRequestMethods;
+using System.Drawing;
+using Rectangle = System.Windows.Shapes.Rectangle;
+using Brushes = System.Windows.Media.Brushes;
+using Color = System.Windows.Media.Color;
+using Brush = System.Windows.Media.Brush;
 
 namespace Money_Management
 {
@@ -239,7 +244,7 @@ namespace Money_Management
                 }
             }
         }
-        public static void CreateRectangleValueLabel(string content, Grid grille, int marginTop)
+        public static void CreateRectangleValueLabel(string content, Grid grille, SolidColorBrush color, int marginTop)
         {
             Label money = new Label();
             money.Content = content;
@@ -247,6 +252,7 @@ namespace Money_Management
             money.VerticalAlignment = VerticalAlignment.Top;
             money.Margin = new Thickness(0, marginTop, 0, 0);
             money.FontSize = 50;
+            money.Foreground = color;
             grille.Children.Add(money);
         }
         public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues)
@@ -258,18 +264,19 @@ namespace Money_Management
             moneyTitle.Margin = new Thickness(0, 0, 0, 0);
             moneyTitle.FontSize = 15;
             grille.Children.Add(moneyTitle);
+            var color = new List<SolidColorBrush> {new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Green)};
 
             for (int i = 0; i < 3; i++)
             {
-                CreateRectangleValueLabel(rectangleValues[i], grille, 70);
+                CreateRectangleValueLabel(rectangleValues[i], grille, color[i], 70 + (190 * i));
             }
 
             Button addExpense = new Button();
             addExpense.Content = "Ajouter une dépense";
             addExpense.Width = 120;
             addExpense.Height = 40;
-            addExpense.Margin = new Thickness(0, 120, 20, 0);
-            addExpense.HorizontalAlignment = HorizontalAlignment.Right;
+            addExpense.Margin = new Thickness(0, 350, 0, 0);
+            addExpense.HorizontalAlignment = HorizontalAlignment.Center;
             addExpense.VerticalAlignment = VerticalAlignment.Top;
             grille.Children.Add(addExpense);
         }
@@ -279,7 +286,7 @@ namespace Money_Management
             var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);
             grille.Children.Add(graphic);
             grille.Children.Add(graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
-            Rectangle rectangle = Program.CreateRectangle();
+            System.Windows.Shapes.Rectangle rectangle = Program.CreateRectangle();
 
             grille.Children.Add(rectangle);
 
