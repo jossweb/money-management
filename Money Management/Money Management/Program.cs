@@ -240,7 +240,7 @@ namespace Money_Management
             {
                 foreach (PasswordBox passwordBox in PassBoxList)
                 {
-                    passwordBox.Password = "Password";
+                    passwordBox.Password = "";
                 }
             }
         }

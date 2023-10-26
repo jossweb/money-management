@@ -59,6 +59,8 @@ namespace Money_Management
                     (email.Length < 50) && (pass.Length < 50) &&
                     (confirmPass.Length < 50))
                 {
+                    if (pass.Length >= 5)
+                    {
                         try
                         {
 
@@ -99,6 +101,13 @@ namespace Money_Management
                             ErrorWindow errorWindow = new ErrorWindow("Erreur : Connection au serveur échoué ...");
                             errorWindow.Show();
                         }
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Error : User enter pass whithout 5 caracteres");
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Votre mot de passe doit contenir au moins 5 caractères");
+                        errorWindow.Show();
+                    }
                 }
                 else
                 {

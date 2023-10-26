@@ -35,7 +35,7 @@ namespace Money_Management
             //int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
 
             //var lastMonthExpense = json.DeserialiseJson<Dictionary<DateTime, string>>
-//                (Sql.GetMoneyTransfereInBdd(connection, "money_transfer_last_month", userConnected.id));
+            //(Sql.GetMoneyTransfereInBdd(connection, "money_transfer_last_month", userConnected.id));
 
             var grille = new Grid();
             if (largeurEcran > 2000)
