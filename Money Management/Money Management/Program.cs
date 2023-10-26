@@ -40,6 +40,11 @@ namespace Money_Management
             return json.DeserialiseJson<Dictionary<DateTime, string>>(Sql.GetMoneyTransfereInBdd(connection, duration, userId));
             
         }
+        public static Dictionary<DateTime, string> AddNewExpense(Dictionary<DateTime, string> currentExpense, DateTime DateExpense, string titleExpense)
+        {
+            currentExpense.Add(DateExpense, titleExpense);
+            return currentExpense;
+        }
         public static Rectangle CreateRectangle()
         {
             var rectangle = new Rectangle();
