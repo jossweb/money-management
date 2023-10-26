@@ -265,7 +265,6 @@ namespace Money_Management
             moneyTitle.FontSize = 15;
             grille.Children.Add(moneyTitle);
             var color = new List<SolidColorBrush> {new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Green)};
-
             for (int i = 0; i < 3; i++)
             {
                 CreateRectangleValueLabel(rectangleValues[i], grille, color[i], 70 + (190 * i));
@@ -286,10 +285,8 @@ namespace Money_Management
             var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);
             grille.Children.Add(graphic);
             grille.Children.Add(graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
-            System.Windows.Shapes.Rectangle rectangle = Program.CreateRectangle();
-
+            Rectangle rectangle = Program.CreateRectangle();
             grille.Children.Add(rectangle);
-
             var nombreDeDivisions = 3;
 
             var posY = rectangle.Margin.Top;

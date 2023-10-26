@@ -69,3 +69,74 @@ E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Mone
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
 E:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Money Management.exe
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Money Management.deps.json
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Money Management.runtimeconfig.json
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Money Management.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Money Management.pdb
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Azure.Core.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Azure.Identity.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Google.Protobuf.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\K4os.Compression.LZ4.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\K4os.Hash.xxHash.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\LiveCharts.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\LiveCharts.Wpf.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Data.SqlClient.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Identity.Client.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Abstractions.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Logging.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Protocols.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.IdentityModel.Tokens.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.SqlServer.Server.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\BouncyCastle.Crypto.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.IdentityModel.Tokens.Jwt.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.IO.Pipelines.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.Memory.Data.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\System.Runtime.Caching.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\ZstdSharp.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\comerr64.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\gssapi64.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\k5sprt64.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\krb5_64.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.AssemblyReference.cache
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\MainWindow.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\MainWindow.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\App.g.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management_MarkupCompile.cache
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management_MarkupCompile.lref
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.baml
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.g.resources
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.GeneratedMSBuildEditorConfig.editorconfig
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.AssemblyInfoInputs.cache
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.AssemblyInfo.cs
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CoreCompileInputs.cache
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.csproj.CopyComplete
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\refint\Money Management.dll
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
+D:\partage Jossua\partage\code\c# project\Money Management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
