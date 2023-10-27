@@ -56,13 +56,13 @@ namespace Money_Management
             grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
-            Program.AddEntitiesOnWindow(grille, new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, 500, 500, 1000, 1200, 1150,
+            Program.AddEntitiesOnWindow(grille, Convert.ToInt32(this.Height), new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, 500, 500, 1000, 1200, 1150,
                 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, }, 
                 new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
                 "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" });
 
+            
             var rectangleValues = new List<string> { Sql.GetAccountFunds(userConnected.id, connection) + " €", 150 + ",00 €", "test" };
-
             Program.CreateWindowNameTitle(grille, userConnected);
             
             var secondGrid = new Grid(); //This grid is over the rectangle

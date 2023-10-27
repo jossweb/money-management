@@ -42,19 +42,31 @@ namespace Money_Management
         }
         public static Dictionary<DateTime, string> AddNewExpense(Dictionary<DateTime, string> currentExpense, DateTime DateExpense, string titleExpense)
         {
-            currentExpense.Add(DateExpense, titleExpense);
-            return currentExpense;
+            if (currentExpense == null)
+            {
+                var initializeDictionary = new Dictionary<DateTime, string>
+                {
+                    { DateExpense, titleExpense }
+                };
+                return initializeDictionary;
+
+            }
+            else
+            {
+                currentExpense.Add(DateExpense, titleExpense);
+                return currentExpense;
+            }
         }
-        public static Rectangle CreateRectangle()
+        public static Rectangle CreateRectangle(int height)
         {
             var rectangle = new Rectangle();
             rectangle.Width = 300;
-            rectangle.Height = 600;
+            rectangle.Height = height * 0.80;
             rectangle.HorizontalAlignment = HorizontalAlignment.Left;
             rectangle.VerticalAlignment = VerticalAlignment.Top;
             rectangle.Stroke = Brushes.Gray;
             rectangle.StrokeThickness = 3;
-            rectangle.Margin = new Thickness(70, 110, 0, 0);
+            rectangle.Margin = new Thickness(70, height * 0.10, 0, 0);
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
             Color backgroundColor = Color.FromArgb(80, 180, 180, 180);
@@ -284,18 +296,17 @@ namespace Money_Management
             addExpense.VerticalAlignment = VerticalAlignment.Top;
             grille.Children.Add(addExpense);
         }
-        public static void AddEntitiesOnWindow(Grid grille, ChartValues<double> value, List<string> label)
+        public static void AddEntitiesOnWindow(Grid grille, int heightScreen,  ChartValues<double> value, List<string> label)
         {
             int marginTopGraphic = 100;
             var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);
             grille.Children.Add(graphic);
             grille.Children.Add(graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
-            Rectangle rectangle = Program.CreateRectangle();
+            Rectangle rectangle = Program.CreateRectangle(heightScreen);
             grille.Children.Add(rectangle);
-            var nombreDeDivisions = 3;
 
             var posY = rectangle.Margin.Top;
-            for (int i = 1; i < nombreDeDivisions; i++)
+            for (int i = 1; i < 3; i++)
             {
                 var ligne = new Line();
                 ligne.Stroke = Brushes.Gray;
