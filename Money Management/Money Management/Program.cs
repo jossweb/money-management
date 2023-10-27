@@ -272,7 +272,7 @@ namespace Money_Management
             money.Foreground = color;
             grille.Children.Add(money);
         }
-        public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues)
+        public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues, RoutedEventHandler Button_Click)
         {
             Label moneyTitle = new Label();
             moneyTitle.Content = "Montant disponible sur votre compte :";
@@ -294,9 +294,10 @@ namespace Money_Management
             addExpense.Margin = new Thickness(0, 350, 0, 0);
             addExpense.HorizontalAlignment = HorizontalAlignment.Center;
             addExpense.VerticalAlignment = VerticalAlignment.Top;
+            addExpense.Click += Button_Click;
             grille.Children.Add(addExpense);
         }
-        public static void AddEntitiesOnWindow(Grid grille, int heightScreen,  ChartValues<double> value, List<string> label)
+        public static void AddEntitiesOnWindow(Grid grille, int heightScreen, ChartValues<double> value, List<string> label)
         {
             int marginTopGraphic = 100;
             var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);

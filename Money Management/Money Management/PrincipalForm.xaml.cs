@@ -26,7 +26,6 @@ namespace Money_Management
         [DllImport("user32.dll")]
         public static extern int GetSystemMetrics(int nIndex);
         public const int SM_CXSCREEN = 0;
-        //public const int SM_CYSCREEN = 1;
         public PrincipalForm(User userConnected, MySqlConnection connection)
         {
             InitializeComponent();
@@ -34,8 +33,8 @@ namespace Money_Management
             int largeurEcran = GetSystemMetrics(SM_CXSCREEN);
             //int hauteurEcran = GetSystemMetrics(SM_CYSCREEN);
 
-            //var lastMonthExpense = json.DeserialiseJson<Dictionary<DateTime, string>>
-            //(Sql.GetMoneyTransfereInBdd(connection, "money_transfer_last_month", userConnected.id));
+            var lastMonthExpense = json.DeserialiseJson<Dictionary<DateTime, string>>
+                (Sql.GetMoneyTransfereInBdd(connection, "money_transfer_last_month", userConnected.id));
 
             var grille = new Grid();
             if (largeurEcran > 2000)
@@ -67,9 +66,13 @@ namespace Money_Management
             
             var secondGrid = new Grid(); //This grid is over the rectangle
             Program.SetSettingsGrid(secondGrid, 300, Convert.ToInt32(this.Height * 0.80), new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0));
-            Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues);
+            Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues, Add_Expense);
             grille.Children.Add(secondGrid);
             Content = grille;
+        }
+        private void Add_Expense(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
