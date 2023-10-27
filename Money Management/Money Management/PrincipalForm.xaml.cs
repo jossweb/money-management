@@ -72,7 +72,8 @@ namespace Money_Management
         }
         private void Add_Expense(object sender, RoutedEventArgs e)
         {
-
+            var newExpenseWindow = new AddExpense();
+            newExpenseWindow.Show();
         }
     }
 }

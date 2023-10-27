@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Money_Management"
         mc:Ignorable="d"
-        Title="AddExpense" Height="350" Width="600"
-        WindowStartupLocation="CenterOwner">
+        Title="Ajouter une dépense" Height="350" Width="600"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         
     </Grid>
