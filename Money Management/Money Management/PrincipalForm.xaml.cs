@@ -66,7 +66,7 @@ namespace Money_Management
             Program.CreateWindowNameTitle(grille, userConnected);
             
             var secondGrid = new Grid(); //This grid is over the rectangle
-            Program.SetSettingsGrid(secondGrid, 300, 600, new Thickness(70, 110, 0, 0));
+            Program.SetSettingsGrid(secondGrid, 300, Convert.ToInt32(this.Height * 0.80), new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0));
             Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues);
             grille.Children.Add(secondGrid);
             Content = grille;

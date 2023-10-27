@@ -66,7 +66,7 @@ namespace Money_Management
             rectangle.VerticalAlignment = VerticalAlignment.Top;
             rectangle.Stroke = Brushes.Gray;
             rectangle.StrokeThickness = 3;
-            rectangle.Margin = new Thickness(70, height * 0.10, 0, 0);
+            rectangle.Margin = new Thickness(70, height * 0.15, 0, 0);
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
             Color backgroundColor = Color.FromArgb(80, 180, 180, 180);

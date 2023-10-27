@@ -49,6 +49,10 @@ namespace Money_Management
         }
         public static T DeserialiseJson<T>(string json)
         {
+            if (json == null)
+            {
+                return default(T);
+            }
             return JsonConvert.DeserializeObject<T>(json);
         }
     }
