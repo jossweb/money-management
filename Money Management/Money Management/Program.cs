@@ -250,36 +250,6 @@ namespace Money_Management
     }
     public class graphics
     {
-        public static CartesianChart CartesianGraphique(ChartValues<double> value, List<string> label)
-        {
-            var graphic = new CartesianChart();
-
-            var axeX = new AxesCollection();
-            axeX.Add(new Axis
-            {
-                Title = "label",
-                Labels = label
-            });
-
-            graphic.AxisX = axeX;
-
-            graphic.Series = new SeriesCollection
-            {
-                new ColumnSeries
-                {
-                    Title = "value",
-                    Values = value,
-                    DataLabels = true,
-                    Fill = new SolidColorBrush(Colors.Red)
-                }
-            };
-
-            graphic.Width = 500;
-            graphic.Height = 300;
-            graphic.Margin = new Thickness(0, 450, 950, 0);
-
-            return graphic;
-        }
         public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name, int marginTop)
         {
             var graphique = new CartesianChart();
@@ -308,42 +278,6 @@ namespace Money_Management
             graphique.Height = 230;
             graphique.Margin = new Thickness(0, marginTop, 70, 0);
             return graphique;
-        }
-        public static PieChart CreatePieChart(ChartValues<int> data)
-        {
-            var pieChart = new PieChart
-            {
-                Series = new SeriesCollection
-                {
-                    new PieSeries
-                    {
-                        Title = "Catégorie A",
-                        Values = data,
-                        DataLabels = true,
-                        Fill = new SolidColorBrush(Colors.Red)
-                    },
-                    new PieSeries
-                    {
-                        Title = "Catégorie B",
-                        Values = data,
-                        DataLabels = true,
-                        Fill = new SolidColorBrush(Colors.Blue)
-                    },
-                    new PieSeries
-                    {
-                        Title = "Catégorie C",
-                        Values = data,
-                        DataLabels = true,
-                        Fill = new SolidColorBrush(Colors.Green)
-                    }
-                },
-
-            };
-            pieChart.Width = 300;
-            pieChart.Height = 300;
-            pieChart.Margin = new Thickness(0, 400, 0, 0);
-
-            return pieChart;
         }
     }
     public class Sql
