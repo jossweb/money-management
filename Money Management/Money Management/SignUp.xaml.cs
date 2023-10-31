@@ -70,10 +70,10 @@ namespace Money_Management
                             {
                                 if (pass == confirmPass)
                                 {
-                                    if (Program.CheckUserInDbOrInJson(email, "DataBase", connection))
+                                    if (User.CheckUserInDbOrInJson(email, "DataBase", connection))
                                     {
                                         User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
-                                        Program.CreateUserSql(connection, newUser, pass);
+                                        Sql.CreateUserInSql(connection, newUser, pass);
                                     }
                                     else
                                     {

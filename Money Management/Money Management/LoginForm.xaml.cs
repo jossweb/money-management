@@ -55,7 +55,7 @@ namespace Money_Management
                         {
                             userList.Add(user);
                         }
-                        if (!Program.CheckUserInDbOrInJson(email, "json", connection))
+                        if (!User.CheckUserInDbOrInJson(email, "json", connection))
                         {
                             json.SetJsonFromFile(userList);
                         }

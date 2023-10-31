@@ -117,26 +117,6 @@ namespace Money_Management
                 return null;
             }
         }
-        public static void CreateUserSql(MySqlConnection connection, User user, string pass)
-        {
-            string query = "INSERT INTO users (Name, firstName, mail, password, birthday, accountCreationDate) " +
-                "VALUES ('" + user.name + "', '" + user.firstName + "', '" + user.mail + "', '" + Hash(pass) + "', '" + user.birthday.ToString("yyyy-MM-dd") + "', '" + user.accountCreationDate.ToString("yyyy-MM-dd") + "')";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            int rowsAffected = command.ExecuteNonQuery();
-            if (rowsAffected > 0)
-            {
-                MainWindow main = new MainWindow();
-                main.Show();
-                ErrorWindow error = new ErrorWindow("Inscrit avec success !");
-                error.Show();
-                System.Windows.Application.Current.MainWindow.Close();
-            }
-            else
-            {
-                MessageBox.Show("Erreur");
-            }
-
-        }
         public static void CreateUserButton(List<User> users, StackPanel UserButtonPanel, RoutedEventHandler Button_Click, Brush buttonBackground)
         {
             foreach (User user in users)
@@ -248,6 +228,10 @@ namespace Money_Management
             grille.Children.Add(label);
         }
     }
+    public class CreateEntities
+    {
+
+    }
     public class graphics
     {
         public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name, int marginTop)
@@ -345,6 +329,26 @@ namespace Money_Management
                     return null;
                 }
             }
+        }
+        public static void CreateUserInSql(MySqlConnection connection, User user, string pass)
+        {
+            string query = "INSERT INTO users (Name, firstName, mail, password, birthday, accountCreationDate) " +
+                "VALUES ('" + user.name + "', '" + user.firstName + "', '" + user.mail + "', '" + Program.Hash(pass) + "', '" + user.birthday.ToString("yyyy-MM-dd") + "', '" + user.accountCreationDate.ToString("yyyy-MM-dd") + "')";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            int rowsAffected = command.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+                ErrorWindow error = new ErrorWindow("Inscrit avec success !");
+                error.Show();
+                System.Windows.Application.Current.MainWindow.Close();
+            }
+            else
+            {
+                MessageBox.Show("Erreur");
+            }
+
         }
     }
 
