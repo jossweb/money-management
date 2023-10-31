@@ -22,7 +22,7 @@ namespace Money_Management
     /// </summary>
     public partial class PrincipalForm : Window
     {
-        MySqlConnection connection;
+        public MySqlConnection connection;
         [DllImport("user32.dll")]
         public static extern int GetSystemMetrics(int nIndex);
         public const int SM_CXSCREEN = 0;
@@ -72,7 +72,7 @@ namespace Money_Management
         }
         private void Add_Expense(object sender, RoutedEventArgs e)
         {
-            var newExpenseWindow = new AddExpense();
+            var newExpenseWindow = new AddExpense(connection);
             newExpenseWindow.Show();
         }
     }

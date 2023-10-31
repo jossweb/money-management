@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,11 @@ namespace Money_Management
     /// </summary>
     public partial class AddExpense : Window
     {
-        public AddExpense()
+        public AddExpense(MySqlConnection connection)
         {
             InitializeComponent();
+            this.DataContext = connection;
+            //Program.AddContent(this);
         }
     }
 }

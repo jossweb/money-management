@@ -30,11 +30,16 @@ using Rectangle = System.Windows.Shapes.Rectangle;
 using Brushes = System.Windows.Media.Brushes;
 using Color = System.Windows.Media.Color;
 using Brush = System.Windows.Media.Brush;
+using addExpense = Money_Management.AddExpense;
 
 namespace Money_Management
 {
     class Program
     {
+        public static void AddContent(AddExpense window)
+        {
+            //Ajouter le contenu de la page ...
+        }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
         {
             return json.DeserialiseJson<Dictionary<DateTime, string>>(Sql.GetMoneyTransfereInBdd(connection, duration, userId));
