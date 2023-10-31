@@ -43,7 +43,7 @@ namespace Money_Management
             string motDePasse = passwordBoxMotDePasse.Password;
             if ((email != null) && (motDePasse != null))
             {
-                    if (Program.CheckUser("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
+                    if (User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
                     {
                         var user = Program.CreateNewUser(email, connection);
 

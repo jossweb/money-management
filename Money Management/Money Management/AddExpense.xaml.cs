@@ -24,8 +24,7 @@ namespace Money_Management
         public AddExpense(MySqlConnection connection)
         {
             InitializeComponent();
-            this.DataContext = connection;
-            //Program.AddContent(this);
+            Program.AddContent(this);
         }
     }
 }

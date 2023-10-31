@@ -41,7 +41,7 @@ namespace Money_Management
         {
             string pass = passbox.Password;
             string query = "SELECT * FROM users WHERE ID = '" + tag + "'";
-            if (Program.CheckUser(query, pass, connection))
+            if (User.CheckUserPass(query, pass, connection))
             {
                 Debug.WriteLine("info : Password is valid");
                 PrincipalForm principalForm = new PrincipalForm(User.CheckById(tag, json.DeserialiseJson<List<User>>(json.GetJsonFromFile())), connection);

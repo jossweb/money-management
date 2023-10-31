@@ -78,101 +78,6 @@ namespace Money_Management
             rectangle.Fill = new SolidColorBrush(backgroundColor);
             return rectangle;
         }
-        public static bool CheckUser(string query, string password, MySqlConnection connection)
-        {
-            try
-            {
-
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (MySqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        string hashPass = reader.GetString("password");
-                        if (hashPass == Hash(password))
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            Debug.WriteLine("invalid password");
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Error : " + ex);
-                ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n Veuillez vérifier l'état du réseau et réessayer");
-                error.Show();
-                return false;
-            }
-        }
-        public static bool CheckUserInDbOrInJson(string email, string storage, MySqlConnection connection)
-        {
-            if (storage == "DataBase")
-            {
-                try
-                {
-                    string query = "SELECT COUNT(*) FROM users WHERE mail = @Email";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Email", email);
-
-                    int count = Convert.ToInt32(command.ExecuteScalar());
-                    if (count > 0)
-                    {
-                        
-                        Debug.WriteLine("Already existing email");
-                        return false;
-
-                    }
-                    else
-                    {
-                        Debug.WriteLine("Unused email");
-                        return true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Error : " + ex);
-                    ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n " +
-                        "Veuillez vérifier l'état du réseau et réessayer");
-                    error.Show();
-                    return false;
-                }
-            }
-            else if(storage == "json")
-            {
-                List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
-                
-                if (userList != null)
-                {
-                    foreach (User user in userList)
-                    {
-                        if (user.mail == email)
-                        {
-                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
-                            errorWindow.Show();
-                            Debug.WriteLine("Error : Already existing email");
-                            return true;
-                        }
-                    }
-                }
-                Debug.WriteLine("Success : Unused email");
-                return false;
-            }
-            else 
-            {
-                Debug.WriteLine("Error : storage value is not valid");
-                return true; 
-            }
-        }
         public static string Hash(string hash)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -543,6 +448,101 @@ namespace Money_Management
             errorWindow.Show();
             DateTime dateOnly = new DateTime(2023, 1, 1);
             return new User("XXXXXX", "XXXXXX", "XXXXXX@XXX.XXX", dateOnly, dateOnly);
+        }
+        public static bool CheckUserPass(string query, string password, MySqlConnection connection)
+        {
+            try
+            {
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string hashPass = reader.GetString("password");
+                        if (hashPass == Program.Hash(password))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            Debug.WriteLine("invalid password");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error : " + ex);
+                ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n Veuillez vérifier l'état du réseau et réessayer");
+                error.Show();
+                return false;
+            }
+        }
+        public static bool CheckUserInDbOrInJson(string email, string storage, MySqlConnection connection)
+        {
+            if (storage == "DataBase")
+            {
+                try
+                {
+                    string query = "SELECT COUNT(*) FROM users WHERE mail = @Email";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count > 0)
+                    {
+
+                        Debug.WriteLine("Already existing email");
+                        return false;
+
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Unused email");
+                        return true;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error : " + ex);
+                    ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n " +
+                        "Veuillez vérifier l'état du réseau et réessayer");
+                    error.Show();
+                    return false;
+                }
+            }
+            else if (storage == "json")
+            {
+                List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
+
+                if (userList != null)
+                {
+                    foreach (User user in userList)
+                    {
+                        if (user.mail == email)
+                        {
+                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
+                            errorWindow.Show();
+                            Debug.WriteLine("Error : Already existing email");
+                            return true;
+                        }
+                    }
+                }
+                Debug.WriteLine("Success : Unused email");
+                return false;
+            }
+            else
+            {
+                Debug.WriteLine("Error : storage value is not valid");
+                return true;
+            }
         }
     }
 

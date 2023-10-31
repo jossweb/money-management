@@ -46,7 +46,7 @@ namespace Money_Management
         {
             Button clickedButton = (Button)sender;
             int userId = (int)clickedButton.Tag;
-            if (!Program.CheckUserInDbOrInJson(User.CheckById(userId, userList).mail, "DataBase", connection))
+            if (!User.CheckUserInDbOrInJson(User.CheckById(userId, userList).mail, "DataBase", connection))
             {
                 passwordForm checkPasswordWindow = new passwordForm(userId, userList, connection);
                 checkPasswordWindow.Show();
