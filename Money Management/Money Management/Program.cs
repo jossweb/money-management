@@ -31,6 +31,8 @@ using Brushes = System.Windows.Media.Brushes;
 using Color = System.Windows.Media.Color;
 using Brush = System.Windows.Media.Brush;
 using addExpense = Money_Management.AddExpense;
+using HAlignment = System.Windows.HorizontalAlignment;
+using VAlignement = System.Windows.VerticalAlignment;
 
 namespace Money_Management
 {
@@ -230,7 +232,17 @@ namespace Money_Management
     }
     public class CreateEntities
     {
-
+        public static Label CreateLabel(string content, int fontSize, Thickness margins, HAlignment horizontalAlignment, VAlignement VerticalAlignement)
+        {
+            Label label = new Label();
+            label.Content = content;
+            label.HorizontalAlignment = horizontalAlignment;
+            label.VerticalAlignment = VerticalAlignement;
+            label.Margin = margins;
+            label.FontSize = fontSize;
+            return label;
+        }
+    }
     }
     public class graphics
     {
