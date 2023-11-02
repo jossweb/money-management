@@ -45,7 +45,7 @@ namespace Money_Management
             {
                     if (User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", motDePasse, connection))
                     {
-                        var user = Program.CreateNewUser(email, connection);
+                        var user = User.CreateNewUser(email, connection);
 
                         if (userList == null)
                         {

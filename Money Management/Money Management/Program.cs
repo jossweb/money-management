@@ -93,35 +93,6 @@ namespace Money_Management
                 return hashString;
             }
         }
-        public static User CreateNewUser(string mail, MySqlConnection connection)
-        {
-            string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            using (MySqlDataReader reader = command.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    try
-                    {
-                        int id = int.Parse(reader.GetString("ID"));
-                        string name = reader.GetString("name");
-                        string firstName = reader.GetString("firstName");
-                        DateTime birthday = DateTime.Parse(reader.GetString("birthday"));
-                        DateTime accountCreationDate = DateTime.Parse(reader.GetString("accountCreationDate"));
-
-                        var user = new User(name, firstName, mail, birthday, accountCreationDate, id);
-                        return user;
-                    }
-                    catch (Exception ex)
-                    {
-                        ErrorWindow error = new ErrorWindow("Erreur de création de l'utilisateur");
-                        error.Show();
-                        Debug.WriteLine("Error : " + ex);
-                    }
-                }
-                return null;
-            }
-        }
         public static void CreateUserButton(List<User> users, StackPanel UserButtonPanel, RoutedEventHandler Button_Click, Brush buttonBackground)
         {
             foreach (User user in users)
@@ -486,6 +457,35 @@ namespace Money_Management
             {
                 Debug.WriteLine("Error : storage value is not valid");
                 return true;
+            }
+        }
+        public static User CreateNewUser(string mail, MySqlConnection connection)
+        {
+            string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    try
+                    {
+                        int id = int.Parse(reader.GetString("ID"));
+                        string name = reader.GetString("name");
+                        string firstName = reader.GetString("firstName");
+                        DateTime birthday = DateTime.Parse(reader.GetString("birthday"));
+                        DateTime accountCreationDate = DateTime.Parse(reader.GetString("accountCreationDate"));
+
+                        var user = new User(name, firstName, mail, birthday, accountCreationDate, id);
+                        return user;
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorWindow error = new ErrorWindow("Erreur de création de l'utilisateur");
+                        error.Show();
+                        Debug.WriteLine("Error : " + ex);
+                    }
+                }
+                return null;
             }
         }
     }
