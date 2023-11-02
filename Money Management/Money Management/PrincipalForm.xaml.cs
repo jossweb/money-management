@@ -66,7 +66,7 @@ namespace Money_Management
             
             //grid over rectangle
             var secondGrid = CreateEntities.SetSettingsGrid(300, Convert.ToInt32(this.Height * 0.80),
-                new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0), HorizontalAlignment.Center , VerticalAlignment.Top);
+                new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0), HorizontalAlignment.Left , VerticalAlignment.Top);
             Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues, Add_Expense);
             grille.Children.Add(secondGrid);
             Content = grille;
