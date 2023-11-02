@@ -62,11 +62,11 @@ namespace Money_Management
 
             
             var rectangleValues = new List<string> { Sql.GetAccountFunds(userConnected.id, connection) + " €", 150 + ",00 €", "test" };
-            Program.CreateWindowNameTitle(grille, userConnected);
             grille.Children.Add(CreateEntities.CreateLabel(userConnected.name + " " + userConnected.firstName, 50, new Thickness(0, 20, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top));
             
-            var secondGrid = new Grid(); //This grid is over the rectangle
-            Program.SetSettingsGrid(secondGrid, 300, Convert.ToInt32(this.Height * 0.80), new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0));
+            //grid over rectangle
+            var secondGrid = CreateEntities.SetSettingsGrid(300, Convert.ToInt32(this.Height * 0.80),
+                new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0), HorizontalAlignment.Center , VerticalAlignment.Top);
             Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues, Add_Expense);
             grille.Children.Add(secondGrid);
             Content = grille;

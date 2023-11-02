@@ -38,9 +38,12 @@ namespace Money_Management
 {
     class Program
     {
-        public static void AddContent(AddExpense window)
+        public static void AddContent(Grid grid)
         {
-            //Ajouter le contenu de la page ...
+            Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
+                HorizontalAlignment.Center, VerticalAlignment.Top);
+            grid.Children.Add(title);
+
         }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
         {
@@ -211,24 +214,6 @@ namespace Money_Management
                 grille.Children.Add(ligne);
             }
         }
-        public static void SetSettingsGrid(Grid secondGrid, int width, int height, Thickness margins)
-        {
-            secondGrid.Width = width;
-            secondGrid.Height = height;
-            secondGrid.Margin = margins;
-            secondGrid.HorizontalAlignment = HorizontalAlignment.Left;
-            secondGrid.VerticalAlignment = VerticalAlignment.Top;
-        }
-        public static void CreateWindowNameTitle(Grid grille, User userConnected)
-        {
-            Label label = new Label();
-            label.Content = userConnected.name + " " + userConnected.firstName;
-            label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.VerticalAlignment = VerticalAlignment.Top;
-            label.Margin = new Thickness(0, 20, 0, 0);
-            label.FontSize = 50;
-            grille.Children.Add(label);
-        }
     }
     public class CreateEntities
     {
@@ -242,7 +227,16 @@ namespace Money_Management
             label.FontSize = fontSize;
             return label;
         }
-    }
+        public static Grid SetSettingsGrid(int width, int height, Thickness margins, HAlignment hAlignment, VAlignement vAlignment)
+        {
+            Grid grid = new Grid();
+            grid.Width = width;
+            grid.Height = height;
+            grid.Margin = margins;
+            grid.HorizontalAlignment = hAlignment;
+            grid.VerticalAlignment = vAlignment;
+            return grid;
+        }
     }
     public class graphics
     {

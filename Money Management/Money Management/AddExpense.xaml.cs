@@ -24,7 +24,11 @@ namespace Money_Management
         public AddExpense(MySqlConnection connection)
         {
             InitializeComponent();
-            Program.AddContent(this);
+
+            Grid gridOverWindow = CreateEntities.SetSettingsGrid(Convert.ToInt32(this.Width), Convert.ToInt32(this.Height),
+                new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            this.Content = gridOverWindow;
+            Program.AddContent(gridOverWindow);
         }
     }
 }
