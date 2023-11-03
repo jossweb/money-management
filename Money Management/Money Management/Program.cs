@@ -43,13 +43,12 @@ namespace Money_Management
             Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
                 HorizontalAlignment.Center, VerticalAlignment.Top);
             grid.Children.Add(title);
-            var datePicker = CreateEntities.CreateDatePicker(100, 100, HAlignment.Center, VAlignement.Center);
+            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center);
             grid.Children.Add(datePicker);
         }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
         {
             return json.DeserialiseJson<Dictionary<DateTime, string>>(Sql.GetMoneyTransfereInBdd(connection, duration, userId));
-            
         }
         public static Dictionary<DateTime, string> AddNewExpense(Dictionary<DateTime, string> currentExpense, DateTime DateExpense, string titleExpense)
         {
@@ -218,6 +217,16 @@ namespace Money_Management
             datePicker.VerticalAlignment = vAlignment;
 
             return datePicker;
+        }
+        public static TextBox CreateTextBox(int width, int height, HAlignment hAlignment, VAlignement vAlignment)
+        {
+            TextBox textBox = new TextBox();
+            textBox.Width = width;
+            textBox.Height = height;
+            textBox.HorizontalAlignment = hAlignment;
+            textBox.VerticalAlignment = vAlignment;
+
+            return textBox;
         }
     }
     public class graphics
