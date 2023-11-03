@@ -228,6 +228,17 @@ namespace Money_Management
 
             return textBox;
         }
+        public static TextBlock CreateTextBlock(string content, SolidColorBrush foregroundColor, int width, int height, HAlignment hAlignment, VAlignement vAlignment)
+        {
+            TextBlock textBlock = new TextBlock();
+            textBlock.Text = content;
+            textBlock.Foreground = foregroundColor;
+            textBlock.Width = width;
+            textBlock.Height = height;
+            textBlock.HorizontalAlignment = hAlignment;
+            textBlock.VerticalAlignment = vAlignment;
+            return textBlock;
+        }
     }
     public class graphics
     {
