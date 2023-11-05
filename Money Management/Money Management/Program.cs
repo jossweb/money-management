@@ -106,6 +106,8 @@ namespace Money_Management
                 button.Click += Button_Click;
                 button.Tag = user.id;
                 button.FontSize = 15;
+                button.BorderBrush = Brushes.Black;
+                button.BorderThickness = new Thickness(1.5);
                 button.Margin = new Thickness(0, 5, 0, 5);
                 UserButtonPanel.Children.Add(button);
             }

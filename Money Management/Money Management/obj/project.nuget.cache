@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FHkpmc44X1reHMEicZuBLgFGdkdiD/AidyLGgyVtKHxi1c7gebrJRdiDjfVcuW2TxGwHF4whSrSqmWLYm8tV8A==",
+  "dgSpecHash": "L4q9VVYPw3tUbCALViz4CMMsqhIA6/NY9oImK5D69SVuXD7OwQD6mUo8p/5LH1H/N54FVHeV+Fb9SnJw1lu5Sg==",
   "success": true,
-  "projectFilePath": "D:\\code\\c# project\\Money Management\\Money Management\\Money Management\\Money Management.csproj",
+  "projectFilePath": "D:\\code\\c# project\\money-management\\Money Management\\Money Management\\Money Management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jossu\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\jossu\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
