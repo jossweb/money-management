@@ -33,7 +33,7 @@ namespace Money_Management
             if (userList != null)
             {
                 //create a button per user
-                Program.CreateUserButton(userList, ButtonStackPanel, Button_Click, Brushes.White);
+                Program.CreateUserButton(userList, ButtonStackPanel, Button_Click, Brushes.White, this);
             }
             else
             {

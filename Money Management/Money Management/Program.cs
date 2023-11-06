@@ -93,7 +93,7 @@ namespace Money_Management
                 return hashString;
             }
         }
-        public static void CreateUserButton(List<User> users, StackPanel UserButtonPanel, RoutedEventHandler Button_Click, Brush buttonBackground)
+        public static void CreateUserButton(List<User> users, StackPanel UserButtonPanel, RoutedEventHandler Button_Click, Brush buttonBackground, MainWindow window)
         {
             foreach (User user in users)
             {
@@ -109,6 +109,7 @@ namespace Money_Management
                 button.BorderBrush = Brushes.Black;
                 button.BorderThickness = new Thickness(1.5);
                 button.Margin = new Thickness(0, 5, 0, 5);
+                button.Style = (Style)window.Resources["UsersButtonStyle"];
                 UserButtonPanel.Children.Add(button);
             }
         }

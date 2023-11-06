@@ -91,7 +91,7 @@
             <DatePicker Name="DatePickerBirthday" Width="200" VerticalAlignment="Center" Margin="0, 5, 0, 0" HorizontalAlignment="Center"/>
 
             <Button Style="{DynamicResource ButtonSignInStyle}" Content="Créer mon Compte" Click="LoginButton_Click" Width="200" Height="35" Margin="0, 20, 0, 0"/>
-            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="250" Height="35" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
+            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="150" Height="35" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
 
         </StackPanel>
     </Grid>
