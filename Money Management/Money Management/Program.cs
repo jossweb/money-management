@@ -1,31 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using static System.Net.Mime.MediaTypeNames;
 using System.Security.Cryptography;
-using System.Windows.Navigation;
 using System.Windows.Controls;
-using System.Diagnostics.Tracing;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
-using Azure;
-using System.Net.Mail;
 using System.Diagnostics;
-using MySqlX.XDevAPI.CRUD;
 using LiveCharts.Wpf;
 using LiveCharts;
-using LiveCharts.Definitions.Charts;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using LiveCharts.Dtos;
 using System.Windows.Shapes;
-using static System.Net.WebRequestMethods;
-using System.Drawing;
 using Rectangle = System.Windows.Shapes.Rectangle;
 using Brushes = System.Windows.Media.Brushes;
 using Color = System.Windows.Media.Color;
@@ -33,11 +17,39 @@ using Brush = System.Windows.Media.Brush;
 using addExpense = Money_Management.AddExpense;
 using HAlignment = System.Windows.HorizontalAlignment;
 using VAlignement = System.Windows.VerticalAlignment;
+using System.Drawing.Printing;
+using System.Runtime.CompilerServices;
 
 namespace Money_Management
 {
     class Program
     {
+        public static void AddComponentSignUp(Grid page)
+        {
+            const int WIDTHELEMENTS = 340;
+            const int HEIGHTTEXTBLOCK = 20;
+            const int HEIGHTTEXTBOX = 40;
+            List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email" };
+            List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
+            SolidColorBrush backgroundColor = Brushes.White;
+
+
+            Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
+                HorizontalAlignment.Center, VerticalAlignment.Top);
+
+            int marginTop = 15;
+            for (int i = 0; i < 2; i++)
+            {
+                TextBlock textBlock = CreateEntities.CreateTextBlock(textBlockText[i], backgroundColor, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                marginTop += marginTop + HEIGHTTEXTBLOCK;
+                page.Children.Add(textBlock);
+                TextBox textBox = CreateEntities.CreateTextBox(NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                page.Children.Add(textBox);
+                marginTop += marginTop + HEIGHTTEXTBOX;
+            }
+
+
+        }
         public static void AddContent(Grid grid)
         {
             Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
@@ -221,17 +233,19 @@ namespace Money_Management
 
             return datePicker;
         }
-        public static TextBox CreateTextBox(int width, int height, HAlignment hAlignment, VAlignement vAlignment)
+        public static TextBox CreateTextBox(string name, int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
         {
             TextBox textBox = new TextBox();
+            textBox.Name = name;
             textBox.Width = width;
             textBox.Height = height;
             textBox.HorizontalAlignment = hAlignment;
             textBox.VerticalAlignment = vAlignment;
+            textBox.Margin = margins;
 
             return textBox;
         }
-        public static TextBlock CreateTextBlock(string content, SolidColorBrush foregroundColor, int width, int height, HAlignment hAlignment, VAlignement vAlignment)
+        public static TextBlock CreateTextBlock(string content, SolidColorBrush foregroundColor, int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
         {
             TextBlock textBlock = new TextBlock();
             textBlock.Text = content;
@@ -240,6 +254,7 @@ namespace Money_Management
             textBlock.Height = height;
             textBlock.HorizontalAlignment = hAlignment;
             textBlock.VerticalAlignment = vAlignment;
+            textBlock.Margin = margins;
             return textBlock;
         }
     }

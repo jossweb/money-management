@@ -31,16 +31,21 @@ namespace Money_Management
         {
             InitializeComponent();
             this.connection = connection;
-            DatePickerBirthday.SelectedDate = DateTime.Now;
+
+
+            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0,0,0,0), HorizontalAlignment.Center, VerticalAlignment.Center);
+
+            Program.AddComponentSignUp(grid);
+            /*DatePickerBirthday.SelectedDate = DateTime.Now;
             textBoxname.KeyUp += Enter_keyUp;
             textBoxfirstName.KeyUp += Enter_keyUp;
             textBoxemail.KeyUp += Enter_keyUp;
             PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
-            PasswordBoxPassword.KeyUp += Enter_keyUp;
+            PasswordBoxPassword.KeyUp += Enter_keyUp;*/
 
 
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        /*private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var textBoxs = new List<TextBox> { textBoxname, textBoxfirstName, textBoxemail };
             var passBoxs = new List<PasswordBox> { PasswordBoxPassword, PasswordBoxpasswordValidation };
@@ -141,6 +146,6 @@ namespace Money_Management
                 Debug.WriteLine("Enter touch was activate");
                 LoginButton_Click(sender, e);
             }
-        }
+        }*/
     }
 }

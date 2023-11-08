@@ -63,36 +63,4 @@
             </Setter>
         </Style>
     </Page.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="114*"/>
-            <ColumnDefinition Width="11*"/>
-        </Grid.ColumnDefinitions>
-        <Ellipse  Fill="MediumSeaGreen" Height="200" Margin="-115,-69,331,453" />
-        <Ellipse  Fill="Orange" Margin="406,99,-80,358" Grid.ColumnSpan="2" />
-        <Ellipse Fill="BlueViolet" Margin="396,397,33,144" Grid.ColumnSpan="2" />
-        <Ellipse Fill="OrangeRed" Margin="10,400,386,144" />
-        <Ellipse Fill="CadetBlue"  Margin="34,516,351,25" />
-        <Ellipse Fill="ForestGreen"  Margin="336,-41,0,543" />
-        <Ellipse Fill="DarkGoldenrod"  Margin="369,516,-26,-50" Grid.ColumnSpan="2" />
-        <StackPanel Grid.ColumnSpan="2">
-            <Label Content="Créer votre compte" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>
-            <TextBlock  Text="Nom :" Width="350" />
-            <TextBox Name="textBoxname" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
-            <TextBlock  Text="Prénom :" Width="350" />
-            <TextBox Name="textBoxfirstName" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
-            <TextBlock  Text="Email :" Width="350" />
-            <TextBox Name="textBoxemail" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
-            <TextBlock  Text="Mot de passe :" Width="350" />
-            <PasswordBox x:Name="PasswordBoxPassword" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal"/>
-            <TextBlock  Text="Confirmation du mot de passe :" Width="350" />
-            <PasswordBox x:Name="PasswordBoxpasswordValidation" Width="350" Margin="10" Height="40" FontSize="20" FontStyle="Normal"/>
-            <TextBlock  Text="Sélectionnez votre date de naissance :" TextAlignment="Center" Margin="0, 5, 0, 0" Width="350" />
-            <DatePicker Name="DatePickerBirthday" Width="200" VerticalAlignment="Center" Margin="0, 5, 0, 0" HorizontalAlignment="Center"/>
-
-            <Button Style="{DynamicResource ButtonSignInStyle}" Content="Créer mon Compte" Click="LoginButton_Click" Width="200" Height="35" Margin="0, 20, 0, 0"/>
-            <Button Content="Retour à l'accueil" Click="BackHome_Click" Width="150" Height="35" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
-
-        </StackPanel>
-    </Grid>
 </Page>
