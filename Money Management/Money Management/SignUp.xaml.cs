@@ -1,8 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,36 +12,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Money_Management.Program;
 
 namespace Money_Management
 {
     /// <summary>
     /// Logique d'interaction pour SignUp.xaml
     /// </summary>
-    public partial class SignUp : Page
+    public partial class SignUp : Window
     {
         private MySqlConnection connection;
-
         public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
+
             this.connection = connection;
 
 
-            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0,0,0,0), HorizontalAlignment.Center, VerticalAlignment.Center);
-
+            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            this.Content = grid;
             Program.AddComponentSignUp(grid);
+
+
             /*DatePickerBirthday.SelectedDate = DateTime.Now;
-            textBoxname.KeyUp += Enter_keyUp;
-            textBoxfirstName.KeyUp += Enter_keyUp;
-            textBoxemail.KeyUp += Enter_keyUp;
             PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
             PasswordBoxPassword.KeyUp += Enter_keyUp;*/
-
-
         }
         /*private void LoginButton_Click(object sender, RoutedEventArgs e)
         {

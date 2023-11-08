@@ -91,7 +91,7 @@ namespace Money_Management
         private void SignUp_Button(object sender, RoutedEventArgs e)
         {
             SignUp SignUpPage = new SignUp(connection);
-            frame.Navigate(SignUpPage);
+            SignUpPage.Show();
         }
         private void Enter_keyUp(object sender, KeyEventArgs e)
         {
