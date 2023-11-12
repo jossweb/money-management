@@ -361,3 +361,4 @@ D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.pdb
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.genruntimeconfig.cache
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
+D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Style.baml

@@ -53,7 +53,7 @@ namespace Money_Management {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Money Management;V1.0.0.0;component/addexpense.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Money Management;component/addexpense.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AddExpense.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

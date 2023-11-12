@@ -242,7 +242,7 @@ namespace Money_Management
             datePicker.HorizontalAlignment = hAlignment;
             datePicker.VerticalAlignment = vAlignment;
             datePicker.Margin = margins;
-            datePicker.Style = (Style)window.Ressources["DatePickerStyle"];
+            //datePicker.Style = (Style)window.Ressources["DatePickerStyle"];
 
             return datePicker;
         }
@@ -256,7 +256,10 @@ namespace Money_Management
             textBox.VerticalAlignment = vAlignment;
             textBox.Margin = margins;
             textBox.FontSize = FontSize;
-            textBox.Style = (Style)window.Resources["TextBoxStyle"];
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
+            Style textBoxStyle = (Style)styleDictionary["TextBoxStyle"];
+            textBox.Style = textBoxStyle;
 
             return textBox;
         }
