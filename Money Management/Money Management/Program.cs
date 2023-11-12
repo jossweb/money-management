@@ -56,13 +56,16 @@ namespace Money_Management
                 page.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
+            DatePicker datePicker = CreateEntities.CreateDatePicker
+                (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0));
+            page.Children.Add (datePicker);
         }
         public static void AddContent(Grid grid)
         {
             Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
                 HorizontalAlignment.Center, VerticalAlignment.Top);
             grid.Children.Add(title);
-            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center);
+            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center, new Thickness(0, 0, 0, 0));
             grid.Children.Add(datePicker);
         }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
@@ -231,13 +234,15 @@ namespace Money_Management
             grid.VerticalAlignment = vAlignment;
             return grid;
         }
-        public static DatePicker CreateDatePicker(int width, int height, HAlignment hAlignment, VAlignement vAlignment)
+        public static DatePicker CreateDatePicker(int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
         {
             DatePicker datePicker = new DatePicker();
             datePicker.Width = width;
             datePicker.Height = height;
             datePicker.HorizontalAlignment = hAlignment;
             datePicker.VerticalAlignment = vAlignment;
+            datePicker.Margin = margins;
+            datePicker.Style = (Style)window.Ressources["DatePickerStyle"];
 
             return datePicker;
         }

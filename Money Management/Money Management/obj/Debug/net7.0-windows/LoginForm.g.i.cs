@@ -77,7 +77,7 @@ namespace Money_Management {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Money Management;component/loginform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Money Management;V1.0.0.0;component/loginform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\LoginForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
