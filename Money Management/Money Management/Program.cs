@@ -22,12 +22,12 @@ namespace Money_Management
 {
     class Program
     {
-        public static void AddComponentSignUp(Grid page)
+        public static void AddComponentSignUp(Grid page, SignUp window)
         {
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
             const int HEIGHTTEXTBOX = 40;
-            List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email" };
+            List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email", "Mot de passe :", "Confirmer le mot de passe :" };
             List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
             SolidColorBrush backgroundColor = Brushes.White;
             Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
@@ -42,12 +42,20 @@ namespace Money_Management
                 marginTop += HEIGHTTEXTBLOCK;
                 page.Children.Add(textBlock);
                 TextBox textBox = CreateEntities.CreateTextBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window);
                 page.Children.Add(textBox);
                 marginTop += HEIGHTTEXTBOX;
             }
-
-
+            for (int i = 0; i < 2; i++)
+            {
+                TextBlock textBlock = CreateEntities.CreateTextBlock
+                    (textBlockText[i + 3], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                marginTop += HEIGHTTEXTBLOCK;
+                page.Children.Add(textBlock);
+                PasswordBox passBox = CreateEntities.CreatePasswordBox(NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window);
+                page.Children.Add(passBox);
+                marginTop += HEIGHTTEXTBOX;
+            }
         }
         public static void AddContent(Grid grid)
         {
@@ -233,7 +241,7 @@ namespace Money_Management
 
             return datePicker;
         }
-        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
+        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window)
         {
             TextBox textBox = new TextBox();
             textBox.Name = name;
@@ -243,6 +251,7 @@ namespace Money_Management
             textBox.VerticalAlignment = vAlignment;
             textBox.Margin = margins;
             textBox.FontSize = FontSize;
+            textBox.Style = (Style)window.Resources["TextBoxStyle"];
 
             return textBox;
         }
@@ -257,6 +266,20 @@ namespace Money_Management
             textBlock.VerticalAlignment = vAlignment;
             textBlock.Margin = margins;
             return textBlock;
+        }
+        public static PasswordBox CreatePasswordBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window)
+        {
+            PasswordBox passwordBox = new PasswordBox();
+            passwordBox.Name = name;
+            passwordBox.Width = width;
+            passwordBox.Height = height;
+            passwordBox.HorizontalAlignment = hAlignment;
+            passwordBox.VerticalAlignment = vAlignment;
+            passwordBox.Margin = margins;
+            passwordBox.FontSize = FontSize;
+            passwordBox.Style = (Style)window.Resources["PasswordBoxStyle"];
+
+            return passwordBox;
         }
     }
     public class graphics

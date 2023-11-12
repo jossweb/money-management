@@ -21,7 +21,7 @@
             <Label Content="Connection" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="50" Width="500" Margin="0, 20, 0, 0"/>
             <Label Content="Utilisateur existant" FontSize="30" FontWeight="Bold" FontStyle="Oblique" HorizontalContentAlignment="Center" Height="50" Width="500"/>
             <TextBlock Text="Email:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
-            <TextBox Name="textBoxNomUtilisateur" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
+            <TextBox Name="textBoxNomUtilisateur" Width="350" Height="45" Margin="10" FontSize="20" FontStyle="Normal"/>
             <TextBlock Text="Mot de passe:" VerticalAlignment="Center" Margin="0, 20, 0, 0"  Width="350"/>
             <PasswordBox Name="passwordBoxMotDePasse" Width="350" Height="40" Margin="10" FontSize="20" FontStyle="Normal" VerticalAlignment="Center"/>
             <Button Content="Se connecter" Click="LoginButton_Click" Width="250" Height="35" Margin="0, 20, 0, 0"/>
@@ -29,6 +29,6 @@
             <Label Content="Pas encore membre ?" FontSize="15" FontWeight="Normal" FontStyle="Oblique" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" Width="500" Margin="0, 20, 0, 0"/>
             <Button Content="Créer mon compte" Click="SignUp_Button" Width="250" Height="35" Margin="0, 0, 0, 0" Background="White" BorderBrush="White" FontSize="12" FontStyle="Italic"/>
         </StackPanel>
-        <Frame x:Name="frame" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Navigated="frame_Navigated" />
     </Grid>
 </Page>

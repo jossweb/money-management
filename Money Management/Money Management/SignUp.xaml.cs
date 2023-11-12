@@ -31,7 +31,7 @@ namespace Money_Management
 
             Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
             this.Content = grid;
-            Program.AddComponentSignUp(grid);
+            Program.AddComponentSignUp(grid, this);
 
             /*DatePickerBirthday.SelectedDate = DateTime.Now;
             PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;

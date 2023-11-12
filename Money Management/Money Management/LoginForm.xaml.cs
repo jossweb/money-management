@@ -103,5 +103,10 @@ namespace Money_Management
                 LoginButton_Click(sender, e);
             }
         }
+
+        private void frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
