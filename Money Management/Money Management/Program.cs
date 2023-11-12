@@ -24,6 +24,8 @@ namespace Money_Management
     {
         public static void AddComponentSignUp(Grid page, SignUp window)
         {
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
             const int HEIGHTTEXTBOX = 40;
@@ -42,7 +44,7 @@ namespace Money_Management
                 marginTop += HEIGHTTEXTBLOCK;
                 page.Children.Add(textBlock);
                 TextBox textBox = CreateEntities.CreateTextBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window);
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
                 page.Children.Add(textBox);
                 marginTop += HEIGHTTEXTBOX;
             }
@@ -52,20 +54,23 @@ namespace Money_Management
                     (textBlockText[i + 3], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
                 marginTop += HEIGHTTEXTBLOCK;
                 page.Children.Add(textBlock);
-                PasswordBox passBox = CreateEntities.CreatePasswordBox(NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window);
+                PasswordBox passBox = CreateEntities.CreatePasswordBox
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
                 page.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
             DatePicker datePicker = CreateEntities.CreateDatePicker
-                (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0));
+                (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             page.Children.Add (datePicker);
         }
         public static void AddContent(Grid grid)
         {
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
                 HorizontalAlignment.Center, VerticalAlignment.Top);
             grid.Children.Add(title);
-            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center, new Thickness(0, 0, 0, 0));
+            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center, new Thickness(0, 0, 0, 0), styleDictionary);
             grid.Children.Add(datePicker);
         }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
@@ -234,7 +239,7 @@ namespace Money_Management
             grid.VerticalAlignment = vAlignment;
             return grid;
         }
-        public static DatePicker CreateDatePicker(int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
+        public static DatePicker CreateDatePicker(int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
         {
             DatePicker datePicker = new DatePicker();
             datePicker.Width = width;
@@ -242,11 +247,12 @@ namespace Money_Management
             datePicker.HorizontalAlignment = hAlignment;
             datePicker.VerticalAlignment = vAlignment;
             datePicker.Margin = margins;
-            //datePicker.Style = (Style)window.Ressources["DatePickerStyle"];
+            Style textBoxStyle = (Style)styleDictionary["DatePickerStyle"];
+            datePicker.Style = textBoxStyle;
 
             return datePicker;
         }
-        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window)
+        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
         {
             TextBox textBox = new TextBox();
             textBox.Name = name;
@@ -256,8 +262,6 @@ namespace Money_Management
             textBox.VerticalAlignment = vAlignment;
             textBox.Margin = margins;
             textBox.FontSize = FontSize;
-            ResourceDictionary styleDictionary = new ResourceDictionary();
-            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             Style textBoxStyle = (Style)styleDictionary["TextBoxStyle"];
             textBox.Style = textBoxStyle;
 
@@ -275,7 +279,7 @@ namespace Money_Management
             textBlock.Margin = margins;
             return textBlock;
         }
-        public static PasswordBox CreatePasswordBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window)
+        public static PasswordBox CreatePasswordBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
         {
             PasswordBox passwordBox = new PasswordBox();
             passwordBox.Name = name;
@@ -285,7 +289,8 @@ namespace Money_Management
             passwordBox.VerticalAlignment = vAlignment;
             passwordBox.Margin = margins;
             passwordBox.FontSize = FontSize;
-            passwordBox.Style = (Style)window.Resources["PasswordBoxStyle"];
+            Style passwordBoxStyle = (Style)styleDictionary["PasswordBoxStyle"];
+            passwordBox.Style = passwordBoxStyle;
 
             return passwordBox;
         }
