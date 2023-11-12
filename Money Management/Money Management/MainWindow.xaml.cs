@@ -50,7 +50,7 @@ namespace Money_Management
             {
                 passwordForm checkPasswordWindow = new passwordForm(userId, userList, connection);
                 checkPasswordWindow.Show();
-                this.Close();
+                Close();
             }
             else
             {

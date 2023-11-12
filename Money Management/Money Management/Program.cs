@@ -17,8 +17,6 @@ using Brush = System.Windows.Media.Brush;
 using addExpense = Money_Management.AddExpense;
 using HAlignment = System.Windows.HorizontalAlignment;
 using VAlignement = System.Windows.VerticalAlignment;
-using System.Drawing.Printing;
-using System.Runtime.CompilerServices;
 
 namespace Money_Management
 {
@@ -32,20 +30,21 @@ namespace Money_Management
             List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email" };
             List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
             SolidColorBrush backgroundColor = Brushes.White;
-
-
             Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
                 HorizontalAlignment.Center, VerticalAlignment.Top);
+            page.Children.Add(title);
 
-            int marginTop = 15;
-            for (int i = 0; i < 2; i++)
+            int marginTop = 60;
+            for (int i = 0; i < 3; i++)
             {
-                TextBlock textBlock = CreateEntities.CreateTextBlock(textBlockText[i], backgroundColor, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
-                marginTop += marginTop + HEIGHTTEXTBLOCK;
+                TextBlock textBlock = CreateEntities.CreateTextBlock
+                    (textBlockText[i], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                marginTop += HEIGHTTEXTBLOCK;
                 page.Children.Add(textBlock);
-                TextBox textBox = CreateEntities.CreateTextBox(NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
+                TextBox textBox = CreateEntities.CreateTextBox
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
                 page.Children.Add(textBox);
-                marginTop += marginTop + HEIGHTTEXTBOX;
+                marginTop += HEIGHTTEXTBOX;
             }
 
 
@@ -206,6 +205,7 @@ namespace Money_Management
         public static Label CreateLabel(string content, int fontSize, Thickness margins, HAlignment horizontalAlignment, VAlignement VerticalAlignement)
         {
             Label label = new Label();
+            label.Foreground = Brushes.Black;
             label.Content = content;
             label.HorizontalAlignment = horizontalAlignment;
             label.VerticalAlignment = VerticalAlignement;
@@ -233,7 +233,7 @@ namespace Money_Management
 
             return datePicker;
         }
-        public static TextBox CreateTextBox(string name, int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
+        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins)
         {
             TextBox textBox = new TextBox();
             textBox.Name = name;
@@ -242,6 +242,7 @@ namespace Money_Management
             textBox.HorizontalAlignment = hAlignment;
             textBox.VerticalAlignment = vAlignment;
             textBox.Margin = margins;
+            textBox.FontSize = FontSize;
 
             return textBox;
         }

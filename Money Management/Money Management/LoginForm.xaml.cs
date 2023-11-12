@@ -92,6 +92,8 @@ namespace Money_Management
         {
             SignUp SignUpPage = new SignUp(connection);
             SignUpPage.Show();
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
         }
         private void Enter_keyUp(object sender, KeyEventArgs e)
         {

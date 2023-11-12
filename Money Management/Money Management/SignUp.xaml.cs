@@ -33,7 +33,6 @@ namespace Money_Management
             this.Content = grid;
             Program.AddComponentSignUp(grid);
 
-
             /*DatePickerBirthday.SelectedDate = DateTime.Now;
             PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
             PasswordBoxPassword.KeyUp += Enter_keyUp;*/
