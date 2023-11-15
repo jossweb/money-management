@@ -250,6 +250,15 @@ namespace Money_Management
             Style textBoxStyle = (Style)styleDictionary["DatePickerStyle"];
             datePicker.Style = textBoxStyle;
 
+            Popup datePickerPopup = datePicker.Template.FindName("PART_Popup", datePicker) as Popup;
+
+            // Récupérer le Calendar à l'intérieur du Popup
+            Calendar calendar = datePickerPopup.Child as Calendar;
+
+            // Appliquer le style du Calendar
+            Style calendarStyle = (Style)styleDictionary["CalendarStyle"]; // Assurez-vous d'ajuster la clé du dictionnaire selon votre nom de style
+            calendar.Style = calendarStyle;
+
             return datePicker;
         }
         public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
