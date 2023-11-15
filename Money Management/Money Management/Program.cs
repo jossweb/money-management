@@ -17,6 +17,7 @@ using Brush = System.Windows.Media.Brush;
 using addExpense = Money_Management.AddExpense;
 using HAlignment = System.Windows.HorizontalAlignment;
 using VAlignement = System.Windows.VerticalAlignment;
+using System.Windows.Controls.Primitives;
 
 namespace Money_Management
 {
@@ -256,8 +257,14 @@ namespace Money_Management
             Calendar calendar = datePickerPopup.Child as Calendar;
 
             // Appliquer le style du Calendar
-            Style calendarStyle = (Style)styleDictionary["CalendarStyle"]; // Assurez-vous d'ajuster la clé du dictionnaire selon votre nom de style
+            Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
+            Style dayButtonStyle = (Style)styleDictionary["CalendarCalendarDayButtonStyle"];
+            Style calendarItemsStyles = (Style)styleDictionary["CalendarCalendarItemStyle"];
+            Style calendayButtonStyle = (Style)styleDictionary["CalendarCalendarButtonStyle"];
             calendar.Style = calendarStyle;
+            calendar.Style = dayButtonStyle;
+            calendar.Style = calendarItemsStyles;
+            calendar.Style = calendayButtonStyle;
 
             return datePicker;
         }
