@@ -248,23 +248,14 @@ namespace Money_Management
             datePicker.HorizontalAlignment = hAlignment;
             datePicker.VerticalAlignment = vAlignment;
             datePicker.Margin = margins;
+
+            // Appliquer le style du DatePicker
             Style textBoxStyle = (Style)styleDictionary["DatePickerStyle"];
             datePicker.Style = textBoxStyle;
 
-            Popup datePickerPopup = datePicker.Template.FindName("PART_Popup", datePicker) as Popup;
-
-            // Récupérer le Calendar à l'intérieur du Popup
-            Calendar calendar = datePickerPopup.Child as Calendar;
-
             // Appliquer le style du Calendar
             Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
-            Style dayButtonStyle = (Style)styleDictionary["CalendarCalendarDayButtonStyle"];
-            Style calendarItemsStyles = (Style)styleDictionary["CalendarCalendarItemStyle"];
-            Style calendayButtonStyle = (Style)styleDictionary["CalendarCalendarButtonStyle"];
-            calendar.Style = calendarStyle;
-            calendar.Style = dayButtonStyle;
-            calendar.Style = calendarItemsStyles;
-            calendar.Style = calendayButtonStyle;
+            datePicker.CalendarStyle = calendarStyle;
 
             return datePicker;
         }
