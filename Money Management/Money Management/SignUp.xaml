@@ -7,4 +7,5 @@
         mc:Ignorable="d"
         Title="SignUp" Height="600" Width="500"
         WindowStartupLocation="CenterScreen">
+    
 </Window>

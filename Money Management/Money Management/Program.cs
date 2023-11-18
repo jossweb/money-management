@@ -257,6 +257,12 @@ namespace Money_Management
             Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
             datePicker.CalendarStyle = calendarStyle;
 
+            Style calendarItem = (Style)styleDictionary["CalendarDayButtonStyle"];
+            datePicker.CalendarDayButtonStyle = calendarItem;
+
+
+
+
             return datePicker;
         }
         public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)

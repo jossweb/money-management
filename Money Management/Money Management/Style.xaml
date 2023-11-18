@@ -86,6 +86,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
+    <!--Date Picker-->
     <Style x:Key="DatePickerStyle" TargetType="{x:Type DatePicker}">
         <Setter Property="Foreground" Value="#FF333333"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>
@@ -106,8 +107,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="Template">
             <Setter.Value>
-
-                <!--Date Picker-->
 
                 <ControlTemplate TargetType="{x:Type DatePicker}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
@@ -281,7 +280,7 @@
         </Setter>
         <Setter Property="TextElement.FontSize" Value="40"/>
     </Style>
-    <Style x:Key="CalendarCalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
+    <Style x:Key="CalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
         <Setter Property="MinWidth" Value="5"/>
         <Setter Property="MinHeight" Value="5"/>
         <Setter Property="FontSize" Value="10"/>
@@ -399,7 +398,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="CalendarCalendarItemStyle" TargetType="{x:Type CalendarItem}">
+    <Style x:Key="CalendarItemStyle" TargetType="{x:Type CalendarItem}">
         <Setter Property="Margin" Value="0,3,0,3"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -444,7 +443,7 @@
                                                         </VisualState>
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
-                                                <Rectangle Fill="#11E5EBF1" Opacity="1" Stretch="Fill"/>
+                                                <Rectangle Fill="#11E5EBF1" Opacity="0" Stretch="Fill"/>
                                                 <Grid>
                                                     <Path x:Name="path" Data="M288.75,232.25 L288.75,240.625 L283,236.625 z" Fill="#000" HorizontalAlignment="Left" Height="10" Margin="14,-6,0,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
                                                 </Grid>
@@ -467,7 +466,7 @@
                                                         </VisualState>
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
-                                                <Rectangle Fill="#11E5EBF1" Opacity="0" Stretch="Fill"/>
+                                                <Rectangle Fill="#Re" Opacity="0" Stretch="Fill"/>
                                                 <Grid>
                                                     <Path x:Name="path" Data="M282.875,231.875 L282.875,240.375 L288.625,236 z" Fill="#000" HorizontalAlignment="Right" Height="10" Margin="0,-6,14,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
                                                 </Grid>
@@ -562,7 +561,7 @@
         </Setter>
     </Style>
     <Style x:Key="CalendarCalendarButtonStyle" TargetType="{x:Type CalendarButton}">
-        <Setter Property="Background" Value="#fff"/>
+        <Setter Property="Background" Value="#000"/>
         <Setter Property="MinWidth" Value="40"/>
         <Setter Property="MinHeight" Value="42"/>
         <Setter Property="FontSize" Value="10"/>
