@@ -256,9 +256,10 @@ namespace Money_Management
             // Appliquer le style du Calendar
             Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
             datePicker.CalendarStyle = calendarStyle;
-
+            /*
             Style calendarItem = (Style)styleDictionary["CalendarDayButtonStyle"];
             datePicker.CalendarDayButtonStyle = calendarItem;
+            */
 
 
 
