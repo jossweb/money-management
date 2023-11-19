@@ -18,12 +18,13 @@ using addExpense = Money_Management.AddExpense;
 using HAlignment = System.Windows.HorizontalAlignment;
 using VAlignement = System.Windows.VerticalAlignment;
 using System.Windows.Controls.Primitives;
+using System.Security.Principal;
 
 namespace Money_Management
 {
     class Program
     {
-        public static void AddComponentSignUp(Grid page, SignUp window)
+        public static void AddComponentSignUp(Grid grid, SignUp window)
         {
             ResourceDictionary styleDictionary = new ResourceDictionary();
             styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
@@ -32,10 +33,11 @@ namespace Money_Management
             const int HEIGHTTEXTBOX = 40;
             List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email", "Mot de passe :", "Confirmer le mot de passe :" };
             List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
-            SolidColorBrush backgroundColor = Brushes.White;
+
+            AddEllipses(1, grid);
             Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
                 HorizontalAlignment.Center, VerticalAlignment.Top);
-            page.Children.Add(title);
+            grid.Children.Add(title);
 
             int marginTop = 60;
             for (int i = 0; i < 3; i++)
@@ -43,10 +45,10 @@ namespace Money_Management
                 TextBlock textBlock = CreateEntities.CreateTextBlock
                     (textBlockText[i], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
                 marginTop += HEIGHTTEXTBLOCK;
-                page.Children.Add(textBlock);
+                grid.Children.Add(textBlock);
                 TextBox textBox = CreateEntities.CreateTextBox
                     (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
-                page.Children.Add(textBox);
+                grid.Children.Add(textBox);
                 marginTop += HEIGHTTEXTBOX;
             }
             for (int i = 0; i < 2; i++)
@@ -54,15 +56,47 @@ namespace Money_Management
                 TextBlock textBlock = CreateEntities.CreateTextBlock
                     (textBlockText[i + 3], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
                 marginTop += HEIGHTTEXTBLOCK;
-                page.Children.Add(textBlock);
+                grid.Children.Add(textBlock);
                 PasswordBox passBox = CreateEntities.CreatePasswordBox
                     (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
-                page.Children.Add(passBox);
+                grid.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
-            page.Children.Add (datePicker);
+            grid.Children.Add (datePicker);
+        }
+        public static void AddEllipses(int PageType, Grid grid)
+        {
+            if (PageType == 1)  //format of page is 600 x 500
+            {
+                List<Brush> colors = new List<Brush> ();
+                colors.Add (Brushes.LightBlue);
+                colors.Add (Brushes.LightGreen);
+                colors.Add (Brushes.PaleVioletRed);
+                colors.Add (Brushes.Coral);
+                colors.Add (Brushes.CadetBlue);
+                colors.Add (Brushes.Purple);
+
+                List<Thickness> ellipsesMargin = new List<Thickness>();
+                ellipsesMargin.Add (new Thickness(-115, -69, 331, 469));
+                ellipsesMargin.Add(new Thickness (406, 200, -80, 250 ));
+                ellipsesMargin.Add(new Thickness (299, 395, 110, 136));
+                ellipsesMargin.Add(new Thickness (34, 260, 385, 272 ));
+                ellipsesMargin.Add(new Thickness (34, 516, 385, 25 ));
+                ellipsesMargin.Add(new Thickness (350, -60, 0, 500 ));
+                ellipsesMargin.Add(new Thickness ( 369, 620, -26, -0 ));
+
+
+                for (int i = 0; i < ellipsesMargin.Count - 1; i++)
+                {
+                    Ellipse ellipse = new Ellipse();
+                    ellipse.Margin = ellipsesMargin[i];
+                    ellipse.Fill = colors[i];
+                    grid.Children.Add(ellipse);
+                }
+
+            }
         }
         public static void AddContent(Grid grid)
         {
@@ -256,10 +290,6 @@ namespace Money_Management
             // Appliquer le style du Calendar
             Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
             datePicker.CalendarStyle = calendarStyle;
-            /*
-            Style calendarItem = (Style)styleDictionary["CalendarDayButtonStyle"];
-            datePicker.CalendarDayButtonStyle = calendarItem;
-            */
 
 
 

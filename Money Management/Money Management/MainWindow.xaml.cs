@@ -70,5 +70,10 @@ namespace Money_Management
             LoginForm logInPage = new LoginForm(connection);
             frame.Navigate(logInPage);
         }
+
+        private void frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
