@@ -46,11 +46,27 @@ namespace Money_Management
                     (textBlockText[i], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
                 marginTop += HEIGHTTEXTBLOCK;
                 grid.Children.Add(textBlock);
+
                 TextBox textBox = CreateEntities.CreateTextBox
                     (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
                 grid.Children.Add(textBox);
+
+                switch (NametextBox[i])
+                {
+                    case "textBoxname":
+                        window.Nom = textBox.Text;
+                        break;
+                    case "textBoxfirstName":
+                        window.Prenom = textBox.Text;
+                        break;
+                    case "textBoxemail":
+                        window.Email = textBox.Text;
+                        break;
+                }
+
                 marginTop += HEIGHTTEXTBOX;
             }
+
             for (int i = 0; i < 2; i++)
             {
                 TextBlock textBlock = CreateEntities.CreateTextBlock
@@ -65,6 +81,7 @@ namespace Money_Management
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add (datePicker);
+            window.DateDeNaissance = datePicker.SelectedDate ?? DateTime.Now;
         }
         public static void AddEllipses(int PageType, Grid grid)
         {

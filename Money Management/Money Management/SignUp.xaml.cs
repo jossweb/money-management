@@ -22,6 +22,12 @@ namespace Money_Management
     public partial class SignUp : Window
     {
         private MySqlConnection connection;
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Email { get; set; }
+        public string MotDePasse { get; set; }
+        public string ConfirmerMotDePasse { get; set; }
+        public DateTime DateDeNaissance { get; set; }
         public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
