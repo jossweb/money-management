@@ -24,10 +24,8 @@ namespace Money_Management
 {
     class Program
     {
-        public static void AddComponentSignUp(Grid grid, SignUp window)
+        public static void AddComponentSignUp(Grid grid, SignUp window, ResourceDictionary styleDictionary)
         {
-            ResourceDictionary styleDictionary = new ResourceDictionary();
-            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
             const int HEIGHTTEXTBOX = 40;
@@ -54,10 +52,10 @@ namespace Money_Management
                 switch (NametextBox[i])
                 {
                     case "textBoxname":
-                        window.Nom = textBox.Text;
+                        window.Name = textBox.Text;
                         break;
                     case "textBoxfirstName":
-                        window.Prenom = textBox.Text;
+                        window.firstName = textBox.Text;
                         break;
                     case "textBoxemail":
                         window.Email = textBox.Text;
@@ -81,12 +79,8 @@ namespace Money_Management
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add (datePicker);
-            window.DateDeNaissance = datePicker.SelectedDate ?? DateTime.Now;
+            window.BirstdayDate = datePicker.SelectedDate ?? DateTime.Now;
             marginTop += 2 * HEIGHTTEXTBOX;
-
-            Button buttonConnection = CreateEntities.CreateConnectionButton
-                ("Connection", 120, 45, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), styleDictionary);
-            grid.Children.Add(buttonConnection);
         }
 
 

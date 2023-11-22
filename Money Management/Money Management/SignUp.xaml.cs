@@ -22,128 +22,31 @@ namespace Money_Management
     public partial class SignUp : Window
     {
         private MySqlConnection connection;
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
+        public string name { get; set; }
+        public string firstName { get; set; }
         public string Email { get; set; }
-        public string MotDePasse { get; set; }
-        public string ConfirmerMotDePasse { get; set; }
-        public DateTime DateDeNaissance { get; set; }
+        public string Password { get; set; }
+        public string PasswordConfirmed { get; set; }
+        public DateTime BirstdayDate { get; set; }
         public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
 
             this.connection = connection;
-
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
 
             Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
             this.Content = grid;
-            Program.AddComponentSignUp(grid, this);
-
-            /*DatePickerBirthday.SelectedDate = DateTime.Now;
-            PasswordBoxpasswordValidation.KeyUp += Enter_keyUp;
-            PasswordBoxPassword.KeyUp += Enter_keyUp;*/
+            Program.AddComponentSignUp(grid, this, styleDictionary);
+            Button buttonConnection = CreateEntities.CreateConnectionButton
+                ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 450, 0, 0), styleDictionary);
+            grid.Children.Add(buttonConnection);
         }
-        /*private void LoginButton_Click(object sender, RoutedEventArgs e)
+        public static void HandleConnectionButtonClick(SignUp window)
         {
-            var textBoxs = new List<TextBox> { textBoxname, textBoxfirstName, textBoxemail };
-            var passBoxs = new List<PasswordBox> { PasswordBoxPassword, PasswordBoxpasswordValidation };
+            Console.WriteLine("Test");
 
-            if (!string.IsNullOrWhiteSpace(textBoxname.Text) && !string.IsNullOrWhiteSpace(textBoxfirstName.Text) &&
-                !string.IsNullOrWhiteSpace(textBoxemail.Text) && !string.IsNullOrWhiteSpace(PasswordBoxPassword.Password) &&
-                !string.IsNullOrWhiteSpace(PasswordBoxpasswordValidation.Password)) 
-            {
-                string name = textBoxname.Text;
-                string firstName = textBoxfirstName.Text;
-                string email = textBoxemail.Text;
-                string pass = PasswordBoxPassword.Password;
-                string confirmPass = PasswordBoxpasswordValidation.Password;
-
-                if ((name.Length < 50) && (firstName.Length < 50) &&
-                    (email.Length < 50) && (pass.Length < 50) &&
-                    (confirmPass.Length < 50))
-                {
-                    if (pass.Length >= 5)
-                    {
-                        try
-                        {
-
-                            DateTime? birthday = DatePickerBirthday.SelectedDate;
-                            DateTime selectedDate = birthday.Value;
-                            if (email.Contains("@"))
-                            {
-                                if (pass == confirmPass)
-                                {
-                                    if (User.CheckUserInDbOrInJson(email, "DataBase", connection))
-                                    {
-                                        User newUser = new User(name, firstName, email, selectedDate, DateTime.Now);
-                                        Sql.CreateUserInSql(connection, newUser, pass);
-                                    }
-                                    else
-                                    {
-                                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
-                                        errorWindow.Show();
-                                    }
-                                }
-                                else
-                                {
-                                    ErrorWindow errorWindow = new ErrorWindow("Erreur : Les mots de passe ne sont pas identiques");
-                                    errorWindow.Show();
-                                }
-                            }
-                            else
-                            {
-                                ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez entrer une véritable adresse email");
-                                errorWindow.Show();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Program.RemoveText(textBoxs, passBoxs);
-                            Debug.WriteLine("Text Field reset");
-                            Debug.WriteLine("Error" + ex);
-                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Connection au serveur échoué ...");
-                            errorWindow.Show();
-                        }
-                    }
-                    else
-                    {
-                        Debug.WriteLine("Error : User enter pass whithout 5 caracteres");
-                        ErrorWindow errorWindow = new ErrorWindow("Erreur : Votre mot de passe doit contenir au moins 5 caractères");
-                        errorWindow.Show();
-                    }
-                }
-                else
-                {
-                    Program.RemoveText(textBoxs, passBoxs);
-                    Debug.WriteLine("Error : User to enter more than 50 character");
-                    ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez ne pas dépasser 50 caractères par champs");
-                    errorWindow.Show();
-                }
-
-            }
-            else
-            {
-                Program.RemoveText(textBoxs, passBoxs);
-                Debug.WriteLine("Error : All texts field was not completed");
-                ErrorWindow errorWindow = new ErrorWindow("Erreur : Veuillez remplir tous les champs");
-                errorWindow.Show();
-            }
         }
-
-        private void BackHome_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow newMainWindow = new MainWindow();
-            Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = newMainWindow;
-            newMainWindow.Show();
-        }
-        private void Enter_keyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Debug.WriteLine("Enter touch was activate");
-                LoginButton_Click(sender, e);
-            }
-        }*/
     }
 }
