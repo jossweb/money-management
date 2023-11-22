@@ -83,6 +83,8 @@ namespace Money_Management
             grid.Children.Add (datePicker);
             window.DateDeNaissance = datePicker.SelectedDate ?? DateTime.Now;
         }
+
+
         public static void AddEllipses(int PageType, Grid grid)
         {
             if (PageType == 1)  //format of page is 600 x 500
@@ -308,10 +310,21 @@ namespace Money_Management
             Style calendarStyle = (Style)styleDictionary["StyleCalendar"];
             datePicker.CalendarStyle = calendarStyle;
 
-
-
-
             return datePicker;
+        }
+        public static Button CreateConnectionButton(string content ,int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
+        {
+            Button button = new Button();
+            button.Content = content;
+            button.Width = width;
+            button.Height = height;
+            button.HorizontalAlignment = hAlignment;
+            button.VerticalAlignment = vAlignment;
+            button.Margin = margins;
+            Style buttonStyle = (Style)styleDictionary["ConnectionButtonStyle"];
+            button.Style = buttonStyle;
+
+            return button;
         }
         public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
         {
