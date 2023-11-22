@@ -82,6 +82,11 @@ namespace Money_Management
                 (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add (datePicker);
             window.DateDeNaissance = datePicker.SelectedDate ?? DateTime.Now;
+            marginTop += 2 * HEIGHTTEXTBOX;
+
+            Button buttonConnection = CreateEntities.CreateConnectionButton
+                ("Connection", 120, 45, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), styleDictionary);
+            grid.Children.Add(buttonConnection);
         }
 
 
