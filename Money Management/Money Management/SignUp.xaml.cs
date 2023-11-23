@@ -41,12 +41,20 @@ namespace Money_Management
             Program.AddComponentSignUp(grid, this, styleDictionary);
             Button buttonConnection = CreateEntities.CreateConnectionButton
                 ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 450, 0, 0), styleDictionary);
+            buttonConnection.Click += (sender, e) => ConnectionButtonClick();
             grid.Children.Add(buttonConnection);
         }
-        public static void HandleConnectionButtonClick(SignUp window)
+        public void ConnectionButtonClick()
         {
-            Console.WriteLine("Test");
-
+            if ((name != null) && (firstName != null) && (Email != null) && (Password != null) && (PasswordConfirmed != null))
+            {
+                
+            }
+            else
+            {
+                ErrorWindow error = new ErrorWindow("ERREUR: Veuillez remplir tous les champs du formulaire !");
+                error.Show();
+            }
         }
     }
 }
