@@ -24,6 +24,63 @@ namespace Money_Management
 {
     class Program
     {
+        public static bool CheckSignInConnections(string name, string firstName, string email, string password, string passwordConfirmed)
+        {
+            const int MAXIMALLENGTH = 50;
+            const int MINIMALLENGTH = 3;
+            const int MINIMALLENGTHPASSWORD = 8;
+
+            if ((name != null) && (firstName != null) && (email != null) && (password != null) && (passwordConfirmed != null))
+            {
+                if ((name.Length > MAXIMALLENGTH) && (firstName.Length > MAXIMALLENGTH) && (email.Length > MAXIMALLENGTH) && (password.Length > MAXIMALLENGTH) && (passwordConfirmed.Length > MAXIMALLENGTH))
+                {
+                    if ((firstName.Length < MINIMALLENGTH) && (name.Length < MINIMALLENGTH) && (email.Length < MINIMALLENGTH))
+                    {
+                        if (email.Contains("@"))
+                        {
+                            if (password == passwordConfirmed)
+                            {
+                                if (password.Length > MINIMALLENGTHPASSWORD)
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    ShowError("ERREUR: Votre mot de passe doit contenir au moins 8 caractères", "ERROR : The password contains less than 8 characters");
+                                }
+                            }
+                            else
+                            {
+                                ShowError("ERREUR: Vos mots de passes ne correspondent pas !", "ERROR : Two passwords do not match");
+                            }
+                        }
+                        else
+                        {
+                            ShowError("ERREUR: Votre adresse email doit contenir un caractère '@' !", "ERROR : email does not contain '@'");
+                        }
+                    }
+                    else
+                    {
+                        ShowError("ERREUR: Les champs 'nom', 'prénom' et 'email' doivent contenir au minimum 3 caractères !", "ERROR : Last name, first name, or email fields contain less than 3 characters");
+                    }
+                }
+                else
+                {
+                    ShowError("ERREUR: Les champs doivent chacun contenir moins de 50 caractères !", "ERROR: One or more fields contain more than 50 characters!");
+                }
+            }
+            else
+            {
+                ShowError("ERREUR: Tous les champs doivent être remplis !", "ERROR: Not all fields are filled!");
+            }
+            return false;
+        }
+        public static void ShowError(string errorMessage, string debugMessage)
+        {
+            ErrorWindow error = new ErrorWindow(errorMessage);
+            error.Show();
+            Debug.WriteLine(debugMessage);
+        }
         public static void AddComponentSignUp(Grid grid, SignUp window, ResourceDictionary styleDictionary)
         {
             const int WIDTHELEMENTS = 340;
@@ -58,7 +115,7 @@ namespace Money_Management
                         window.firstName = textBox.Text;
                         break;
                     case "textBoxemail":
-                        window.Email = textBox.Text;
+                        window.email = textBox.Text;
                         break;
                 }
 
@@ -79,7 +136,7 @@ namespace Money_Management
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add (datePicker);
-            window.BirstdayDate = datePicker.SelectedDate ?? DateTime.Now;
+            window.birstdayDate = datePicker.SelectedDate ?? DateTime.Now;
             marginTop += 2 * HEIGHTTEXTBOX;
         }
 
