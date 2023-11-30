@@ -81,64 +81,6 @@ namespace Money_Management
             error.Show();
             Debug.WriteLine(debugMessage);
         }
-        public static void AddComponentSignUp(Grid grid, SignUp window, ResourceDictionary styleDictionary)
-        {
-            const int WIDTHELEMENTS = 340;
-            const int HEIGHTTEXTBLOCK = 20;
-            const int HEIGHTTEXTBOX = 40;
-            List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email", "Mot de passe :", "Confirmer le mot de passe :" };
-            List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
-
-            AddEllipses(1, grid);
-            Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
-                HorizontalAlignment.Center, VerticalAlignment.Top);
-            grid.Children.Add(title);
-
-            int marginTop = 60;
-            for (int i = 0; i < 3; i++)
-            {
-                TextBlock textBlock = CreateEntities.CreateTextBlock
-                    (textBlockText[i], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
-                marginTop += HEIGHTTEXTBLOCK;
-                grid.Children.Add(textBlock);
-
-                TextBox textBox = CreateEntities.CreateTextBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
-                grid.Children.Add(textBox);
-
-                switch (NametextBox[i])
-                {
-                    case "textBoxname":
-                        window.Name = textBox.Text;
-                        break;
-                    case "textBoxfirstName":
-                        window.firstName = textBox.Text;
-                        break;
-                    case "textBoxemail":
-                        window.email = textBox.Text;
-                        break;
-                }
-
-                marginTop += HEIGHTTEXTBOX;
-            }
-
-            for (int i = 0; i < 2; i++)
-            {
-                TextBlock textBlock = CreateEntities.CreateTextBlock
-                    (textBlockText[i + 3], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0));
-                marginTop += HEIGHTTEXTBLOCK;
-                grid.Children.Add(textBlock);
-                PasswordBox passBox = CreateEntities.CreatePasswordBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
-                grid.Children.Add(passBox);
-                marginTop += HEIGHTTEXTBOX;
-            }
-            DatePicker datePicker = CreateEntities.CreateDatePicker
-                (150, 40, HAlignment.Center, VAlignement.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
-            grid.Children.Add (datePicker);
-            window.birstdayDate = datePicker.SelectedDate ?? DateTime.Now;
-            marginTop += 2 * HEIGHTTEXTBOX;
-        }
 
 
         public static void AddEllipses(int PageType, Grid grid)
