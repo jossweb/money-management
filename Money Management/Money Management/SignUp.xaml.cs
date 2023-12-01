@@ -90,7 +90,6 @@ namespace Money_Management
                 grid.Children.Add(textBox);
                 marginTop += HEIGHTTEXTBOX;
             }
-
             for (int i = 0; i < 2; i++)
             {
                 TextBlock textBlock = CreateEntities.CreateTextBlock
@@ -114,14 +113,16 @@ namespace Money_Management
                 grid.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
-
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add(datePicker);
         }
         private void ConnectionButtonClick()
         {
-            Console.WriteLine(textBoxName + "" + textBoxFirstName);
+            if (Program.CheckSignIn(textBoxName.ToString(), textBoxFirstName.ToString(), textBoxEmail.ToString(), passwordBox1.ToString(), passwordBox2.ToString()))
+            {
+
+            }
         }
     }
 }

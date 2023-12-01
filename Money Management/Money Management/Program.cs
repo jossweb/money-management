@@ -24,7 +24,7 @@ namespace Money_Management
 {
     class Program
     {
-        public static bool CheckSignInConnections(string name, string firstName, string email, string password, string passwordConfirmed)
+        public static bool CheckSignIn(string name, string firstName, string email, string password, string passwordConfirmed)
         {
             const int MAXIMALLENGTH = 50;
             const int MINIMALLENGTH = 3;
@@ -484,6 +484,24 @@ namespace Money_Management
                 MessageBox.Show("Erreur");
             }
 
+        }
+        public static bool EmailTestInSql(MySqlConnection connection, string email)
+        {
+            string query = "SELECT mail From users Where mail LIKE '" + email + "'";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    // There are results, so the email already exists
+                    return false;
+                }
+                else
+                {
+                    // No results, the email does not exist yet
+                    return true;
+                }
+            }
         }
     }
 
