@@ -24,14 +24,20 @@ namespace Money_Management
     {
         private MySqlConnection connection;
 
-        private TextBox textBoxName;
-        private TextBox textBoxFirstName;
-        private TextBox textBoxEmail;
-        private PasswordBox passwordBox1;
-        private PasswordBox passwordBox2;
+        private static TextBox textBoxName;
+        private static TextBox textBoxFirstName;
+        private static TextBox textBoxEmail;
+        private static PasswordBox passwordBox1;
+        private static PasswordBox passwordBox2;
         public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
+            textBoxName = new TextBox();
+            textBoxFirstName = new TextBox();
+            textBoxEmail = new TextBox();
+            passwordBox1 = new PasswordBox();
+            passwordBox2 = new PasswordBox();
+
             this.connection = connection;
             ResourceDictionary styleDictionary = new ResourceDictionary();
             styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
@@ -48,19 +54,16 @@ namespace Money_Management
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
             const int HEIGHTTEXTBOX = 40;
-            int marginTop = 60;
             List<string> textBlockText = new List<string> { "Nom :", "Prénom :", "Email", "Mot de passe :", "Confirmer le mot de passe :" };
             List<string> NametextBox = new List<string> { "textBoxname", "textBoxfirstName", "textBoxemail" };
 
-            //This one add Ellipse on the background of the page
             Program.AddEllipses(1, grid);
 
-            //Add Label Title
             Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 5, 0, 0),
                 HorizontalAlignment.Center, VerticalAlignment.Top);
             grid.Children.Add(title);
 
-            //textblock creation loop
+            int marginTop = 60;
             for (int i = 0; i < 3; i++)
             {
                 TextBlock textBlock = CreateEntities.CreateTextBlock
@@ -70,8 +73,21 @@ namespace Money_Management
 
                 TextBox textBox = CreateEntities.CreateTextBox
                     (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
-                grid.Children.Add(textBox);
 
+                switch (i)
+                {
+                    case 0:
+                        textBoxName = textBox;
+                        break;
+                    case 1:
+                        textBoxFirstName = textBox;
+                        break;
+                    case 2:
+                        textBoxEmail = textBox;
+                        break;
+                }
+
+                grid.Children.Add(textBox);
                 marginTop += HEIGHTTEXTBOX;
             }
 
@@ -81,18 +97,31 @@ namespace Money_Management
                     (textBlockText[i + 3], Brushes.Black, WIDTHELEMENTS, HEIGHTTEXTBLOCK, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0));
                 marginTop += HEIGHTTEXTBLOCK;
                 grid.Children.Add(textBlock);
+
                 PasswordBox passBox = CreateEntities.CreatePasswordBox
                     (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
+
+                switch (i)
+                {
+                    case 0:
+                        passwordBox1 = passBox;
+                        break;
+                    case 1:
+                        passwordBox2 = passBox;
+                        break;
+                }
+
                 grid.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
+
             DatePicker datePicker = CreateEntities.CreateDatePicker
                 (150, 40, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add(datePicker);
         }
-        public void ConnectionButtonClick()
+        private void ConnectionButtonClick()
         {
-
+            Console.WriteLine(textBoxName + "" + textBoxFirstName);
         }
     }
 }
