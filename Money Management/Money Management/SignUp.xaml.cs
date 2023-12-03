@@ -29,6 +29,7 @@ namespace Money_Management
         private static TextBox textBoxEmail;
         private static PasswordBox passwordBox1;
         private static PasswordBox passwordBox2;
+        private static DatePicker datePicker;
         public SignUp(MySqlConnection connection)
         {
             InitializeComponent();
@@ -113,15 +114,33 @@ namespace Money_Management
                 grid.Children.Add(passBox);
                 marginTop += HEIGHTTEXTBOX;
             }
-            DatePicker datePicker = CreateEntities.CreateDatePicker
+            DatePicker datePickerBirstday = CreateEntities.CreateDatePicker
                 (150, 40, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
-            grid.Children.Add(datePicker);
+            grid.Children.Add(datePickerBirstday);
+            datePicker = datePickerBirstday;
         }
         private void ConnectionButtonClick()
         {
-            if (Program.CheckSignIn(textBoxName.ToString(), textBoxFirstName.ToString(), textBoxEmail.ToString(), passwordBox1.ToString(), passwordBox2.ToString()))
-            {
+            string name = textBoxName.ToString();
+            string firstName = textBoxFirstName.ToString();
+            string email = textBoxEmail.ToString();
+            string password = passwordBox1.ToString();
+            string passwordCheck = passwordBox2.ToString();
+            DateTime? datePickercontain = datePicker.SelectedDate;
+            DateTime birstday = datePicker.SelectedDate ?? DateTime.Today;
 
+            if (Program.CheckSignIn(name, firstName, email, password, passwordCheck));
+            {
+                if (Sql.EmailTestInSql(connection, textBoxEmail.ToString()))
+                {
+                    User newUser = new User(name, firstName, email, birstday, birstday);
+                    Sql.CreateUserInSql(connection, newUser, password);
+                }
+                else
+                {
+                    Program.ShowError("Erreur : Cette adresse Email est déjà utilisé. Veuillez réessayer avec une autre adresse ou vous connecter", 
+                        "Error : Email already used ");
+                }
             }
         }
     }

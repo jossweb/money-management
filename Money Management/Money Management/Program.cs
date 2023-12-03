@@ -81,8 +81,6 @@ namespace Money_Management
             error.Show();
             Debug.WriteLine(debugMessage);
         }
-
-
         public static void AddEllipses(int PageType, Grid grid)
         {
             if (PageType == 1)  //format of page is 600 x 500
@@ -635,7 +633,7 @@ namespace Money_Management
                 return true;
             }
         }
-        public static User CreateNewUser(string mail, MySqlConnection connection)
+        public static User GetUserFromSql(string mail, MySqlConnection connection)
         {
             string query = "SELECT * FROM users WHERE mail = '" + mail + "'";
             MySqlCommand command = new MySqlCommand(query, connection);
