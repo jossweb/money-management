@@ -32,7 +32,7 @@ namespace Money_Management
 
             if ((name != null) && (firstName != null) && (email != null) && (password != null) && (passwordConfirmed != null))
             {
-                if ((name.Length > MAXIMALLENGTH) && (firstName.Length > MAXIMALLENGTH) && (email.Length > MAXIMALLENGTH) && (password.Length > MAXIMALLENGTH) && (passwordConfirmed.Length > MAXIMALLENGTH))
+                if ((name.Length < MAXIMALLENGTH) && (firstName.Length < MAXIMALLENGTH) && (email.Length < MAXIMALLENGTH) && (password.Length < MAXIMALLENGTH) && (passwordConfirmed.Length < MAXIMALLENGTH))
                 {
                     if ((firstName.Length < MINIMALLENGTH) && (name.Length < MINIMALLENGTH) && (email.Length < MINIMALLENGTH))
                     {
@@ -190,7 +190,7 @@ namespace Money_Management
                 UserButtonPanel.Children.Add(button);
             }
         }
-        public static void RemoveText(List<TextBox> TextBoxList, List<PasswordBox> PassBoxList)
+        public static void RemoveText(List<TextBox> TextBoxList)
         {
             if (TextBoxList != null)
             {
@@ -199,6 +199,9 @@ namespace Money_Management
                     textBox.Text = "";
                 }
             }
+        }
+        public static void RemoveText(List<PasswordBox> PassBoxList)
+        {
             if (PassBoxList != null)
             {
                 foreach (PasswordBox passwordBox in PassBoxList)

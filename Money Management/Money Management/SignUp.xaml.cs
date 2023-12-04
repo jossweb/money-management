@@ -129,7 +129,7 @@ namespace Money_Management
             DateTime? datePickercontain = datePicker.SelectedDate;
             DateTime birstday = datePicker.SelectedDate ?? DateTime.Today;
 
-            if (Program.CheckSignIn(name, firstName, email, password, passwordCheck));
+            if (Program.CheckSignIn(name, firstName, email, password, passwordCheck))
             {
                 if (Sql.EmailTestInSql(connection, textBoxEmail.ToString()))
                 {
@@ -141,6 +141,12 @@ namespace Money_Management
                     Program.ShowError("Erreur : Cette adresse Email est déjà utilisé. Veuillez réessayer avec une autre adresse ou vous connecter", 
                         "Error : Email already used ");
                 }
+            }
+            else
+            {
+                //reset contain of texts fields
+                Program.RemoveText(new List<TextBox> { textBoxName, textBoxFirstName, textBoxEmail});
+                Program.RemoveText(new List<PasswordBox> { passwordBox1, passwordBox2 });
             }
         }
     }
