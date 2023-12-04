@@ -121,11 +121,11 @@ namespace Money_Management
         }
         private void ConnectionButtonClick()
         {
-            string name = textBoxName.ToString();
-            string firstName = textBoxFirstName.ToString();
-            string email = textBoxEmail.ToString();
-            string password = passwordBox1.ToString();
-            string passwordCheck = passwordBox2.ToString();
+            string name = textBoxName.Text;
+            string firstName = textBoxFirstName.Text;
+            string email = textBoxEmail.Text;
+            string password = passwordBox1.Password;
+            string passwordCheck = passwordBox2.Password;
             DateTime? datePickercontain = datePicker.SelectedDate;
             DateTime birstday = datePicker.SelectedDate ?? DateTime.Today;
 

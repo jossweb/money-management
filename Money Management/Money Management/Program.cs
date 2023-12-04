@@ -492,12 +492,12 @@ namespace Money_Management
                 if (reader.Read())
                 {
                     // There are results, so the email already exists
-                    return false;
+                    return true;
                 }
                 else
                 {
                     // No results, the email does not exist yet
-                    return true;
+                    return false;
                 }
             }
         }
