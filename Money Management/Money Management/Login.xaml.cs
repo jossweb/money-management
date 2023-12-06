@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,21 @@ namespace Money_Management
     /// </summary>
     public partial class Login : Window
     {
-        public Login()
+        public MySqlConnection connection;
+        public Login(MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
+            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            this.Content = grid;
+            AddComponents(grid, this, styleDictionary);
+
+        }
+        private static void AddComponents(Grid grid, Login window, ResourceDictionary styleDictionary)
+        {
+            Program.AddEllipses(1, grid);
         }
     }
 }

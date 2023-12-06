@@ -336,7 +336,6 @@ D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\MainWindow.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\AddExpense.g.cs
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.g.cs
-D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.g.cs
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\MainWindow.g.cs
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.g.cs
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.g.cs
@@ -346,7 +345,6 @@ D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management_MarkupCompile.lref
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\AddExpense.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\ErrorWindow.baml
-D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\LoginForm.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\passwordForm.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\PrincipalForm.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\SignUp.baml
@@ -363,3 +361,5 @@ D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\ref\Money Management.dll
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Style.baml
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.sourcelink.json
+D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Login.g.cs
+D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Login.baml

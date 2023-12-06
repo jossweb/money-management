@@ -38,7 +38,7 @@ namespace Money_Management
             else
             {
                 //if there is no user in the json, then the application opens on the login page
-                LoginForm nouvellePage = new LoginForm(connection);
+                Login nouvellePage = new Login(connection);
                 frame.Navigate(nouvellePage);
             }
         }
@@ -67,8 +67,9 @@ namespace Money_Management
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             //Redirect to login page
-            LoginForm logInPage = new LoginForm(connection);
-            frame.Navigate(logInPage);
+            Login logInPage = new Login(connection);
+            logInPage.Show();
+            this.Close();
         }
 
         private void frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
