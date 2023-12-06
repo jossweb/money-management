@@ -13,7 +13,7 @@
     <Compile Update="ErrorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginForm.xaml.cs">
+    <Compile Update="Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="passwordForm.xaml.cs">
@@ -33,7 +33,7 @@
     <Page Update="ErrorWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoginForm.xaml">
+    <Page Update="Login.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
