@@ -127,14 +127,17 @@ namespace Money_Management
             string password = passwordBox1.Password;
             string passwordCheck = passwordBox2.Password;
             DateTime? datePickercontain = datePicker.SelectedDate;
-            DateTime birstday = datePicker.SelectedDate ?? DateTime.Today;
+            DateTime birstday = datePickercontain ?? DateTime.Today;
 
-            if (Program.CheckSignIn(name, firstName, email, password, passwordCheck))
+            if (Program.CheckSignIn(name, firstName, email, password, passwordCheck, birstday))
             {
                 if (Sql.EmailTestInSql(connection, textBoxEmail.ToString()))
                 {
-                    User newUser = new User(name, firstName, email, birstday, birstday);
+                    User newUser = new User(name, firstName, email, birstday, DateTime.Now);
                     Sql.CreateUserInSql(connection, newUser, password);
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
                 }
                 else
                 {

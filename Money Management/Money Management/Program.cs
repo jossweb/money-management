@@ -24,7 +24,7 @@ namespace Money_Management
 {
     class Program
     {
-        public static bool CheckSignIn(string name, string firstName, string email, string password, string passwordConfirmed)
+        public static bool CheckSignIn(string name, string firstName, string email, string password, string passwordConfirmed, DateTime birstday)
         {
             const int MAXIMALLENGTH = 50;
             const int MINIMALLENGTH = 3;
@@ -34,20 +34,28 @@ namespace Money_Management
             {
                 if ((name.Length < MAXIMALLENGTH) && (firstName.Length < MAXIMALLENGTH) && (email.Length < MAXIMALLENGTH) && (password.Length < MAXIMALLENGTH) && (passwordConfirmed.Length < MAXIMALLENGTH))
                 {
-                    if ((firstName.Length < MINIMALLENGTH) && (name.Length < MINIMALLENGTH) && (email.Length < MINIMALLENGTH))
+                    if ((firstName.Length > MINIMALLENGTH) && (name.Length > MINIMALLENGTH) && (email.Length > MINIMALLENGTH))
                     {
                         if (email.Contains("@"))
                         {
                             if (password == passwordConfirmed)
                             {
-                                if (password.Length > MINIMALLENGTHPASSWORD)
+                                if(birstday.Year - DateTime.Now.Year >= 16)
                                 {
-                                    return true;
+                                    if (password.Length > MINIMALLENGTHPASSWORD)
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        ShowError("ERREUR: Votre mot de passe doit contenir au moins 8 caractères", "ERROR : The password contains less than 8 characters");
+                                    }
                                 }
                                 else
                                 {
-                                    ShowError("ERREUR: Votre mot de passe doit contenir au moins 8 caractères", "ERROR : The password contains less than 8 characters");
+                                    ShowError("ERREUR, Il faut avoir au minimum 16 ans pour s'inscrire à Money Management", "Error : The user is not 1 year or older");
                                 }
+
                             }
                             else
                             {
@@ -495,12 +503,12 @@ namespace Money_Management
                 if (reader.Read())
                 {
                     // There are results, so the email already exists
-                    return true;
+                    return false;
                 }
                 else
                 {
                     // No results, the email does not exist yet
-                    return false;
+                    return true;
                 }
             }
         }
