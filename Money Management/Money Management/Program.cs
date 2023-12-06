@@ -424,19 +424,15 @@ namespace Money_Management
                         return money_in_eu;
                     }
                     catch (Exception ex) 
-                    { 
-                        ErrorWindow error = new ErrorWindow("Erreur : Erreur récupération données");
-                        error.Show();
-                        Debug.WriteLine(ex.Message);
+                    {
+                        Program.ShowError("Erreur : Impossible de récupérer les données.", "Error" + ex);
                         System.Windows.Application.Current.MainWindow.Close();
                         return 0;
                     }
                 }
                 else
                 {
-                    ErrorWindow error = new ErrorWindow("Erreur : Erreur de connection de base de donnée");
-                    error.Show();
-                    Debug.WriteLine("Error : connection to sql data base is impossible");
+                    Program.ShowError("Erreur : Connection impossible à la base de donnée.", "Error : Unable to connect to database");
                     System.Windows.Application.Current.MainWindow.Close();
                     return 0;
                 }
@@ -457,18 +453,14 @@ namespace Money_Management
                     }
                     catch (Exception ex)
                     {
-                        ErrorWindow error = new ErrorWindow("Erreur : Erreur récupération données");
-                        error.Show();
-                        Debug.WriteLine(ex.Message);
+                        Program.ShowError("Erreur : Impossible de récupérer les données.", "Error" + ex);
                         System.Windows.Application.Current.MainWindow.Close();
                         return null;
                     }
                 }
                 else
                 {
-                    ErrorWindow error = new ErrorWindow("Erreur : Erreur de connection de base de donnée");
-                    error.Show();
-                    Debug.WriteLine("Error : connection to sql data base is impossible");
+                    Program.ShowError("Erreur : Connection impossible à la base de donnée.", "Error : Unable to connect to database");
                     System.Windows.Application.Current.MainWindow.Close();
                     return null;
                 }
@@ -484,13 +476,12 @@ namespace Money_Management
             {
                 MainWindow main = new MainWindow();
                 main.Show();
-                ErrorWindow error = new ErrorWindow("Inscrit avec success !");
-                error.Show();
+                Program.ShowError("Inscrit avec succès !", "SUCCESS: registered user");
                 System.Windows.Application.Current.MainWindow.Close();
             }
             else
             {
-                MessageBox.Show("Erreur");
+                Program.ShowError("Erreur au moment de l'incription dans la base de donnée !", "Error when registering in the database");
             }
 
         }
@@ -544,8 +535,7 @@ namespace Money_Management
                     return user;
                 }
             }
-            ErrorWindow errorWindow = new ErrorWindow("Erreur : Impossible de retrouver l'utilisateur");
-            errorWindow.Show();
+            Program.ShowError("Erreur : impossible de retrouver l'utilisateur", "Error: Unable to find user");
             DateTime dateOnly = new DateTime(2023, 1, 1);
             return new User("XXXXXX", "XXXXXX", "XXXXXX@XXX.XXX", dateOnly, dateOnly);
         }
@@ -578,9 +568,7 @@ namespace Money_Management
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Error : " + ex);
-                ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n Veuillez vérifier l'état du réseau et réessayer");
-                error.Show();
+                Program.ShowError("Erreur : impossible de ce connecter à la base de donnée", "Error: unable to connect to the database");
                 return false;
             }
         }
@@ -611,10 +599,7 @@ namespace Money_Management
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("Error : " + ex);
-                    ErrorWindow error = new ErrorWindow("Inpossible de se connecter à la base de donnée ! \n " +
-                        "Veuillez vérifier l'état du réseau et réessayer");
-                    error.Show();
+                    Program.ShowError("Impossible de ce connecter à la base de donnée. Vérifiez votre réseau ...", "Error : impossible to connect to the database");
                     return false;
                 }
             }
@@ -628,9 +613,8 @@ namespace Money_Management
                     {
                         if (user.mail == email)
                         {
-                            ErrorWindow errorWindow = new ErrorWindow("Erreur : Utilisateur déjà enregistré !");
-                            errorWindow.Show();
-                            Debug.WriteLine("Error : Already existing email");
+                            Program.ShowError("Erreur : Utilisateur déjà enregistré !", "Error : Already existing email");
+
                             return true;
                         }
                     }
@@ -665,9 +649,7 @@ namespace Money_Management
                     }
                     catch (Exception ex)
                     {
-                        ErrorWindow error = new ErrorWindow("Erreur de création de l'utilisateur");
-                        error.Show();
-                        Debug.WriteLine("Error : " + ex);
+                        Program.ShowError("Erreur de création de l'utilisateur", "ERROR : " + ex);
                     }
                 }
                 return null;
