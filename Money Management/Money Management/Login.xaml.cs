@@ -2,9 +2,11 @@
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,8 +25,10 @@ namespace Money_Management
     /// </summary>
     public partial class Login : Window
     {
+        private List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
+
         private static TextBox emailTextBox;
-        private static PasswordBox passwordTextBox;
+        private static PasswordBox passwordPasswordBox;
 
         public MySqlConnection connection;
         public Login(MySqlConnection connection)
@@ -85,18 +89,69 @@ namespace Money_Management
             PasswordBox passwordBox = CreateEntities.CreatePasswordBox
                     ("emailTextBox", WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), styleDictionary);
             grid.Children.Add(passwordBox);
-            passwordTextBox = passwordBox;
+            passwordPasswordBox = passwordBox;
             marginTop += HEIGHTTEXTBLOCKADDMARGIN;
 
 
         }
-        private static void ConnectionButtonClick()
+        private void ConnectionButtonClick()
         {
+            string email = emailTextBox.Text;
+            string passwordHash = Program.Hash(passwordPasswordBox.Password);
 
+            if ((email != null) && (passwordHash != null))
+            {
+                if (!Sql.EmailTestInSql(connection, email))
+                {
+                    if (User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", passwordHash, connection))
+                    {
+                        var user = User.GetUserFromSql(email, connection);
+
+                        if (userList == null)
+                        {
+                            userList = new List<User>() { user };
+                        }
+                        else
+                        {
+                            userList.Add(user);
+                        }
+                        if (!User.CheckUserInDbOrInJson(email, "json", connection))
+                        {
+                            json.SetJsonFromFile(userList);
+                        }
+
+                        MainWindow newMainWindow = new MainWindow();
+                        Application.Current.MainWindow.Close();
+                        Application.Current.MainWindow = newMainWindow;
+                        newMainWindow.Show();
+                    }
+                    else
+                    {
+                        Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
+                        Thread.Sleep(1500);
+                        ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
+                        errorWindow.Show();
+                    }
+                }
+                else
+                {
+                    Program.ShowError("Erreur : Utilisateur invalide !",
+                        "user : false, Thread Sleep 1.5 secondes");
+                    Thread.Sleep(1500);
+                }
+            }
+            else
+            {
+                Program.ShowError("Erreur : Veuillez remplir tous les champs !",
+                    "Error : all text field are not completed. Thread Sleep 1.5 secondes");
+                Thread.Sleep(1500);
+            }
         }
-        private static void RedirectSignUpButtonClick()
+        private void RedirectSignUpButtonClick()
         {
-
+            SignUp signUpPage = new SignUp(connection);
+            signUpPage.Show();
+            this.Close();
         }
     }
 }

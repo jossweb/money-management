@@ -564,7 +564,7 @@ namespace Money_Management
                     if (reader.Read())
                     {
                         string hashPass = reader.GetString("password");
-                        if (hashPass == Program.Hash(password))
+                        if (hashPass == password)
                         {
                             return true;
                         }

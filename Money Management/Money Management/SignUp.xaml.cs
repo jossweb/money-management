@@ -133,7 +133,7 @@ namespace Money_Management
 
             if (Program.CheckSignIn(name, firstName, email, password, passwordCheck, birstday))
             {
-                if (Sql.EmailTestInSql(connection, textBoxEmail.ToString()))
+                if (Sql.EmailTestInSql(connection, email))
                 {
                     User newUser = new User(name, firstName, email, birstday, DateTime.Now);
                     Sql.CreateUserInSql(connection, newUser, password);
