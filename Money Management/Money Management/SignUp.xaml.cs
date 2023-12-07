@@ -45,6 +45,8 @@ namespace Money_Management
             Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
             this.Content = grid;
             AddComponents(grid, this, styleDictionary);
+
+
             Button buttonConnection = CreateEntities.CreateConnectionButton
                 ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 450, 0, 0), styleDictionary);
             buttonConnection.Click += (sender, e) => ConnectionButtonClick();

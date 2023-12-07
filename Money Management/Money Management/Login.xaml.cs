@@ -34,19 +34,25 @@ namespace Money_Management
             styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
             this.Content = grid;
-            AddComponents(grid, this, styleDictionary);
+            AddComponents(grid, styleDictionary);
+
+
+            Button buttonConnection = CreateEntities.CreateConnectionButton
+                ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 280, 0, 0), styleDictionary);
+            buttonConnection.Click += (sender, e) => ConnectionButtonClick();
+            grid.Children.Add(buttonConnection);
 
         }
-        private static void AddComponents(Grid grid, Login window, ResourceDictionary styleDictionary)
+        private static void AddComponents(Grid grid, ResourceDictionary styleDictionary)
         {
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
             const int HEIGHTTEXTBOX = 40;
-            const int HEIGHTTEXTBLOCKADDMARGIN = 80; 
+            const int HEIGHTTEXTBLOCKADDMARGIN = 60; 
 
             Program.AddEllipses(1, grid);
 
-            Label title = CreateEntities.CreateLabel("Créer votre compte", 35, new Thickness(0, 15, 0, 0),
+            Label title = CreateEntities.CreateLabel("Connection", 35, new Thickness(0, 15, 0, 0),
                 HorizontalAlignment.Center, VerticalAlignment.Top);
             grid.Children.Add(title);
 
@@ -74,6 +80,10 @@ namespace Money_Management
             passwordTextBox = passwordBox;
             marginTop += HEIGHTTEXTBLOCKADDMARGIN;
 
+
+        }
+        private static void ConnectionButtonClick()
+        {
 
         }
     }
