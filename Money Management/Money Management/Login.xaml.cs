@@ -3,6 +3,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,10 +38,17 @@ namespace Money_Management
             AddComponents(grid, styleDictionary);
 
 
+
             Button buttonConnection = CreateEntities.CreateConnectionButton
                 ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 280, 0, 0), styleDictionary);
             buttonConnection.Click += (sender, e) => ConnectionButtonClick();
             grid.Children.Add(buttonConnection);
+
+            Button buttonSignUp = CreateEntities.CreateButtonWithoutEffects
+                ("Créer mon compte", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 380, 0, 0), styleDictionary);
+            buttonSignUp.Click += (sender, e) => RedirectSignUpButtonClick();
+            grid.Children.Add(buttonSignUp);
+
 
         }
         private static void AddComponents(Grid grid, ResourceDictionary styleDictionary)
@@ -83,6 +91,10 @@ namespace Money_Management
 
         }
         private static void ConnectionButtonClick()
+        {
+
+        }
+        private static void RedirectSignUpButtonClick()
         {
 
         }

@@ -333,6 +333,20 @@ namespace Money_Management
 
             return button;
         }
+        public static Button CreateButtonWithoutEffects(string content, int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
+        {
+            Button button = new Button();
+            button.Content = content;
+            button.Width = width;
+            button.Height = height;
+            button.HorizontalAlignment = hAlignment;
+            button.VerticalAlignment = vAlignment;
+            button.Margin = margins;
+            Style buttonStyle = (Style)styleDictionary["ButtonWithoutEffects"];
+            button.Style = buttonStyle;
+
+            return button;
+        }
         public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
         {
             TextBox textBox = new TextBox();
