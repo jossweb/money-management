@@ -73,7 +73,7 @@ namespace Money_Management
                 grid.Children.Add(textBlock);
 
                 TextBox textBox = CreateEntities.CreateTextBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), styleDictionary);
 
                 switch (i)
                 {
@@ -99,7 +99,7 @@ namespace Money_Management
                 grid.Children.Add(textBlock);
 
                 PasswordBox passBox = CreateEntities.CreatePasswordBox
-                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), window, styleDictionary);
+                    (NametextBox[i], WIDTHELEMENTS, HEIGHTTEXTBOX, 22, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop, 0, 0), styleDictionary);
 
                 switch (i)
                 {

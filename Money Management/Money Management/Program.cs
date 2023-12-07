@@ -333,7 +333,7 @@ namespace Money_Management
 
             return button;
         }
-        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
+        public static TextBox CreateTextBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
         {
             TextBox textBox = new TextBox();
             textBox.Name = name;
@@ -360,7 +360,7 @@ namespace Money_Management
             textBlock.Margin = margins;
             return textBlock;
         }
-        public static PasswordBox CreatePasswordBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, SignUp window, ResourceDictionary styleDictionary)
+        public static PasswordBox CreatePasswordBox(string name, int width, int height, int FontSize, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
         {
             PasswordBox passwordBox = new PasswordBox();
             passwordBox.Name = name;
