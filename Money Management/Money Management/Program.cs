@@ -40,7 +40,7 @@ namespace Money_Management
                         {
                             if (password == passwordConfirmed)
                             {
-                                if(birstday.Year - DateTime.Now.Year >= 16)
+                                if(DateTime.Now.Year - birstday.Year >= 16)
                                 {
                                     if (password.Length > MINIMALLENGTHPASSWORD)
                                     {
