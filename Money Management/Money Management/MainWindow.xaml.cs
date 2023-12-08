@@ -15,6 +15,7 @@ namespace Money_Management
     {
         private MySqlConnection connection = new MySqlConnection("database=money_management; server=localhost; user id=root;");
         private List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
+        private StackPanel StackPanel;
     public MainWindow()
         {
             InitializeComponent();
@@ -30,17 +31,35 @@ namespace Money_Management
                 connectionError.Show();
                 this.Close();
             }
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
+            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            this.Content = grid;
+            
             if (userList != null)
             {
                 //create a button per user
-                Program.CreateUserButton(userList, ButtonStackPanel, Button_Click, Brushes.White, this);
+                AddComponents(grid, styleDictionary);
             }
             else
             {
                 //if there is no user in the json, then the application opens on the login page
                 Login nouvellePage = new Login(connection);
-                frame.Navigate(nouvellePage);
+                nouvellePage.Show();
+                this.Close();
             }
+        }
+        private void AddComponents(Grid grid, ResourceDictionary styleDictionary)
+        {
+            Program.AddEllipses(1, grid);
+
+            Label title = CreateEntities.CreateLabel("Bienvenue", 35, new Thickness(0, 15, 0, 0),
+                HorizontalAlignment.Center, VerticalAlignment.Top);
+            grid.Children.Add(title);
+            StackPanel = CreateEntities.SetSettingsPanel((int)this.Width, (int)this.Height - 90, new Thickness(0, 90, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            grid.Children.Add(StackPanel);
+            Program.CreateUserButton(userList, StackPanel, Button_Click, Brushes.White, this);
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

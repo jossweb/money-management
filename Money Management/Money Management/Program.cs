@@ -300,6 +300,16 @@ namespace Money_Management
             grid.VerticalAlignment = vAlignment;
             return grid;
         }
+        public static StackPanel SetSettingsPanel(int width, int height, Thickness margins, HAlignment hAlignment, VAlignement vAlignment)
+        {
+            StackPanel panel = new StackPanel();
+            panel.Width = width;
+            panel.Height = height;
+            panel.Margin = margins;
+            panel.HorizontalAlignment = hAlignment;
+            panel.VerticalAlignment = vAlignment;
+            return panel;
+        }
         public static DatePicker CreateDatePicker(int width, int height, HAlignment hAlignment, VAlignement vAlignment, Thickness margins, ResourceDictionary styleDictionary)
         {
             DatePicker datePicker = new DatePicker();
