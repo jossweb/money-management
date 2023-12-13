@@ -61,6 +61,7 @@ namespace Money_Management
             Program.CreateUserButton(userList, StackPanel, Button_Click, Brushes.White, this);
 
         }
+        // ajout de modifications (sans ce commentaire impossible de commit car il n'y a pas de modifications sur le projet ! )
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
