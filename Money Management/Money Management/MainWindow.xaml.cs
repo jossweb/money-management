@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
@@ -60,8 +60,12 @@ namespace Money_Management
             grid.Children.Add(StackPanel);
             Program.CreateUserButton(userList, StackPanel, Button_Click, Brushes.White, this);
 
+            Button buttonAddUser = CreateEntities.CreateNavigateButton
+                ("+", 40, 40, HorizontalAlignment.Right, VerticalAlignment.Top, new Thickness(0, 30, 30, 0), styleDictionary);
+            buttonAddUser.Click += ButtonAddUser_Click;
+            grid.Children.Add(buttonAddUser);
+
         }
-        // ajout de modifications (sans ce commentaire impossible de commit car il n'y a pas de modifications sur le projet ! )
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
@@ -84,17 +88,12 @@ namespace Money_Management
                 this.Close();
             }
         }
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
         {
             //Redirect to login page
             Login logInPage = new Login(connection);
             logInPage.Show();
             this.Close();
-        }
-
-        private void frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
         }
     }
 }
