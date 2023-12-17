@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\FIGUEIRAS\Desktop\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\
+D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\
 Money_Management
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\FIGUEIRAS\Desktop\money-management\Money Management\Money Management\App.xaml
+D:\code\c# project\money-management\Money Management\Money Management\App.xaml
 8-953955995
 
 13689551042
-225-447951419
+225-2031049745
 AddExpense.xaml;ErrorWindow.xaml;Login.xaml;MainWindow.xaml;passwordForm.xaml;PrincipalForm.xaml;SignUp.xaml;Style.xaml;
 
-False
+True
 

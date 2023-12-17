@@ -60,6 +60,7 @@ namespace Money_Management
             grid.Children.Add(StackPanel);
             Program.CreateUserButton(userList, StackPanel, Button_Click, Brushes.White, this);
 
+            //button for navigate to Login Page
             Button buttonAddUser = CreateEntities.CreateNavigateButton
                 ("+", 40, 40, HorizontalAlignment.Right, VerticalAlignment.Top, new Thickness(0, 30, 30, 0), styleDictionary);
             buttonAddUser.Click += ButtonAddUser_Click;
