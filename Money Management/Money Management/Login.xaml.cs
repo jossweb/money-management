@@ -54,6 +54,11 @@ namespace Money_Management
             grid.Children.Add(buttonSignUp);
 
 
+            Button buttonBackToMain = CreateEntities.CreateNavigateButton
+                ("←", 40, 40, HorizontalAlignment.Left, VerticalAlignment.Top, new Thickness(30, 30, 0, 0), styleDictionary);
+            buttonBackToMain.Click += (sender, e) => ButtonAddUser_Click(sender, e);
+            grid.Children.Add(buttonBackToMain);
+
         }
         private static void AddComponents(Grid grid, ResourceDictionary styleDictionary)
         {
@@ -93,6 +98,12 @@ namespace Money_Management
             marginTop += HEIGHTTEXTBLOCKADDMARGIN;
 
 
+        }
+        public void ButtonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
         private void ConnectionButtonClick()
         {
