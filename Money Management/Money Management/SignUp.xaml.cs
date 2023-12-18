@@ -51,6 +51,11 @@ namespace Money_Management
                 ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 450, 0, 0), styleDictionary);
             buttonConnection.Click += (sender, e) => ConnectionButtonClick();
             grid.Children.Add(buttonConnection);
+
+            Button buttonBackSignUp = CreateEntities.CreateNavigateButton
+                ("←", 40, 40, HorizontalAlignment.Left, VerticalAlignment.Top, new Thickness(30, 30, 0, 0), styleDictionary);
+            buttonBackSignUp.Click += (sender, e) => ButtonBackSignUp_Click(sender, e);
+            grid.Children.Add(buttonBackSignUp);
         }
         private static void AddComponents(Grid grid, SignUp window, ResourceDictionary styleDictionary)
         {
@@ -120,6 +125,12 @@ namespace Money_Management
                 (150, 40, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add(datePickerBirstday);
             datePicker = datePickerBirstday;
+        }
+        private void ButtonBackSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login(connection);
+            login.Show();
+            this.Close();
         }
         private void ConnectionButtonClick()
         {
