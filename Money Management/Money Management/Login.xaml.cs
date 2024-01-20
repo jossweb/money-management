@@ -41,8 +41,6 @@ namespace Money_Management
             this.Content = grid;
             AddComponents(grid, styleDictionary);
 
-
-
             Button buttonConnection = CreateEntities.CreateConnectionButton
                 ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 280, 0, 0), styleDictionary);
             buttonConnection.Click += (sender, e) => ConnectionButtonClick();
@@ -114,7 +112,8 @@ namespace Money_Management
             {
                 if (!Sql.EmailTestInSql(connection, email))
                 {
-                    if (User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", passwordHash, connection))
+                    int validPassword = User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", passwordHash, connection);
+                    if (validPassword == 1)
                     {
                         var user = User.GetUserFromSql(email, connection);
 
@@ -136,12 +135,16 @@ namespace Money_Management
                         Application.Current.MainWindow = newMainWindow;
                         newMainWindow.Show();
                     }
-                    else
+                    else if (validPassword == 2)
                     {
                         Debug.WriteLine("user : false, Thread Sleep 1.5 secondes");
                         Thread.Sleep(1500);
                         ErrorWindow errorWindow = new ErrorWindow("Erreur : mots de passe faux");
                         errorWindow.Show();
+                    }
+                    else if (validPassword == 3)
+                    {
+                        //write code for delete user in json
                     }
                 }
                 else

@@ -579,7 +579,7 @@ namespace Money_Management
             DateTime dateOnly = new DateTime(2023, 1, 1);
             return new User("XXXXXX", "XXXXXX", "XXXXXX@XXX.XXX", dateOnly, dateOnly);
         }
-        public static bool CheckUserPass(string query, string password, MySqlConnection connection)
+        public static int CheckUserPass(string query, string password, MySqlConnection connection)
         {
             try
             {
@@ -590,26 +590,33 @@ namespace Money_Management
                     if (reader.Read())
                     {
                         string hashPass = reader.GetString("password");
-                        if (hashPass == password)
+                        if (hashPass == Program.Hash(password))
                         {
-                            return true;
+                            //password is valid
+                            Debug.WriteLine("valid password");
+                            return 1;
                         }
                         else
                         {
+                            //password is invalid
                             Debug.WriteLine("invalid password");
-                            return false;
+                            return 2;
                         }
                     }
                     else
                     {
-                        return false;
+                        //impossible to find this id in database
+                        Program.ShowError("Erreur : Impossible de récupérer les données utilisateurs, veuillez réessayer", 
+                            "Error: database don't return result with this user id");
+                        return 3;
                     }
                 }
             }
             catch (Exception ex)
             {
+                //connection fail with database
                 Program.ShowError("Erreur : impossible de ce connecter à la base de donnée", "Error: unable to connect to the database");
-                return false;
+                return 4;
             }
         }
         public static bool CheckUserInDbOrInJson(string email, string storage, MySqlConnection connection)
