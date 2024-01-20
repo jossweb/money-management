@@ -26,15 +26,34 @@ namespace Money_Management
     {
         private MySqlConnection connection;
         private int tag;
+        private PasswordBox passbox;
         public passwordForm(int TagUserSelect, List<User> users, MySqlConnection connection)
         {
             InitializeComponent();
+            //get connection to sql server
             this.connection = connection;
+
+            //create grid on page
+            Grid grid = CreateEntities.SetSettingsGrid((int)this.Width, (int)this.Height, new Thickness(0, 0, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            this.Content = grid;
+
+            //get xaml dictonary
+            ResourceDictionary styleDictionary = new ResourceDictionary();
+            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
+
+            // get informations on user in json
             tag = TagUserSelect;
             User userSelect = User.CheckById(TagUserSelect, users);
-            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
             Debug.WriteLine("info : user select : " + userSelect.mail);
 
+            //create content of the page 
+            Label welcomeLabel = CreateEntities.CreateLabel("Connection à " + userSelect.name, 20, new Thickness(0, 5, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
+            passbox = CreateEntities.CreatePasswordBox("passbox", 80, 40, 20, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 50, 0, 0), styleDictionary);
+            
+            //Add content on grid
+            grid.Children.Add(welcomeLabel);
+            grid.Children.Add(passbox);
             passbox.KeyUp += Enter_keyUp;
         }
         private void Login_Click(object sender, RoutedEventArgs e)
