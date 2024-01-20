@@ -607,7 +607,7 @@ namespace Money_Management
                     {
                         //impossible to find this id in database
                         Program.ShowError("Erreur : Impossible de récupérer les données utilisateurs, veuillez réessayer", 
-                            "Error: database don't return result with this user id");
+                            "Error: database don't return result with this user email");
                         return 3;
                     }
                 }

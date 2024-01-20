@@ -106,13 +106,13 @@ namespace Money_Management
         private void ConnectionButtonClick()
         {
             string email = emailTextBox.Text;
-            string passwordHash = Program.Hash(passwordPasswordBox.Password);
+            string password = passwordPasswordBox.Password;
 
-            if ((email != null) && (passwordHash != null))
+            if ((email != null) && (password != null))
             {
                 if (!Sql.EmailTestInSql(connection, email))
                 {
-                    int validPassword = User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", passwordHash, connection);
+                    int validPassword = User.CheckUserPass("SELECT * FROM users WHERE mail = '" + email + "'", password, connection);
                     if (validPassword == 1)
                     {
                         var user = User.GetUserFromSql(email, connection);
@@ -144,7 +144,8 @@ namespace Money_Management
                     }
                     else if (validPassword == 3)
                     {
-                        //write code for delete user in json
+                        userList.RemoveAll(personne => personne.mail == email);
+                        json.SetJsonFromFile(userList);
                     }
                 }
                 else
