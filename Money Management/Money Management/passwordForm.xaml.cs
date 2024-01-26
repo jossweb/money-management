@@ -51,7 +51,8 @@ namespace Money_Management
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
             passbox = CreateEntities.CreatePasswordBox("passbox", 300, 50, 25, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 0, 0, 0), styleDictionary);
 
-            
+
+            Program.AddEllipses(2, grid);
             //Add content on grid
             grid.Children.Add(welcomeLabel);
             grid.Children.Add(passbox);

@@ -120,6 +120,31 @@ namespace Money_Management
                 }
 
             }
+            else if(PageType == 2)
+            {
+                List<Brush> colors = new List<Brush>();
+                colors.Add(Brushes.LightBlue);
+                colors.Add(Brushes.LightGreen);
+                colors.Add(Brushes.PaleVioletRed);
+                colors.Add(Brushes.Coral);
+                colors.Add(Brushes.CadetBlue);
+                colors.Add(Brushes.Purple);
+
+                List<Thickness> ellipsesMargin = new List<Thickness>();
+                ellipsesMargin.Add(new Thickness(-37, -25, 416, 203));
+                ellipsesMargin.Add(new Thickness(388, 142, 10, 60));
+                ellipsesMargin.Add(new Thickness(-46, 228, 421, -57));
+                ellipsesMargin.Add(new Thickness(120, 0, 282, 214));
+                ellipsesMargin.Add(new Thickness(275, 142, 134, 59));
+
+                for (int i = 0; i < ellipsesMargin.Count - 1; i++)
+                {
+                    Ellipse ellipse = new Ellipse();
+                    ellipse.Margin = ellipsesMargin[i];
+                    ellipse.Fill = colors[i];
+                    grid.Children.Add(ellipse);
+                }
+            }
         }
         public static void AddContent(Grid grid)
         {
