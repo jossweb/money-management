@@ -50,12 +50,16 @@ namespace Money_Management
             Label welcomeLabel = CreateEntities.CreateLabel("Connection à " + userSelect.name, 25, new Thickness(0, 15, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top);
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
             passbox = CreateEntities.CreatePasswordBox("passbox", 300, 50, 25, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 0, 0, 0), styleDictionary);
-
+            Button buttonBackToMain = CreateEntities.CreateNavigateButton
+                ("←", 40, 40, HorizontalAlignment.Left, VerticalAlignment.Top, new Thickness(30, 30, 0, 0), styleDictionary);
 
             Program.AddEllipses(2, grid);
             //Add content on grid
             grid.Children.Add(welcomeLabel);
             grid.Children.Add(passbox);
+            grid.Children.Add(buttonBackToMain);
+
+            buttonBackToMain.Click += (sender, e) => Program.ButtonBackToMain(this);
             passbox.KeyUp += Enter_keyUp;
         }
         private void Login_Click(object sender, RoutedEventArgs e)

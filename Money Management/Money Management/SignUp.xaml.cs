@@ -148,9 +148,7 @@ namespace Money_Management
                 {
                     User newUser = new User(name, firstName, email, birstday, DateTime.Now);
                     Sql.CreateUserInSql(connection, newUser, password);
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
+                    Program.ButtonBackToMain(this);
                 }
                 else
                 {

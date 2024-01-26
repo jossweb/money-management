@@ -24,6 +24,12 @@ namespace Money_Management
 {
     class Program
     {
+        public static void ButtonBackToMain(Window window)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            window.Close();
+        }
         public static bool CheckSignIn(string name, string firstName, string email, string password, string passwordConfirmed, DateTime birstday)
         {
             const int MAXIMALLENGTH = 50;
