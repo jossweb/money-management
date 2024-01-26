@@ -47,9 +47,10 @@ namespace Money_Management
             Debug.WriteLine("info : user select : " + userSelect.mail);
 
             //create content of the page 
-            Label welcomeLabel = CreateEntities.CreateLabel("Connection à " + userSelect.name, 20, new Thickness(0, 5, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Center);
+            Label welcomeLabel = CreateEntities.CreateLabel("Connection à " + userSelect.name, 25, new Thickness(0, 15, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top);
             welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
-            passbox = CreateEntities.CreatePasswordBox("passbox", 80, 40, 20, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 50, 0, 0), styleDictionary);
+            passbox = CreateEntities.CreatePasswordBox("passbox", 300, 50, 25, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 0, 0, 0), styleDictionary);
+
             
             //Add content on grid
             grid.Children.Add(welcomeLabel);

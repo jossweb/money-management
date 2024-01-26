@@ -13,9 +13,11 @@ namespace Money_Management
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MySqlConnection connection = new MySqlConnection("database=money_management; server=localhost; user id=root;");
+        private MySqlConnection connection = new MySqlConnection
+            ("Database=money_management;Server=localhost;User ID=root;");
         private List<User> userList = json.DeserialiseJson<List<User>>(json.GetJsonFromFile());
         private StackPanel StackPanel;
+
     public MainWindow()
         {
             InitializeComponent();
