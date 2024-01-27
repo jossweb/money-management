@@ -3002,11 +3002,21 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'Microsoft.Data.SqlClient' 5.1.1 présente une vulnérabilité de gravité élevé(e) connue, https://github.com/advisories/GHSA-98g6-xh36-x2p7.",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

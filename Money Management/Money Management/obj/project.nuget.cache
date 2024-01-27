@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dvGQi/6lA5yVoLoQ7BWxu4edjkySy1xmIPm0z5TwXEjwTE7XADHyVkaZ50wH6SIdy2O1c+n+EYITaJbQ9AB2kA==",
+  "dgSpecHash": "L7qBu5yAJPSkjeG1Xlqwu6Jo759zTB8C78XxQEa6l2t3GMZlnM+PaOMUd3SKLJXnTEvZd2eCzZ8Ic7bT8t2RBw==",
   "success": true,
   "projectFilePath": "D:\\code\\c# project\\money-management\\Money Management\\Money Management\\Money Management.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,16 @@
     "C:\\Users\\jossu\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'Microsoft.Data.SqlClient' 5.1.1 présente une vulnérabilité de gravité élevé(e) connue, https://github.com/advisories/GHSA-98g6-xh36-x2p7.",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

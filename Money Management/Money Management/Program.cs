@@ -152,16 +152,6 @@ namespace Money_Management
                 }
             }
         }
-        public static void AddContent(Grid grid)
-        {
-            ResourceDictionary styleDictionary = new ResourceDictionary();
-            styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
-            Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 5, 0, 0), 
-                HorizontalAlignment.Center, VerticalAlignment.Top);
-            grid.Children.Add(title);
-            var datePicker = CreateEntities.CreateDatePicker(160, 40, HAlignment.Center, VAlignement.Center, new Thickness(0, 0, 0, 0), styleDictionary);
-            grid.Children.Add(datePicker);
-        }
         public static Dictionary<DateTime, string> GetAccountHistory(string duration, MySqlConnection connection, int userId)
         {
             return json.DeserialiseJson<Dictionary<DateTime, string>>(Sql.GetMoneyTransfereInBdd(connection, duration, userId));
