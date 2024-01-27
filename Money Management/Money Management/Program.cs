@@ -724,5 +724,4 @@ namespace Money_Management
             }
         }
     }
-
 }

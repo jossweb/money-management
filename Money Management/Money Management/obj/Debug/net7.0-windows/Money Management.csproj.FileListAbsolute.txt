@@ -314,7 +314,6 @@ D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.SqlServer.Server.dll
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\MySql.Data.dll
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
-D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\BouncyCastle.Crypto.dll
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\System.IdentityModel.Tokens.Jwt.dll
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\System.IO.Pipelines.dll
 D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\System.Memory.Data.dll
@@ -363,3 +362,14 @@ D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Money Management.sourcelink.json
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Login.g.cs
 D:\code\c# project\money-management\Money Management\Money Management\obj\Debug\net7.0-windows\Login.baml
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\BouncyCastle.Cryptography.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Web.WebView2.Core.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Web.WebView2.WinForms.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\Microsoft.Web.WebView2.Wpf.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\msalruntime.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+D:\code\c# project\money-management\Money Management\Money Management\bin\Debug\net7.0-windows\runtimes\win-x86\native\WebView2Loader.dll

@@ -47,20 +47,25 @@ namespace Money_Management
             Debug.WriteLine("info : user select : " + userSelect.mail);
 
             //create content of the page 
-            Label welcomeLabel = CreateEntities.CreateLabel("Connection à " + userSelect.name, 25, new Thickness(0, 15, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top);
-            welcomeLabel.Content = "Bienvenue " + userSelect.name + " " + userSelect.firstName;
-            passbox = CreateEntities.CreatePasswordBox("passbox", 300, 50, 25, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 0, 0, 0), styleDictionary);
+            Label welcomeLabel = CreateEntities.CreateLabel("Bienvenue", 32, new Thickness(0, 15, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top);
+            Label nameLabel = CreateEntities.CreateLabel(userSelect.name + " " + userSelect.firstName, 32, new Thickness(0, 50, 0, 0), HorizontalAlignment.Center, VerticalAlignment.Top);
+            passbox = CreateEntities.CreatePasswordBox("passbox", 300, 40, 25, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, -10, 0, 0), styleDictionary);
             Button buttonBackToMain = CreateEntities.CreateNavigateButton
                 ("←", 40, 40, HorizontalAlignment.Left, VerticalAlignment.Top, new Thickness(30, 30, 0, 0), styleDictionary);
+            Button buttonConnection = CreateEntities.CreateConnectionButton
+                ("Connection", 140, 45, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 130, 0, 0), styleDictionary);
 
             Program.AddEllipses(2, grid);
             //Add content on grid
             grid.Children.Add(welcomeLabel);
+            grid.Children.Add(nameLabel);
             grid.Children.Add(passbox);
             grid.Children.Add(buttonBackToMain);
+            grid.Children.Add(buttonConnection);
 
             buttonBackToMain.Click += (sender, e) => Program.ButtonBackToMain(this);
             passbox.KeyUp += Enter_keyUp;
+            buttonConnection.Click += (sender, e) => Login_Click(sender, e);
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +79,7 @@ namespace Money_Management
             }
             else
             {
+                passbox.Password = "";
                 Debug.WriteLine("info : Password is not valid");
                 Thread.Sleep(1500);
                 MessageBox.Show("Mot de passe faux");
