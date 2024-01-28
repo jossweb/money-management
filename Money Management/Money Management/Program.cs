@@ -11,7 +11,6 @@ using LiveCharts.Wpf;
 using LiveCharts;
 using System.Windows.Shapes;
 using Rectangle = System.Windows.Shapes.Rectangle;
-using Brushes = System.Windows.Media.Brushes;
 using Color = System.Windows.Media.Color;
 using Brush = System.Windows.Media.Brush;
 using addExpense = Money_Management.AddExpense;
@@ -233,28 +232,6 @@ namespace Money_Management
             money.FontSize = 50;
             money.Foreground = color;
             grille.Children.Add(money);
-        }
-        public static void AddEntitiesOnWindow(Grid grille, int heightScreen, ChartValues<double> value, List<string> label)
-        {
-            int marginTopGraphic = 100;
-            var graphic = Graphics.CreateCartesianChart(value, label, marginTopGraphic);
-            grille.Children.Add(graphic);
-            grille.Children.Add(Graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
-            Rectangle rectangle = CreateEntities.CreateRectangle(heightScreen);
-            grille.Children.Add(rectangle);
-
-            var posY = rectangle.Margin.Top;
-            for (int i = 1; i < 3; i++)
-            {
-                var ligne = new Line();
-                ligne.Stroke = Brushes.Gray;
-                ligne.StrokeThickness = 3;
-                ligne.X1 = rectangle.Margin.Left;
-                ligne.X2 = rectangle.Margin.Left + rectangle.Width;
-                ligne.Y1 = posY + (rectangle.Height / 3) * i;
-                ligne.Y2 = posY + (rectangle.Height / 3) * i;
-                grille.Children.Add(ligne);
-            }
         }
     }
     public class CreateEntities

@@ -9,11 +9,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using static System.Net.WebRequestMethods;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
-using Google.Protobuf.WellKnownTypes;
-using System.Drawing;
+using Rectangle = System.Windows.Shapes.Rectangle;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace Money_Management
 {
@@ -55,7 +53,7 @@ namespace Money_Management
             grille.HorizontalAlignment = HorizontalAlignment.Right;
             grille.VerticalAlignment = VerticalAlignment.Center;
 
-            Program.AddEntitiesOnWindow(grille, Convert.ToInt32(this.Height), new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, 500, 500, 1000, 1200, 1150,
+            AddEntitiesOnWindow(grille, Convert.ToInt32(this.Height), new ChartValues<double> { 1000, 1200, 1150, 1700, 1400, 1000, 1200, 1150, 400, 500, 500, 1000, 1200, 1150,
                 1700, 1400, 1000, 1200, 1150, 400, -400, 500, 1000, 1200, 1150, 1700, 1606, 1000, 1200, 1150, 400, -400, 500, }, 
                 new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
                 "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" });
@@ -100,6 +98,28 @@ namespace Money_Management
             addExpense.VerticalAlignment = VerticalAlignment.Top;
             addExpense.Click += Button_Click;
             grille.Children.Add(addExpense);
+        }
+        private static void AddEntitiesOnWindow(Grid grille, int heightScreen, ChartValues<double> value, List<string> label)
+        {
+            int marginTopGraphic = 100;
+            var graphic = Graphics.CreateCartesianChart(value, label, marginTopGraphic);
+            grille.Children.Add(graphic);
+            grille.Children.Add(Graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
+            Rectangle rectangle = CreateEntities.CreateRectangle(heightScreen);
+            grille.Children.Add(rectangle);
+
+            var posY = rectangle.Margin.Top;
+            for (int i = 1; i < 3; i++)
+            {
+                var ligne = new Line();
+                ligne.Stroke = Brushes.Gray;
+                ligne.StrokeThickness = 3;
+                ligne.X1 = rectangle.Margin.Left;
+                ligne.X2 = rectangle.Margin.Left + rectangle.Width;
+                ligne.Y1 = posY + (rectangle.Height / 3) * i;
+                ligne.Y2 = posY + (rectangle.Height / 3) * i;
+                grille.Children.Add(ligne);
+            }
         }
     }
 }
