@@ -173,22 +173,6 @@ namespace Money_Management
                 return currentExpense;
             }
         }
-        public static Rectangle CreateRectangle(int height)
-        {
-            var rectangle = new Rectangle();
-            rectangle.Width = 300;
-            rectangle.Height = height * 0.80;
-            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
-            rectangle.VerticalAlignment = VerticalAlignment.Top;
-            rectangle.Stroke = Brushes.Gray;
-            rectangle.StrokeThickness = 3;
-            rectangle.Margin = new Thickness(70, height * 0.15, 0, 0);
-            rectangle.RadiusX = 10;
-            rectangle.RadiusY = 10;
-            Color backgroundColor = Color.FromArgb(80, 180, 180, 180);
-            rectangle.Fill = new SolidColorBrush(backgroundColor);
-            return rectangle;
-        }
         public static string Hash(string hash)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -250,38 +234,13 @@ namespace Money_Management
             money.Foreground = color;
             grille.Children.Add(money);
         }
-        public static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues, RoutedEventHandler Button_Click)
-        {
-            Label moneyTitle = new Label();
-            moneyTitle.Content = "Montant disponible sur votre compte :";
-            moneyTitle.HorizontalAlignment = HorizontalAlignment.Center;
-            moneyTitle.VerticalAlignment = VerticalAlignment.Top;
-            moneyTitle.Margin = new Thickness(0, 0, 0, 0);
-            moneyTitle.FontSize = 15;
-            grille.Children.Add(moneyTitle);
-            var color = new List<SolidColorBrush> {new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Green)};
-            for (int i = 0; i < 3; i++)
-            {
-                CreateRectangleValueLabel(rectangleValues[i], grille, color[i], 70 + (190 * i));
-            }
-
-            Button addExpense = new Button();
-            addExpense.Content = "Ajouter une dépense";
-            addExpense.Width = 120;
-            addExpense.Height = 40;
-            addExpense.Margin = new Thickness(0, 350, 0, 0);
-            addExpense.HorizontalAlignment = HorizontalAlignment.Center;
-            addExpense.VerticalAlignment = VerticalAlignment.Top;
-            addExpense.Click += Button_Click;
-            grille.Children.Add(addExpense);
-        }
         public static void AddEntitiesOnWindow(Grid grille, int heightScreen, ChartValues<double> value, List<string> label)
         {
             int marginTopGraphic = 100;
-            var graphic = graphics.CreateCartesianChart(value, label, marginTopGraphic);
+            var graphic = Graphics.CreateCartesianChart(value, label, marginTopGraphic);
             grille.Children.Add(graphic);
-            grille.Children.Add(graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
-            Rectangle rectangle = Program.CreateRectangle(heightScreen);
+            grille.Children.Add(Graphics.CreateCartesianChart(value, label, Convert.ToInt32(graphic.Height) + marginTopGraphic + 10)); // + 10 == space between two graphics
+            Rectangle rectangle = CreateEntities.CreateRectangle(heightScreen);
             grille.Children.Add(rectangle);
 
             var posY = rectangle.Margin.Top;
@@ -436,8 +395,25 @@ namespace Money_Management
 
             return passwordBox;
         }
+        public static Rectangle CreateRectangle(int height)
+        {
+            var rectangle = new Rectangle();
+            rectangle.Width = 300;
+            rectangle.Height = height * 0.80;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
+            rectangle.VerticalAlignment = VerticalAlignment.Top;
+            rectangle.Stroke = Brushes.Gray;
+            rectangle.StrokeThickness = 3;
+            rectangle.Margin = new Thickness(70, height * 0.15, 0, 0);
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            Color backgroundColor = Color.FromArgb(80, 180, 180, 180);
+            rectangle.Fill = new SolidColorBrush(backgroundColor);
+            return rectangle;
+        }
+
     }
-    public class graphics
+    public class Graphics
     {
         public static CartesianChart CreateCartesianChart(ChartValues<double> Value, List<string> name, int marginTop)
         {

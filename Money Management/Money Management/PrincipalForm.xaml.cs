@@ -67,7 +67,7 @@ namespace Money_Management
             //grid over rectangle
             var secondGrid = CreateEntities.SetSettingsGrid(300, Convert.ToInt32(this.Height * 0.80),
                 new Thickness(70, Convert.ToInt32(this.Height * 0.15), 0, 0), HorizontalAlignment.Left , VerticalAlignment.Top);
-            Program.InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues, Add_Expense);
+            InsertRectangleContent(secondGrid, connection, userConnected, rectangleValues, Add_Expense);
             grille.Children.Add(secondGrid);
             Content = grille;
         }
@@ -75,6 +75,31 @@ namespace Money_Management
         {
             var newExpenseWindow = new AddExpense(connection);
             newExpenseWindow.Show();
+        }
+        private static void InsertRectangleContent(Grid grille, MySqlConnection connection, User userConnected, List<string> rectangleValues, RoutedEventHandler Button_Click)
+        {
+            Label moneyTitle = new Label();
+            moneyTitle.Content = "Montant disponible sur votre compte :";
+            moneyTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            moneyTitle.VerticalAlignment = VerticalAlignment.Top;
+            moneyTitle.Margin = new Thickness(0, 0, 0, 0);
+            moneyTitle.FontSize = 15;
+            grille.Children.Add(moneyTitle);
+            var color = new List<SolidColorBrush> { new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Green) };
+            for (int i = 0; i < 3; i++)
+            {
+                Program.CreateRectangleValueLabel(rectangleValues[i], grille, color[i], 70 + (190 * i));
+            }
+
+            Button addExpense = new Button();
+            addExpense.Content = "Ajouter une dépense";
+            addExpense.Width = 120;
+            addExpense.Height = 40;
+            addExpense.Margin = new Thickness(0, 350, 0, 0);
+            addExpense.HorizontalAlignment = HorizontalAlignment.Center;
+            addExpense.VerticalAlignment = VerticalAlignment.Top;
+            addExpense.Click += Button_Click;
+            grille.Children.Add(addExpense);
         }
     }
 }
