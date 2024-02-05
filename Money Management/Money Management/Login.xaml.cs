@@ -58,7 +58,7 @@ namespace Money_Management
             grid.Children.Add(buttonBackToMain);
 
         }
-        private static void AddComponents(Grid grid, ResourceDictionary styleDictionary)
+        private void AddComponents(Grid grid, ResourceDictionary styleDictionary)
         {
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
@@ -94,6 +94,8 @@ namespace Money_Management
             grid.Children.Add(passwordBox);
             passwordPasswordBox = passwordBox;
             marginTop += HEIGHTTEXTBLOCKADDMARGIN;
+
+            passwordBox.KeyUp += Enter_keyUp;
 
 
         }
@@ -161,6 +163,14 @@ namespace Money_Management
             SignUp signUpPage = new SignUp(connection);
             signUpPage.Show();
             this.Close();
+        }
+        private void Enter_keyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Debug.WriteLine("Enter touch was activate");
+                ConnectionButtonClick();
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Money_Management
             buttonBackSignUp.Click += (sender, e) => ButtonBackSignUp_Click(sender, e);
             grid.Children.Add(buttonBackSignUp);
         }
-        private static void AddComponents(Grid grid, SignUp window, ResourceDictionary styleDictionary)
+        private void AddComponents(Grid grid, SignUp window, ResourceDictionary styleDictionary)
         {
             const int WIDTHELEMENTS = 340;
             const int HEIGHTTEXTBLOCK = 20;
@@ -125,6 +125,8 @@ namespace Money_Management
                 (150, 40, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, marginTop + HEIGHTTEXTBLOCK, 0, 0), styleDictionary);
             grid.Children.Add(datePickerBirstday);
             datePicker = datePickerBirstday;
+            passwordBox1.KeyUp += Enter_keyUp;
+            passwordBox2.KeyUp += Enter_keyUp;
         }
         private void ButtonBackSignUp_Click(object sender, RoutedEventArgs e)
         {
@@ -161,6 +163,14 @@ namespace Money_Management
                 //reset contain of texts fields
                 Program.RemoveText(new List<TextBox> { textBoxName, textBoxFirstName, textBoxEmail});
                 Program.RemoveText(new List<PasswordBox> { passwordBox1, passwordBox2 });
+            }
+        }
+        private void Enter_keyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Debug.WriteLine("Enter touch was activate");
+                ConnectionButtonClick();
             }
         }
     }
