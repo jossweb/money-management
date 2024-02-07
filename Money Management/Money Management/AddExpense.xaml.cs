@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Money_Management
 {
@@ -26,14 +27,16 @@ namespace Money_Management
             styleDictionary.Source = new Uri("Style.xaml", UriKind.RelativeOrAbsolute);
             Label title = CreateEntities.CreateLabel("Ajouter une dépense", 35, new Thickness(0, 15, 0, 0),
                 HorizontalAlignment.Center, VerticalAlignment.Top);
-            grid.Children.Add(title);
 
-            var textBoxNameExpense = CreateEntities.CreateTextBox("NameExpense", 180, 35, 25, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 80, 0, 0), styleDictionary);
+            //create entities of page
+            var textBlockNameExpense = CreateEntities.CreateTextBlock("Nom de la dépense", Brushes.Black, 220, 20, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(-0,80,0,0));
+            var textBoxNameExpense = CreateEntities.CreateTextBox("NameExpense", 220, 35, 25, HorizontalAlignment.Center, VerticalAlignment.Top, new Thickness(0, 100, 0, 0), styleDictionary);
             var datePicker = CreateEntities.CreateDatePicker(160, 40, HorizontalAlignment.Center, VerticalAlignment.Center, new Thickness(0, 0, 0, 0), styleDictionary);
-            
-            
+
             //add entities on grid
+            grid.Children.Add(title);
             grid.Children.Add(textBoxNameExpense);
+            grid.Children.Add(textBlockNameExpense);
             grid.Children.Add(datePicker);
         }
     }
